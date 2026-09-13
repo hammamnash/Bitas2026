@@ -1,0 +1,9 @@
+# Logs
+logs
+*.log
+
+# Local GitHub Copilot prompts, instructions, and skills
+.github/
+
+# Large assets
+/assets/**/*.mp4
