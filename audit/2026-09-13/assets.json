@@ -1,0 +1,184 @@
+{
+  "images": [
+    {
+      "src": "assets/hero-landscape.jpg",
+      "bytes": 390880,
+      "dimensions": [
+        2500,
+        1326
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/hero-capability.jpg",
+      "bytes": 325069,
+      "dimensions": [
+        2133,
+        1282
+      ],
+      "format": "PNG"
+    },
+    {
+      "src": "assets/AbbSbb.png",
+      "bytes": 1771644,
+      "dimensions": [
+        2267,
+        1227
+      ],
+      "format": "PNG"
+    },
+    {
+      "src": "assets/metamodel.jpg",
+      "bytes": 215775,
+      "dimensions": [
+        1096,
+        1004
+      ],
+      "format": "PNG"
+    },
+    {
+      "src": "assets/time-matrix.jpg",
+      "bytes": 359840,
+      "dimensions": [
+        2446,
+        1560
+      ],
+      "format": "PNG"
+    },
+    {
+      "src": "assets/quality-seal.jpg",
+      "bytes": 405382,
+      "dimensions": [
+        2816,
+        1372
+      ],
+      "format": "PNG"
+    },
+    {
+      "src": "assets/fact-history.jpg",
+      "bytes": 280688,
+      "dimensions": [
+        1260,
+        1367
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/Survey.jpg",
+      "bytes": 146682,
+      "dimensions": [
+        1767,
+        1172
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/diagram.jpg",
+      "bytes": 672380,
+      "dimensions": [
+        2812,
+        1630
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/diagram-history.jpg",
+      "bytes": 243853,
+      "dimensions": [
+        1682,
+        1617
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/portal.jpg",
+      "bytes": 289215,
+      "dimensions": [
+        1567,
+        1585
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/eol-dashboard.jpg",
+      "bytes": 498837,
+      "dimensions": [
+        2795,
+        1625
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/ai-prompt.jpg",
+      "bytes": 247492,
+      "dimensions": [
+        1571,
+        1632
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/inventory-builder.jpg",
+      "bytes": 308567,
+      "dimensions": [
+        2271,
+        1612
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/mcp-agent.jpg",
+      "bytes": 225689,
+      "dimensions": [
+        1517,
+        1340
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/servicnow.jpg",
+      "bytes": 324153,
+      "dimensions": [
+        1251,
+        1442
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/rest-api.jpg",
+      "bytes": 227273,
+      "dimensions": [
+        1262,
+        1475
+      ],
+      "format": "JPEG"
+    },
+    {
+      "src": "assets/excel.jpg",
+      "bytes": 374931,
+      "dimensions": [
+        1257,
+        1402
+      ],
+      "format": "JPEG"
+    }
+  ],
+  "totalImageBytes": 7308350,
+  "placeholders": 0,
+  "unusedAssets": [
+    "90edaeab-6d13-a871-30ab-0fba9e00c46a.png",
+    "abbsbb.pptx",
+    "architecture-decision.jpg",
+    "atd-logo.jpg",
+    "BD-2099_EA Assistant_V2.mp4",
+    "BD-2099_Inventory Builder.mp4",
+    "dashboard.jpg",
+    "ec27fcae-4de1-795a-fbc9-8c13d39f7f9c.png",
+    "eol-dashboard-app.jpg",
+    "inventory-builder2.jpg",
+    "sap-logo.jpg",
+    "SAPLeanIX-EA-SharingImage-EN.png",
+    "server-mcp.webp",
+    "Survey-2.jpg"
+  ]
+}

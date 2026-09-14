@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://help.sap.com/docs/leanix/ea/meta-model",
+      "title": "Meta Model - SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "By default there are 12\ndifferent fact sheet types in the meta model v4 as detailed below.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "https://help.sap.com/docs/leanix/ea/quality-seal",
+      "title": "Quality Seal - SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "This prompts the\nresponsible individual to verify the data and provide their approval by approving\nthe quality seal of the fact sheet.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "https://help.sap.com/docs/leanix/ea/mandatory-attributes",
+      "title": "Mandatory Attributes - SAP LeanIX - SAP Help Portal",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "When mandatory attributes are defined by\nthe admin, they appear listed on the right-side panel of the fact sheet until the\nquality seal is approved. Checkboxes next to them indicate whether they are filled\nor not.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "url": "https://help.sap.com/docs/leanix/ea/joule-in-sap-leanix",
+      "title": "Joule in SAP LeanIX | SAP Help Portal",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "Joule helps you access resources such as fact sheets, reports, or diagrams without\nmanual navigation.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "url": "https://help.sap.com/docs/leanix/ea/inventory-builder",
+      "title": "AI-Assisted Inventory Builder | SAP Help Portal",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "The inventory builder is not enabled by default and must be\nactivated separately for eligible workspaces.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "url": "https://help.sap.com/docs/leanix/ea/portal-faqs",
+      "title": "Portal FAQs - SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "Request links\nmust be defined on the Resources tab of the Fact Sheet, by selecting\nOrdering Form, Additional Help, FAQ etc.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "url": "https://www.leanix.net/en/wiki/ea/what-is-archimate",
+      "title": "What is ArchiMate? Key Components & Comparisons - SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "ArchiMate is a modeling language that provides a standardized notation and language for visualizing the enterprise architecture.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "url": "https://help.sap.com/docs/leanix/ea/managing-diagram-versions",
+      "title": "Managing Diagram Versions - SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "When you save changes to a diagram, a new version is created in the version history.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "url": "https://help.sap.com/docs/leanix/ea/connecting-to-mcp-server",
+      "title": "Connecting to the MCP Server | SAP Help Portal",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "Available tools depend on the permissions of the authenticated user or the role\nassociated with an API token.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "url": "https://help.sap.com/docs/leanix/ea/mcp-server-toolsets",
+      "title": "MCP Server Toolsets | SAP Help Portal",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "| `surveys` | Yes | Create or get survey information. |",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "url": "https://help.sap.com/docs/leanix/ea/fact-sheet-mapping-between-servicenow-and-sap-leanix",
+      "title": "Fact Sheet Mapping Between ServiceNow and SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "Define the fact sheet type, synchronization direction, ServiceNow table,\n      and synchronization mode.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "url": "https://help.sap.com/docs/leanix/ea/technology-obsolescence-risk-statuses-and-views-in-reports",
+      "title": "Technology Obsolescence Risk Statuses and Views in Reports",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "The aggregated obsolescence risk is calculated based on the lifecycle status of the\nunderlying IT components that support your applications.",
+          "added": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "url": "https://help.sap.com/docs/leanix/ea/diagrams",
+      "title": "Diagrams - SAP LeanIX",
+      "accessed": "2026-09-13",
+      "quotes": [
+        {
+          "text": "Receive notifications about inventory changes and\nchoose when to refresh your diagram.",
+          "added": "2026-09-13"
+        }
+      ]
+    }
+  ]
+}

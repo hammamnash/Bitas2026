@@ -1,0 +1,57 @@
+{
+  "startDemo": "s1",
+  "downloadSummary": {
+    "section": "s5",
+    "url": "http://127.0.0.1:8123/leanix-bitas-2026-demo.html#s6"
+  },
+  "mouseNav": "s3",
+  "mouseLightbox": true,
+  "next": "07 / 18",
+  "prev": "06 / 18",
+  "close": true,
+  "mouseAccordion": true,
+  "mousePrompt": "…",
+  "mouseTab": true,
+  "footer": [
+    {
+      "link": 1,
+      "y": 0,
+      "href": "#"
+    },
+    {
+      "link": 2,
+      "y": 0,
+      "href": "#"
+    },
+    {
+      "link": 3,
+      "y": 0,
+      "href": "#"
+    }
+  ],
+  "backdropClose": true,
+  "reveals": [],
+  "tabStops": {
+    "images": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "activeSectionAria": null
+  }
+}

@@ -1,0 +1,3018 @@
+{
+  "url": "http://127.0.0.1:8123/leanix-bitas-2026-demo.html",
+  "baseline": {
+    "viewport": {
+      "w": 1920,
+      "h": 1080,
+      "scrollWidth": 1905,
+      "scrollHeight": 12123
+    },
+    "header": 69.96875,
+    "sections": [
+      {
+        "id": "hero",
+        "height": 1488,
+        "words": 83
+      },
+      {
+        "id": "s1",
+        "height": 1827,
+        "words": 116
+      },
+      {
+        "id": "s2",
+        "height": 1507,
+        "words": 142
+      },
+      {
+        "id": "s3",
+        "height": 1266,
+        "words": 95
+      },
+      {
+        "id": "s4",
+        "height": 2324,
+        "words": 114
+      },
+      {
+        "id": "s5",
+        "height": 2417,
+        "words": 181
+      },
+      {
+        "id": "s6",
+        "height": 1080,
+        "words": 67
+      }
+    ],
+    "outside": [],
+    "images": [
+      {
+        "src": "assets/hero-landscape.jpg",
+        "natural": [
+          2500,
+          1326
+        ],
+        "display": [
+          843,
+          447
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/hero-capability.jpg",
+        "natural": [
+          2133,
+          1282
+        ],
+        "display": [
+          601,
+          361
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/AbbSbb.png",
+        "natural": [
+          2267,
+          1227
+        ],
+        "display": [
+          1470,
+          796
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/metamodel.jpg",
+        "natural": [
+          1096,
+          1004
+        ],
+        "display": [
+          714,
+          654
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/time-matrix.jpg",
+        "natural": [
+          2446,
+          1560
+        ],
+        "display": [
+          714,
+          455
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/quality-seal.jpg",
+        "natural": [
+          2816,
+          1372
+        ],
+        "display": [
+          473,
+          230
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/fact-history.jpg",
+        "natural": [
+          1260,
+          1367
+        ],
+        "display": [
+          473,
+          513
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/Survey.jpg",
+        "natural": [
+          1767,
+          1172
+        ],
+        "display": [
+          473,
+          313
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/diagram.jpg",
+        "natural": [
+          2812,
+          1630
+        ],
+        "display": [
+          714,
+          414
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/diagram-history.jpg",
+        "natural": [
+          1682,
+          1617
+        ],
+        "display": [
+          714,
+          686
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/portal.jpg",
+        "natural": [
+          1567,
+          1585
+        ],
+        "display": [
+          714,
+          722
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/eol-dashboard.jpg",
+        "natural": [
+          2795,
+          1625
+        ],
+        "display": [
+          714,
+          415
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/ai-prompt.jpg",
+        "natural": [
+          1571,
+          1632
+        ],
+        "display": [
+          714,
+          742
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/inventory-builder.jpg",
+        "natural": [
+          2271,
+          1612
+        ],
+        "display": [
+          353,
+          251
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/mcp-agent.jpg",
+        "natural": [
+          1517,
+          1340
+        ],
+        "display": [
+          353,
+          312
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/servicnow.jpg",
+        "natural": [
+          1251,
+          1442
+        ],
+        "display": [
+          714,
+          823
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/rest-api.jpg",
+        "natural": [
+          1262,
+          1475
+        ],
+        "display": [
+          0,
+          0
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      },
+      {
+        "src": "assets/excel.jpg",
+        "natural": [
+          1257,
+          1402
+        ],
+        "display": [
+          0,
+          0
+        ],
+        "tabIndex": -1,
+        "loading": "auto",
+        "width": null,
+        "height": null
+      }
+    ]
+  },
+  "performance": {
+    "timing": [
+      {
+        "domContentLoaded": 183.5,
+        "load": 188.40000000596046,
+        "responseStart": 4.5
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "start": 232
+      },
+      {
+        "name": "first-contentful-paint",
+        "start": 232
+      }
+    ],
+    "observer": {
+      "lcp": [
+        {
+          "time": 232,
+          "size": 6129,
+          "url": ""
+        },
+        {
+          "time": 828,
+          "size": 167558,
+          "url": "http://127.0.0.1:8123/assets/hero-landscape.jpg"
+        }
+      ],
+      "cls": [
+        0.0004246947099861278
+      ],
+      "long": [
+        80
+      ]
+    },
+    "resources": [
+      {
+        "name": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap",
+        "size": 705,
+        "transfer": 1005,
+        "duration": 75.5,
+        "type": "link"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/hero-landscape.jpg",
+        "size": 390880,
+        "transfer": 391180,
+        "duration": 9.600000023841858,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/hero-capability.jpg",
+        "size": 325069,
+        "transfer": 325369,
+        "duration": 9.199999988079071,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/metamodel.jpg",
+        "size": 215775,
+        "transfer": 216075,
+        "duration": 16.19999998807907,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/AbbSbb.png",
+        "size": 1771644,
+        "transfer": 1771944,
+        "duration": 40.099999994039536,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/time-matrix.jpg",
+        "size": 359840,
+        "transfer": 360140,
+        "duration": 18.400000005960464,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/quality-seal.jpg",
+        "size": 405382,
+        "transfer": 405682,
+        "duration": 19.599999994039536,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/Survey.jpg",
+        "size": 146682,
+        "transfer": 146982,
+        "duration": 23.299999982118607,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/fact-history.jpg",
+        "size": 280688,
+        "transfer": 280988,
+        "duration": 26.5,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/diagram.jpg",
+        "size": 672380,
+        "transfer": 672680,
+        "duration": 36.19999998807907,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/diagram-history.jpg",
+        "size": 243853,
+        "transfer": 244153,
+        "duration": 33,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/portal.jpg",
+        "size": 289215,
+        "transfer": 289515,
+        "duration": 35,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/ai-prompt.jpg",
+        "size": 247492,
+        "transfer": 247792,
+        "duration": 36.80000001192093,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/eol-dashboard.jpg",
+        "size": 498837,
+        "transfer": 499137,
+        "duration": 40.900000005960464,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/inventory-builder.jpg",
+        "size": 308567,
+        "transfer": 308867,
+        "duration": 47.599999994039536,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/mcp-agent.jpg",
+        "size": 225689,
+        "transfer": 225989,
+        "duration": 49.400000005960464,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/servicnow.jpg",
+        "size": 324153,
+        "transfer": 324453,
+        "duration": 49.80000001192093,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/rest-api.jpg",
+        "size": 227273,
+        "transfer": 227573,
+        "duration": 49.599999994039536,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/assets/excel.jpg",
+        "size": 374931,
+        "transfer": 375231,
+        "duration": 75.2000000178814,
+        "type": "img"
+      },
+      {
+        "name": "http://127.0.0.1:8123/favicon.ico",
+        "size": 335,
+        "transfer": 635,
+        "duration": 4.0999999940395355,
+        "type": "other"
+      }
+    ]
+  },
+  "navigation": [
+    {
+      "target": "hero",
+      "active": "hero",
+      "top": 70,
+      "scrollY": 0,
+      "hash": "",
+      "continue": true
+    },
+    {
+      "target": "s1",
+      "active": "s1",
+      "top": 80,
+      "scrollY": 1477,
+      "hash": "",
+      "continue": true
+    },
+    {
+      "target": "s2",
+      "active": "s2",
+      "top": 80,
+      "scrollY": 3305,
+      "hash": "",
+      "continue": true
+    },
+    {
+      "target": "s3",
+      "active": "s3",
+      "top": 80,
+      "scrollY": 4811,
+      "hash": "",
+      "continue": true
+    },
+    {
+      "target": "s4",
+      "active": "s4",
+      "top": 80,
+      "scrollY": 6077,
+      "hash": "",
+      "continue": true
+    },
+    {
+      "target": "s5",
+      "active": "s5",
+      "top": 80,
+      "scrollY": 8401,
+      "hash": "",
+      "continue": true
+    },
+    {
+      "target": "s6",
+      "active": "s6",
+      "top": 80,
+      "scrollY": 10818,
+      "hash": "",
+      "continue": true
+    }
+  ],
+  "accordions": [
+    {
+      "index": 0,
+      "open": true,
+      "text": "What I show in LeanIX\n›\nOpen a fact sheet and read its default attributes.\nOpen the Quality Seal panel — rule-by-rule pass/fail.\nOpen fact-sheet history — who / when / what.\nCreate and run a survey, and show the owner’s response flow."
+    },
+    {
+      "index": 1,
+      "open": true,
+      "text": "What I show in LeanIX\n›\nOpen a diagram and build/edit it live from fact-sheet relations.\nFlip through diagram history states.\nOpen a portal view.\nShow the tech risk / EOL dashboard with color-coded risk."
+    },
+    {
+      "index": 2,
+      "open": true,
+      "text": "What I show in LeanIX\n›\nType a Joule prompt and show the results.\nGenerate a description on a fact sheet.\nRun the Inventory Builder on an image.\n(Optional) Query via MCP from an AI chat.\nShow the ServiceNow config and a sample API call.\nDo an Excel export (or import) round-trip."
+    }
+  ],
+  "prompts": [
+    {
+      "index": 0,
+      "text": "6 applications have no data owner on cloud platforms:\nSalesforce Revenue Cloud\nOkta\nMicrosoft Power BI\nGoogle Analytics"
+    },
+    {
+      "index": 1,
+      "text": "7 applications run on end-of-life components. Ageing risk > 50% on 3.\nIBM AS/400\nJDA WMS (Legacy)"
+    },
+    {
+      "index": 2,
+      "text": "…"
+    }
+  ],
+  "tabs": [
+    {
+      "target": "panelOotb",
+      "visible": [
+        "panelOotb"
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "opacity": "1"
+        }
+      ]
+    },
+    {
+      "target": "panelRest",
+      "visible": [
+        "panelRest"
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "opacity": "1"
+        }
+      ]
+    },
+    {
+      "target": "panelExcel",
+      "visible": [
+        "panelExcel"
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "opacity": "1"
+        }
+      ]
+    }
+  ],
+  "lightbox": [
+    {
+      "index": 0,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/hero-landscape.jpg",
+      "count": "01 / 18",
+      "loaded": true
+    },
+    {
+      "index": 1,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/hero-capability.jpg",
+      "count": "02 / 18",
+      "loaded": true
+    },
+    {
+      "index": 2,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/AbbSbb.png",
+      "count": "03 / 18",
+      "loaded": true
+    },
+    {
+      "index": 3,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/metamodel.jpg",
+      "count": "04 / 18",
+      "loaded": true
+    },
+    {
+      "index": 4,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/time-matrix.jpg",
+      "count": "05 / 18",
+      "loaded": true
+    },
+    {
+      "index": 5,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/quality-seal.jpg",
+      "count": "06 / 18",
+      "loaded": true
+    },
+    {
+      "index": 6,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/fact-history.jpg",
+      "count": "07 / 18",
+      "loaded": true
+    },
+    {
+      "index": 7,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/Survey.jpg",
+      "count": "08 / 18",
+      "loaded": true
+    },
+    {
+      "index": 8,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/diagram.jpg",
+      "count": "09 / 18",
+      "loaded": true
+    },
+    {
+      "index": 9,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/diagram-history.jpg",
+      "count": "10 / 18",
+      "loaded": true
+    },
+    {
+      "index": 10,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/portal.jpg",
+      "count": "11 / 18",
+      "loaded": true
+    },
+    {
+      "index": 11,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/eol-dashboard.jpg",
+      "count": "12 / 18",
+      "loaded": true
+    },
+    {
+      "index": 12,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/ai-prompt.jpg",
+      "count": "13 / 18",
+      "loaded": true
+    },
+    {
+      "index": 13,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/inventory-builder.jpg",
+      "count": "14 / 18",
+      "loaded": true
+    },
+    {
+      "index": 14,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/mcp-agent.jpg",
+      "count": "15 / 18",
+      "loaded": true
+    },
+    {
+      "index": 15,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/servicnow.jpg",
+      "count": "16 / 18",
+      "loaded": true
+    },
+    {
+      "index": 16,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/rest-api.jpg",
+      "count": "17 / 18",
+      "loaded": true
+    },
+    {
+      "index": 17,
+      "open": true,
+      "src": "http://127.0.0.1:8123/assets/excel.jpg",
+      "count": "18 / 18",
+      "loaded": true
+    }
+  ],
+  "lightboxKeyboard": {
+    "openedFocus": {
+      "tag": "A",
+      "cls": "step active",
+      "inside": false
+    },
+    "afterTab": {
+      "tag": "A",
+      "cls": "step",
+      "inside": false
+    },
+    "rightCount": "02 / 18",
+    "leftCount": "01 / 18",
+    "escapeClosed": true
+  },
+  "continue": [
+    {
+      "sec": "s1",
+      "before": 1477,
+      "after": 2305,
+      "sectionBottom": 3384,
+      "nextSectionTop": 3385,
+      "shown": false
+    },
+    {
+      "sec": "s4",
+      "before": 6071,
+      "after": 7151,
+      "sectionBottom": 8481,
+      "nextSectionTop": 8481,
+      "shown": true
+    },
+    {
+      "sec": "s6",
+      "before": 10811,
+      "after": 10898,
+      "sectionBottom": 11978,
+      "nextSectionTop": 11978,
+      "shown": false
+    }
+  ],
+  "resources": [
+    {
+      "index": 0,
+      "href": "#",
+      "scrollY": 190,
+      "hash": ""
+    },
+    {
+      "index": 1,
+      "href": "#",
+      "scrollY": 10818,
+      "hash": ""
+    },
+    {
+      "index": 2,
+      "href": "#",
+      "scrollY": 190,
+      "hash": ""
+    }
+  ],
+  "breakpoints": [
+    {
+      "viewport": {
+        "w": 1366,
+        "h": 768,
+        "scrollWidth": 1351,
+        "scrollHeight": 11188
+      },
+      "header": 118.9375,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1415,
+          "words": 83
+        },
+        {
+          "id": "s1",
+          "height": 1700,
+          "words": 116
+        },
+        {
+          "id": "s2",
+          "height": 1463,
+          "words": 142
+        },
+        {
+          "id": "s3",
+          "height": 1181,
+          "words": 95
+        },
+        {
+          "id": "s4",
+          "height": 2123,
+          "words": 114
+        },
+        {
+          "id": "s5",
+          "height": 2274,
+          "words": 167
+        },
+        {
+          "id": "s6",
+          "height": 768,
+          "words": 67
+        }
+      ],
+      "outside": [],
+      "images": [
+        {
+          "src": "assets/hero-landscape.jpg",
+          "natural": [
+            2500,
+            1326
+          ],
+          "display": [
+            705,
+            374
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/hero-capability.jpg",
+          "natural": [
+            2133,
+            1282
+          ],
+          "display": [
+            503,
+            302
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/AbbSbb.png",
+          "natural": [
+            2267,
+            1227
+          ],
+          "display": [
+            1234,
+            668
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/metamodel.jpg",
+          "natural": [
+            1096,
+            1004
+          ],
+          "display": [
+            596,
+            546
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/time-matrix.jpg",
+          "natural": [
+            2446,
+            1560
+          ],
+          "display": [
+            596,
+            380
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/quality-seal.jpg",
+          "natural": [
+            2816,
+            1372
+          ],
+          "display": [
+            394,
+            192
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/fact-history.jpg",
+          "natural": [
+            1260,
+            1367
+          ],
+          "display": [
+            394,
+            427
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/Survey.jpg",
+          "natural": [
+            1767,
+            1172
+          ],
+          "display": [
+            394,
+            261
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram.jpg",
+          "natural": [
+            2812,
+            1630
+          ],
+          "display": [
+            596,
+            345
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram-history.jpg",
+          "natural": [
+            1682,
+            1617
+          ],
+          "display": [
+            596,
+            573
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/portal.jpg",
+          "natural": [
+            1567,
+            1585
+          ],
+          "display": [
+            596,
+            603
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/eol-dashboard.jpg",
+          "natural": [
+            2795,
+            1625
+          ],
+          "display": [
+            596,
+            347
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/ai-prompt.jpg",
+          "natural": [
+            1571,
+            1632
+          ],
+          "display": [
+            596,
+            619
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/inventory-builder.jpg",
+          "natural": [
+            2271,
+            1612
+          ],
+          "display": [
+            294,
+            209
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/mcp-agent.jpg",
+          "natural": [
+            1517,
+            1340
+          ],
+          "display": [
+            294,
+            260
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/servicnow.jpg",
+          "natural": [
+            1251,
+            1442
+          ],
+          "display": [
+            596,
+            687
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/rest-api.jpg",
+          "natural": [
+            1262,
+            1475
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/excel.jpg",
+          "natural": [
+            1257,
+            1402
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "w": 1024,
+        "h": 768,
+        "scrollWidth": 1009,
+        "scrollHeight": 10644
+      },
+      "header": 167.90625,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1315,
+          "words": 83
+        },
+        {
+          "id": "s1",
+          "height": 1622,
+          "words": 116
+        },
+        {
+          "id": "s2",
+          "height": 1429,
+          "words": 142
+        },
+        {
+          "id": "s3",
+          "height": 1166,
+          "words": 95
+        },
+        {
+          "id": "s4",
+          "height": 1806,
+          "words": 114
+        },
+        {
+          "id": "s5",
+          "height": 2186,
+          "words": 167
+        },
+        {
+          "id": "s6",
+          "height": 807,
+          "words": 67
+        }
+      ],
+      "outside": [],
+      "images": [
+        {
+          "src": "assets/hero-landscape.jpg",
+          "natural": [
+            2500,
+            1326
+          ],
+          "display": [
+            517,
+            274
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/hero-capability.jpg",
+          "natural": [
+            2133,
+            1282
+          ],
+          "display": [
+            369,
+            222
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/AbbSbb.png",
+          "natural": [
+            2267,
+            1227
+          ],
+          "display": [
+            913,
+            494
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/metamodel.jpg",
+          "natural": [
+            1096,
+            1004
+          ],
+          "display": [
+            435,
+            399
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/time-matrix.jpg",
+          "natural": [
+            2446,
+            1560
+          ],
+          "display": [
+            435,
+            278
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/quality-seal.jpg",
+          "natural": [
+            2816,
+            1372
+          ],
+          "display": [
+            287,
+            140
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/fact-history.jpg",
+          "natural": [
+            1260,
+            1367
+          ],
+          "display": [
+            287,
+            311
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/Survey.jpg",
+          "natural": [
+            1767,
+            1172
+          ],
+          "display": [
+            287,
+            190
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram.jpg",
+          "natural": [
+            2812,
+            1630
+          ],
+          "display": [
+            435,
+            252
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram-history.jpg",
+          "natural": [
+            1682,
+            1617
+          ],
+          "display": [
+            435,
+            418
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/portal.jpg",
+          "natural": [
+            1567,
+            1585
+          ],
+          "display": [
+            435,
+            440
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/eol-dashboard.jpg",
+          "natural": [
+            2795,
+            1625
+          ],
+          "display": [
+            435,
+            253
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/ai-prompt.jpg",
+          "natural": [
+            1571,
+            1632
+          ],
+          "display": [
+            435,
+            452
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/inventory-builder.jpg",
+          "natural": [
+            2271,
+            1612
+          ],
+          "display": [
+            214,
+            152
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/mcp-agent.jpg",
+          "natural": [
+            1517,
+            1340
+          ],
+          "display": [
+            214,
+            189
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/servicnow.jpg",
+          "natural": [
+            1251,
+            1442
+          ],
+          "display": [
+            435,
+            502
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/rest-api.jpg",
+          "natural": [
+            1262,
+            1475
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/excel.jpg",
+          "natural": [
+            1257,
+            1402
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "w": 768,
+        "h": 1024,
+        "scrollWidth": 753,
+        "scrollHeight": 18248
+      },
+      "header": 314.8125,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1967,
+          "words": 83
+        },
+        {
+          "id": "s1",
+          "height": 1846,
+          "words": 116
+        },
+        {
+          "id": "s2",
+          "height": 2520,
+          "words": 142
+        },
+        {
+          "id": "s3",
+          "height": 2787,
+          "words": 95
+        },
+        {
+          "id": "s4",
+          "height": 3570,
+          "words": 114
+        },
+        {
+          "id": "s5",
+          "height": 3858,
+          "words": 167
+        },
+        {
+          "id": "s6",
+          "height": 1240,
+          "words": 67
+        }
+      ],
+      "outside": [],
+      "images": [
+        {
+          "src": "assets/hero-landscape.jpg",
+          "natural": [
+            2500,
+            1326
+          ],
+          "display": [
+            672,
+            356
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/hero-capability.jpg",
+          "natural": [
+            2133,
+            1282
+          ],
+          "display": [
+            672,
+            404
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/AbbSbb.png",
+          "natural": [
+            2267,
+            1227
+          ],
+          "display": [
+            672,
+            364
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/metamodel.jpg",
+          "natural": [
+            1096,
+            1004
+          ],
+          "display": [
+            672,
+            616
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/time-matrix.jpg",
+          "natural": [
+            2446,
+            1560
+          ],
+          "display": [
+            672,
+            429
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/quality-seal.jpg",
+          "natural": [
+            2816,
+            1372
+          ],
+          "display": [
+            672,
+            327
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/fact-history.jpg",
+          "natural": [
+            1260,
+            1367
+          ],
+          "display": [
+            672,
+            729
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/Survey.jpg",
+          "natural": [
+            1767,
+            1172
+          ],
+          "display": [
+            672,
+            446
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram.jpg",
+          "natural": [
+            2812,
+            1630
+          ],
+          "display": [
+            672,
+            389
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram-history.jpg",
+          "natural": [
+            1682,
+            1617
+          ],
+          "display": [
+            672,
+            646
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/portal.jpg",
+          "natural": [
+            1567,
+            1585
+          ],
+          "display": [
+            672,
+            680
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/eol-dashboard.jpg",
+          "natural": [
+            2795,
+            1625
+          ],
+          "display": [
+            672,
+            391
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/ai-prompt.jpg",
+          "natural": [
+            1571,
+            1632
+          ],
+          "display": [
+            672,
+            698
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/inventory-builder.jpg",
+          "natural": [
+            2271,
+            1612
+          ],
+          "display": [
+            332,
+            236
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/mcp-agent.jpg",
+          "natural": [
+            1517,
+            1340
+          ],
+          "display": [
+            332,
+            293
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/servicnow.jpg",
+          "natural": [
+            1251,
+            1442
+          ],
+          "display": [
+            672,
+            774
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/rest-api.jpg",
+          "natural": [
+            1262,
+            1475
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/excel.jpg",
+          "natural": [
+            1257,
+            1402
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "w": 390,
+        "h": 844,
+        "scrollWidth": 375,
+        "scrollHeight": 18520
+      },
+      "header": 363.78125,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 2371,
+          "words": 83
+        },
+        {
+          "id": "s1",
+          "height": 2217,
+          "words": 116
+        },
+        {
+          "id": "s2",
+          "height": 2720,
+          "words": 142
+        },
+        {
+          "id": "s3",
+          "height": 2324,
+          "words": 95
+        },
+        {
+          "id": "s4",
+          "height": 3020,
+          "words": 114
+        },
+        {
+          "id": "s5",
+          "height": 3683,
+          "words": 167
+        },
+        {
+          "id": "s6",
+          "height": 1651,
+          "words": 67
+        }
+      ],
+      "outside": [],
+      "images": [
+        {
+          "src": "assets/hero-landscape.jpg",
+          "natural": [
+            2500,
+            1326
+          ],
+          "display": [
+            317,
+            168
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/hero-capability.jpg",
+          "natural": [
+            2133,
+            1282
+          ],
+          "display": [
+            317,
+            190
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/AbbSbb.png",
+          "natural": [
+            2267,
+            1227
+          ],
+          "display": [
+            317,
+            171
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/metamodel.jpg",
+          "natural": [
+            1096,
+            1004
+          ],
+          "display": [
+            317,
+            290
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/time-matrix.jpg",
+          "natural": [
+            2446,
+            1560
+          ],
+          "display": [
+            317,
+            202
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/quality-seal.jpg",
+          "natural": [
+            2816,
+            1372
+          ],
+          "display": [
+            317,
+            154
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/fact-history.jpg",
+          "natural": [
+            1260,
+            1367
+          ],
+          "display": [
+            317,
+            343
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/Survey.jpg",
+          "natural": [
+            1767,
+            1172
+          ],
+          "display": [
+            317,
+            210
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram.jpg",
+          "natural": [
+            2812,
+            1630
+          ],
+          "display": [
+            317,
+            184
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/diagram-history.jpg",
+          "natural": [
+            1682,
+            1617
+          ],
+          "display": [
+            317,
+            304
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/portal.jpg",
+          "natural": [
+            1567,
+            1585
+          ],
+          "display": [
+            317,
+            320
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/eol-dashboard.jpg",
+          "natural": [
+            2795,
+            1625
+          ],
+          "display": [
+            317,
+            184
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/ai-prompt.jpg",
+          "natural": [
+            1571,
+            1632
+          ],
+          "display": [
+            353,
+            367
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/inventory-builder.jpg",
+          "natural": [
+            2271,
+            1612
+          ],
+          "display": [
+            173,
+            122
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/mcp-agent.jpg",
+          "natural": [
+            1517,
+            1340
+          ],
+          "display": [
+            173,
+            152
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/servicnow.jpg",
+          "natural": [
+            1251,
+            1442
+          ],
+          "display": [
+            353,
+            407
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/rest-api.jpg",
+          "natural": [
+            1262,
+            1475
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "assets/excel.jpg",
+          "natural": [
+            1257,
+            1402
+          ],
+          "display": [
+            0,
+            0
+          ],
+          "tabIndex": -1,
+          "loading": "auto",
+          "width": null,
+          "height": null
+        }
+      ]
+    }
+  ],
+  "contrast": [
+    {
+      "selector": "step",
+      "text": "00 Lead",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "step",
+      "text": "01 EA Shift",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "step",
+      "text": "02 Overview",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "step",
+      "text": "03 Governance",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "step active",
+      "text": "04 Visualization",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        0,
+        13,
+        16
+      ],
+      "ratio": 19.72,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "step",
+      "text": "05 AI & Integration",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "step",
+      "text": "06 Closing",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sub",
+      "text": "One connected repository — strategy, initiative, business, application and technology — as a li",
+      "section": "hero",
+      "font": 24,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Capture 01 — Landscape The whole organization as one connected graph, strategy → capability → a",
+      "section": "hero",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 02 — Capability map The high-level view for business navigation.",
+      "section": "hero",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sec-num",
+      "text": "01",
+      "section": "s1",
+      "font": 72,
+      "weight": "700",
+      "fg": "rgb(210, 33, 41)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 3.41,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "sec-kicker",
+      "text": "The EA Shift",
+      "section": "s1",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 5.51,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "time-chip",
+      "text": "05 min",
+      "section": "s1",
+      "font": 18,
+      "weight": "700",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        210,
+        33,
+        41
+      ],
+      "ratio": 5.26,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Business Capabilities, Organization, Business Context",
+      "section": "s1",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Applications, Interfaces, Data Objects",
+      "section": "s1",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "IT Components, Providers, Tech Categories",
+      "section": "s1",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Objectives, Initiatives, Platforms — the steering layer on top",
+      "section": "s1",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "body-lg muted",
+      "text": "Think of a tower — every floor (domain) must connect to build something taller. EA is the steel",
+      "section": "s1",
+      "font": 22,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Capture — EA landscape All domains in one connected view.",
+      "section": "s1",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sec-num",
+      "text": "02",
+      "section": "s2",
+      "font": 72,
+      "weight": "700",
+      "fg": "rgb(210, 33, 41)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 5.26,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "sec-kicker",
+      "text": "Tool & EA Framework",
+      "section": "s2",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "time-chip",
+      "text": "07 min",
+      "section": "s2",
+      "font": 18,
+      "weight": "700",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        210,
+        33,
+        41
+      ],
+      "ratio": 5.26,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "body-lg muted",
+      "text": "11 fact-sheet types across 4 layers — a best-practice meta model that’s opinionated by default,",
+      "section": "s2",
+      "font": 22,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 03 — Metamodel Fact-sheet types across Strategy, Business, Application/Data and Technol",
+      "section": "s2",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "how capabilities are supported by applications",
+      "section": "s2",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Tolerate · Invest · Migrate · Eliminate",
+      "section": "s2",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "the portfolio at a glance",
+      "section": "s2",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "technology risk & dependency view",
+      "section": "s2",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 04 — TIME matrix Application rationalization: which to keep, invest, migrate, or retire",
+      "section": "s2",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sec-num",
+      "text": "03",
+      "section": "s3",
+      "font": 72,
+      "weight": "700",
+      "fg": "rgb(210, 33, 41)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 3.41,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "sec-kicker",
+      "text": "Repository · Governance · Data Freshness",
+      "section": "s3",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 5.51,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "time-chip",
+      "text": "10 min",
+      "section": "s3",
+      "font": 18,
+      "weight": "700",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        210,
+        33,
+        41
+      ],
+      "ratio": 5.26,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Capture 06 — Quality Seal Each quality rule is validated automatically — pass/fail at a glance.",
+      "section": "s3",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 07 — History Who changed it, when, and exactly what — an interactive audit trail.",
+      "section": "s3",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 08 — Survey A short questionnaire to the application owner drives the periodic refresh.",
+      "section": "s3",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sec-num",
+      "text": "04",
+      "section": "s4",
+      "font": 72,
+      "weight": "700",
+      "fg": "rgb(210, 33, 41)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 5.26,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "sec-kicker",
+      "text": "Visualization & Regulatory Compliance",
+      "section": "s4",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "time-chip",
+      "text": "08 min",
+      "section": "s4",
+      "font": 18,
+      "weight": "700",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        210,
+        33,
+        41
+      ],
+      "ratio": 5.26,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Capture 09 — Diagramming Build/edit diagrams from existing fact-sheet relations — like drawio, ",
+      "section": "s4",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 10 — Diagram history A timeline slider — see the architecture from last year to today.",
+      "section": "s4",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 11 — Portal Self-service: find an app, order software, see the approved technology cata",
+      "section": "s4",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "",
+      "text": "Capture 12 — EOL dashboard Red / yellow / green technology risk matrix — answers audit & compli",
+      "section": "s4",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sec-num",
+      "text": "05",
+      "section": "s5",
+      "font": 72,
+      "weight": "700",
+      "fg": "rgb(210, 33, 41)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 3.41,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "sec-kicker",
+      "text": "AI Capability & Integration",
+      "section": "s5",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 5.51,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "time-chip",
+      "text": "10 min",
+      "section": "s5",
+      "font": 18,
+      "weight": "700",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        210,
+        33,
+        41
+      ],
+      "ratio": 5.26,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "ask in natural language — “cloud apps with no data owner”",
+      "section": "s5",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "AI-assisted text on fact sheets",
+      "section": "s5",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "upload an image/diagram → auto-extract fact sheets & relations",
+      "section": "s5",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "an AI agent queries the inventory securely",
+      "section": "s5",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Capture 13–15 — AI Joule prompt result, Inventory Builder extraction, and an MCP-connected agen",
+      "section": "s5",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "body-lg muted",
+      "text": "Native, certified connector — syncs CMDB / SAM / software-hardware, aligns IT Components → Appl",
+      "section": "s5",
+      "font": 22,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        21,
+        22,
+        35
+      ],
+      "ratio": 7.41,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "",
+      "text": "Capture 16 — ServiceNow The out-of-the-box data flow.",
+      "section": "s5",
+      "font": 20,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "sec-num",
+      "text": "06",
+      "section": "s6",
+      "font": 72,
+      "weight": "700",
+      "fg": "rgb(210, 33, 41)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 5.26,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "selector": "sec-kicker",
+      "text": "Closing & Resource Hub",
+      "section": "s6",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "time-chip",
+      "text": "02 min",
+      "section": "s6",
+      "font": 18,
+      "weight": "700",
+      "fg": "rgb(255, 255, 255)",
+      "bg": [
+        210,
+        33,
+        41
+      ],
+      "ratio": 5.26,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "caption",
+      "text": "Scan for Q&A & resources",
+      "section": "s6",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(142, 142, 149)",
+      "bg": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 3.25,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "selector": "wrap caption",
+      "text": "ATDSol · SAP LeanIX Enterprise Architecture · BITAS 2026 tool demo.",
+      "font": 18,
+      "weight": "400",
+      "fg": "rgb(166, 166, 173)",
+      "bg": [
+        0,
+        13,
+        16
+      ],
+      "ratio": 8.15,
+      "threshold": 4.5,
+      "pass": true
+    }
+  ],
+  "errors": [
+    {
+      "method": "Log.entryAdded",
+      "params": {
+        "entry": {
+          "source": "network",
+          "level": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+          "timestamp": 1789307006533.162,
+          "url": "http://127.0.0.1:8123/favicon.ico",
+          "networkRequestId": "28524.61"
+        }
+      }
+    }
+  ]
+}

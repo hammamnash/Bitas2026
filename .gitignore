@@ -7,3 +7,10 @@ logs
 
 # Large assets
 /assets/**/*.mp4
+
+# Generated Cloudflare Pages output
+/public/
+
+# Python caches
+__pycache__/
+*.pyc

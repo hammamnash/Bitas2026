@@ -1,0 +1,230 @@
+{
+  "local": [
+    {
+      "ready": "complete",
+      "nav": [
+        {
+          "load": 238.19999998807907,
+          "dcl": 188.39999997615814
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 324
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 324
+        }
+      ],
+      "observed": {
+        "lcp": [
+          324,
+          548,
+          1124
+        ],
+        "cls": [
+          0.0004246947099861278
+        ],
+        "long": [
+          63
+        ]
+      },
+      "broken": [],
+      "loaded": 18,
+      "fonts": "loaded",
+      "js": true,
+      "resourceBytes": 7314755
+    },
+    {
+      "ready": "complete",
+      "nav": [
+        {
+          "load": 188.5,
+          "dcl": 102
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 280
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 280
+        }
+      ],
+      "observed": {
+        "lcp": [
+          280,
+          960
+        ],
+        "cls": [
+          0.0004246947099861278
+        ],
+        "long": []
+      },
+      "broken": [],
+      "loaded": 18,
+      "fonts": "loaded",
+      "js": true,
+      "resourceBytes": 7314755
+    },
+    {
+      "ready": "complete",
+      "nav": [
+        {
+          "load": 148.40000000596046,
+          "dcl": 115.2000000178814
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 248
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 248
+        }
+      ],
+      "observed": {
+        "lcp": [
+          248,
+          416,
+          964
+        ],
+        "cls": [
+          0.0004246947099861278
+        ],
+        "long": [
+          56
+        ]
+      },
+      "broken": [],
+      "loaded": 18,
+      "fonts": "loaded",
+      "js": true,
+      "resourceBytes": 7314755
+    }
+  ],
+  "constrained": {
+    "conditions": "10 Mbps down, 80 ms latency, 4x CPU throttling; local server/CDP simulation",
+    "result": {
+      "ready": "complete",
+      "nav": [
+        {
+          "load": 6310.899999976158,
+          "dcl": 578.8999999761581
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "time": 716
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 716
+        }
+      ],
+      "observed": {
+        "lcp": [
+          716,
+          1480,
+          1996,
+          2236
+        ],
+        "cls": [
+          0.0004246947099861278
+        ],
+        "long": [
+          200
+        ]
+      },
+      "broken": [],
+      "loaded": 18,
+      "fonts": "loaded",
+      "js": true,
+      "resourceBytes": 7314755
+    }
+  },
+  "fontsBlocked": {
+    "ready": "complete",
+    "nav": [
+      {
+        "load": 142.5,
+        "dcl": 64.40000000596046
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 192
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 192
+      }
+    ],
+    "observed": {
+      "lcp": [
+        192,
+        932
+      ],
+      "cls": [],
+      "long": []
+    },
+    "broken": [],
+    "loaded": 18,
+    "fonts": "loaded",
+    "js": true,
+    "resourceBytes": 7313750
+  },
+  "fileWithFontsBlocked": {
+    "ready": "complete",
+    "nav": [
+      {
+        "load": 163.7999999821186,
+        "dcl": 152.19999998807907
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 260
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 260
+      }
+    ],
+    "observed": {
+      "lcp": [
+        260,
+        1012
+      ],
+      "cls": [],
+      "long": [
+        82
+      ]
+    },
+    "broken": [],
+    "loaded": 18,
+    "fonts": "loaded",
+    "js": true,
+    "resourceBytes": 0
+  },
+  "reducedMotion": {
+    "animations": 0,
+    "scrollBehavior": "auto",
+    "hiddenReveals": 25
+  },
+  "headerOcclusion": {
+    "headerBottom": 118.9375,
+    "sectionTop": 80.4375,
+    "headingTop": 176.4375,
+    "headingBottom": 331.640625
+  }
+}
