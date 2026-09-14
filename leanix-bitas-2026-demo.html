@@ -236,14 +236,24 @@
   .acc-body .capture-card{margin-top:var(--sp-16);}
   .acc-col{display:grid;gap:var(--sp-16);}
 
-  /* ============ Prompt simulator (dark band) ============ */
+  /* ============ Live-demo prompt workbench (dark band) ============ */
   .prompt-box{background:rgba(255,255,255,0.04);border:1px solid var(--color-pebble);border-radius:var(--radius-inputs);padding:var(--sp-16);margin-top:var(--sp-16);}
   .prompt-chips{display:flex;flex-wrap:wrap;gap:var(--sp-8);margin-bottom:var(--sp-12);}
   .prompt-chip{border:1px solid var(--color-pebble);border-radius:var(--radius-buttons);background:rgba(255,255,255,0.04);padding:var(--sp-8) var(--sp-16);font-size:var(--text-body);cursor:pointer;color:var(--color-pure-white);transition:background .15s,border-color .15s;}
   .prompt-chip:hover,.prompt-chip.active{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-pure-white);}
-  .prompt-result{min-height:120px;border:1px dashed var(--color-pebble);border-radius:var(--radius-smallcards);padding:var(--sp-16);color:#a6a6ad;font-size:var(--text-body);transition:background .2s;}
-  .prompt-result.has{background:rgba(255,255,255,0.06);color:var(--color-pure-white);}
-  .prompt-result ul{margin:var(--sp-8) 0 0;padding-left:var(--sp-20);}
+  .prompt-label{display:block;margin-bottom:var(--sp-8);color:#a6a6ad;font-size:var(--text-caption);}
+  .prompt-text{display:block;width:100%;min-height:230px;resize:vertical;border:1px dashed var(--color-pebble);border-radius:var(--radius-smallcards);padding:var(--sp-16);background:rgba(255,255,255,0.06);color:var(--color-pure-white);font:inherit;font-size:var(--text-body);line-height:1.5;}
+  .prompt-actions{display:flex;align-items:center;gap:var(--sp-16);margin-top:var(--sp-12);flex-wrap:wrap;}
+  .copy-prompt{border:0;border-radius:var(--radius-buttons);background:var(--color-accent);color:var(--color-pure-white);padding:var(--sp-12) var(--sp-20);font-weight:var(--weight-bold);font-size:var(--text-body);cursor:pointer;}
+  .copy-prompt:hover{background:var(--color-red-ink);}
+  .copy-state{color:#a6a6ad;font-size:var(--text-caption);}
+  .proof-flow{counter-reset:proof;list-style:none;padding:0;margin:var(--sp-24) 0 0;display:grid;gap:var(--sp-16);}
+  .proof-flow li{counter-increment:proof;position:relative;padding-left:48px;font-size:var(--text-body-lg);}
+  .proof-flow li::before{content:counter(proof);position:absolute;left:0;top:0;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--color-accent);border-radius:50%;color:var(--color-pure-white);font-size:var(--text-caption);font-weight:var(--weight-bold);}
+  .proof-flow small{display:block;color:#a6a6ad;font-size:var(--text-body);margin-top:var(--sp-4);}
+  .scenario{margin-top:var(--sp-32);max-width:74ch;border-left:4px solid var(--color-accent);padding:var(--sp-16) var(--sp-24);background:rgba(255,255,255,.72);font-size:var(--text-body-lg);}
+  .scenario .caption{display:block;margin-bottom:var(--sp-4);font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:.08em;}
+  .scenario strong{font-weight:var(--weight-bold);}
 
   /* ============ Integration toggle (dark band) ============ */
   .toggle-switch{display:inline-flex;background:rgba(255,255,255,0.08);border-radius:var(--radius-buttons);padding:var(--sp-4);gap:var(--sp-4);margin-top:var(--sp-16);}
@@ -251,6 +261,10 @@
   .toggle-switch button.active{background:var(--color-pure-white);color:var(--color-deep-ink);}
   .integration-panel{margin-top:var(--sp-16);}
   .integration-panel[hidden]{display:none;}
+  @media(max-width:520px){
+    .toggle-switch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;}
+    .toggle-switch button{min-width:0;padding:var(--sp-8) var(--sp-4);font-size:var(--text-caption);white-space:nowrap;}
+  }
 
   /* ============ Hero (pale dawn-sky → parchment gradient, no jet) ============ */
   .hero{position:relative;padding:var(--sp-128) 0 var(--sp-96);overflow:hidden;}
@@ -313,7 +327,7 @@
 
   /* in-section scroll button — appears only on slides taller than one screen */
   .sec-next{
-    position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:40;
+    position:fixed;right:var(--sp-24);top:calc(var(--stepper-height,72px) + var(--sp-16));z-index:40;
     display:none;align-items:center;gap:10px;padding:12px 22px;
     background:var(--color-deep-ink);color:var(--color-pure-white);
     border:0;border-radius:var(--radius-buttons);
@@ -324,7 +338,8 @@
   .sec-next .chev{font-size:16px;line-height:1;color:var(--color-accent);}
   .sec-next:hover{background:#1c2025;}
   .sec-next.show{display:inline-flex;animation:secBounce 2.4s ease-in-out infinite;}
-  @keyframes secBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-6px);}}
+  @keyframes secBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+  @media(max-width:760px){.sec-next.show{display:none;}}
 
   /* ============ Lightbox — click any capture to enlarge (presentation zoom) ============ */
   .capture-card{position:relative;}
@@ -375,10 +390,14 @@
   <div class="hero-bg"></div>
   <div class="wrap">
     <div class="eyebrow">SAP LeanIX · EA Tools Demo · BITAS 2026</div>
-    <h1 class="display">From <span class="italic">rigid EA</span><br />to <span class="italic accent">Agile EA.</span></h1>
-    <p class="sub">One connected repository — strategy, initiative, business, application and technology — as a live “digital copy” of your organization. As an EA tool, a documentation tool, a diagramming tool, and a governance-ready repository.</p>
+    <h1 class="display">From architecture data<br />to <span class="italic accent">AI-assisted decisions.</span></h1>
+    <p class="sub">EA supplies the enterprise context AI needs. SAP LeanIX connects and governs that context so people and AI agents can answer enterprise-specific questions with evidence.</p>
+    <div class="scenario">
+      <span class="caption">The question we will answer</span>
+      <strong>Which critical business capabilities depend on applications running on end-of-life technology, and who owns the remediation?</strong>
+    </div>
     <div class="actions">
-      <a class="pill-btn" href="#s1">Mulai Eksplorasi Demo</a>
+      <a class="pill-btn" href="#s1">Follow the decision path</a>
     </div>
     <div class="artifacts">
       <figure class="capture-card reveal">
@@ -404,7 +423,7 @@
       </div>
       <span class="time-chip">05 min</span>
     </div>
-    <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA unifies them into one connected view — the meta model aligns with the <strong>SAP EA metamodel</strong>.</p>
+    <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA connects business capabilities, applications, technology, ownership, and initiatives so we can trace the impact behind our opening question.</p>
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
         <div class="h3">The three core layers</div>
@@ -412,12 +431,12 @@
           <li><strong>Business</strong><small>Business Capabilities, Organization, Business Context</small></li>
           <li><strong>Application</strong><small>Applications, Interfaces, Data Objects</small></li>
           <li><strong>Technology</strong><small>IT Components, Providers, Tech Categories</small></li>
-          <li><strong>Strategy &amp; Transformation</strong><small>Objectives, Initiatives, Platforms — the steering layer on top</small></li>
+          <li><strong>Strategy &amp; Transformation</strong><small>Objectives, Initiatives, Platforms: the steering layer on top</small></li>
         </ul>
       </div>
       <div>
         <div class="h3">EA = (Solution Architect + Business Architect) + Strategic</div>
-        <p class="body-lg muted" style="margin-top:var(--sp-16)">Think of a tower — every floor (domain) must connect to build something taller. EA is the steel frame that links them, with a strategic layer guiding the ascent.</p>
+        <p class="body-lg muted" style="margin-top:var(--sp-16)">Think of a tower. Every floor, or domain, must connect to build something taller. EA is the steel frame that links them, with a strategic layer guiding the ascent.</p>
       </div>
     </div>
 
@@ -439,15 +458,15 @@
       </div>
       <span class="time-chip">07 min</span>
     </div>
-    <p class="lead"><strong>A digital repository</strong> — it taps in and pulls source (ServiceNow, BMC, custom databases), and it does not replace your operating tools; domain experts stay. Fact sheets are <strong>simpler than ArchiMate/TOGAF</strong>, still aligned and interchangeable, and extensible to your needs.</p>
+    <p class="lead"><strong>A connected EA repository</strong> brings data from sources such as ServiceNow, BMC, and custom databases into a shared model. Fact sheets provide a practical structure for architecture data and complement methods such as TOGAF and modeling languages such as ArchiMate.</p>
 
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
         <div class="h3">The SAP EA Approach &amp; Fact Sheet types</div>
-        <p class="body-lg muted" style="margin-top:var(--sp-16)">11 fact-sheet types across 4 layers — a best-practice meta model that’s opinionated by default, so you get value faster, yet extendable.</p>
+        <p class="body-lg muted" style="margin-top:var(--sp-16)">12 default fact-sheet types connect three conceptual architecture layers, with Strategy &amp; Transformation spanning them. The prescriptive starting point is configurable when the organization needs it.</p>
         <figure class="capture-card reveal" style="margin-top:var(--sp-24)">
           <img src="assets/metamodel.jpg" alt="LeanIX meta model — fact-sheet types across the 4 layers" />
-          <figcaption><b>Capture 03 — Metamodel</b> Fact-sheet types across Strategy, Business, Application/Data and Technology layers.</figcaption>
+          <figcaption><b>Capture 03 — Metamodel</b> The relationships needed to trace capability → application → technology → owner → initiative.</figcaption>
         </figure>
       </div>
       <div>
@@ -478,16 +497,16 @@
       </div>
       <span class="time-chip">10 min</span>
     </div>
-    <p class="lead">The repository is only as good as its data. LeanIX keeps it <strong>governed and current</strong> through automatic validation, a full audit trail, and periodic surveys to owners.</p>
+    <p class="lead">Our answer is useful only when the underlying data is complete, owned, and current. Mandatory attributes support completeness, Quality Seal assigns approval responsibility, history records changes, and surveys help owners refresh the data.</p>
 
     <div class="grid3" style="margin-top:var(--sp-40)">
       <figure class="capture-card reveal">
-        <img src="assets/quality-seal.jpg" alt="LeanIX Quality Seal — automated rule validation" />
-        <figcaption><b>Capture 06 — Quality Seal</b> Each quality rule is validated automatically — pass/fail at a glance.</figcaption>
+        <img src="assets/quality-seal.jpg" alt="LeanIX Quality Seal approval state" />
+        <figcaption><b>Capture 06 — Quality Seal</b> Changes can trigger review by the responsible or accountable owner before the fact sheet is approved.</figcaption>
       </figure>
       <figure class="capture-card reveal">
         <img src="assets/fact-history.jpg" alt="LeanIX fact-sheet history — interactive audit trail" />
-        <figcaption><b>Capture 07 — History</b> Who changed it, when, and exactly what — an interactive audit trail.</figcaption>
+        <figcaption><b>Capture 07 — History</b> See who changed the fact sheet, when it changed, and what was updated.</figcaption>
       </figure>
       <div>
         <figure class="capture-card reveal">
@@ -501,8 +520,9 @@
       <summary>What I show in LeanIX <span class="chev">›</span></summary>
       <div class="acc-body"><ul class="features" style="margin-top:0">
         <li>Open a fact sheet and read its <strong>default attributes</strong>.</li>
-        <li>Open the <strong>Quality Seal</strong> panel — rule-by-rule pass/fail.</li>
-        <li>Open <strong>fact-sheet history</strong> — who / when / what.</li>
+        <li>Show the <strong>mandatory attributes</strong> required before approval.</li>
+        <li>Open the <strong>Quality Seal</strong> and show who reviews and approves the fact sheet.</li>
+        <li>Open <strong>fact-sheet history</strong> to show who changed what and when.</li>
         <li>Create and run a <strong>survey</strong>, and show the owner’s response flow.</li>
       </ul></div>
     </details>
@@ -520,16 +540,16 @@
       </div>
       <span class="time-chip">08 min</span>
     </div>
-    <p class="lead">Easy, drawio-like diagramming — but <strong>data-driven</strong>: relations come from fact sheets, so diagrams always match the repository. Revisit the past via <strong>diagram history</strong>, and meet audits with a color-coded <strong>risk dashboard</strong>.</p>
+    <p class="lead">LeanIX diagrams link visual elements to repository fact sheets. Teams can review inventory changes and apply updates, compare saved diagram versions, and use risk views to trace end-of-life technology back to affected applications and capabilities.</p>
 
     <div class="grid2" style="margin-top:var(--sp-40)">
       <figure class="capture-card reveal">
         <img src="assets/diagram.jpg" alt="LeanIX data-driven diagramming from fact-sheet relations" />
-        <figcaption><b>Capture 09 — Diagramming</b> Build/edit diagrams from existing fact-sheet relations — like drawio, but always consistent.</figcaption>
+        <figcaption><b>Capture 09 — Diagramming</b> Build and edit diagrams with shapes linked to fact sheets, then review and apply inventory updates.</figcaption>
       </figure>
       <figure class="capture-card reveal">
         <img src="assets/diagram-history.jpg" alt="LeanIX diagram history — timeline slider of previous architecture states" />
-        <figcaption><b>Capture 10 — Diagram history</b> A timeline slider — see the architecture from last year to today.</figcaption>
+        <figcaption><b>Capture 10 — Diagram history</b> Review, compare, and restore saved versions as the architecture changes.</figcaption>
       </figure>
     </div>
 
@@ -563,83 +583,93 @@
       <span class="sec-num">05</span>
       <div>
         <div class="sec-kicker">AI Capability &amp; Integration</div>
-        <h2 class="h2">AI + the connected ecosystem</h2>
+        <h2 class="h2">Give AI enterprise context</h2>
       </div>
       <span class="time-chip">10 min</span>
     </div>
-    <p class="lead"><strong>AI</strong> describes, creates, and connects: natural-language search, AI-generated descriptions, the AI Inventory Builder, and an MCP server that lets agents query your architecture. <strong>Integrations</strong> flow out-of-the-box (ServiceNow) or over a custom REST/GraphQL API.</p>
+    <p class="lead">Generic AI does not know your capabilities, applications, dependencies, owners, or initiatives. SAP LeanIX supplies that governed enterprise context to its native AI capabilities and, through MCP, to an external AI harness.</p>
 
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
-        <div class="h3">AI — describe, create, connect</div>
+        <div class="h3">Three jobs for AI</div>
         <ul class="features">
-          <li><strong>Joule / AI Copilot</strong><small>ask in natural language — “cloud apps with no data owner”</small></li>
-          <li><strong>AI descriptions</strong><small>AI-assisted text on fact sheets</small></li>
-          <li><strong>AI Inventory Builder</strong><small>upload an image/diagram → auto-extract fact sheets &amp; relations</small></li>
-          <li><strong>MCP server <em>(optional live)</em></strong><small>an AI agent queries the inventory securely</small></li>
+          <li><strong>Discover and structure</strong><small>Inventory Builder analyzes diagrams, images, and files, then proposes fact sheets and relations for an architect to review.</small></li>
+          <li><strong>Ask and understand</strong><small>Use natural language to find architecture facts, relationships, and missing information.</small></li>
+          <li><strong>Connect and extend</strong><small>MCP gives an external AI client access to the LeanIX tools allowed for the authenticated user or technical role.</small></li>
         </ul>
 
         <div class="prompt-box reveal">
           <div class="prompt-chips">
-            <button class="prompt-chip active" data-prompt="Cloud apps with no data owner">Cloud apps, no data owner</button>
-            <button class="prompt-chip" data-prompt="Applications on end-of-life components">On EOL components</button>
-            <button class="prompt-chip" data-prompt="Which capability does not have an owning application?">Capability w/o owner</button>
+            <button class="prompt-chip active" type="button" data-prompt="decision" aria-controls="demoPrompt">Decision trace</button>
+            <button class="prompt-chip" type="button" data-prompt="governance" aria-controls="demoPrompt">Governance gaps</button>
+            <button class="prompt-chip" type="button" data-prompt="briefing" aria-controls="demoPrompt">Executive brief</button>
           </div>
-          <div class="prompt-result" id="promptResult">Click a sample prompt to see the instant result the audience would see in LeanIX.</div>
+          <label class="prompt-label" for="demoPrompt">Prompt for LeanIX AI, Joule, or the MCP harness</label>
+          <textarea class="prompt-text" id="demoPrompt" readonly spellcheck="false"></textarea>
+          <div class="prompt-actions">
+            <button class="copy-prompt" id="copyPrompt" type="button">Copy prompt</button>
+            <span class="copy-state" id="copyState" role="status" aria-live="polite">Run it in LeanIX first, then reuse it in the MCP harness.</span>
+          </div>
         </div>
-
-        <figure class="capture-card reveal" style="margin-top:var(--sp-24)">
-          <div class="ai-gallery">
-            <img src="assets/ai-prompt.jpg" alt="Joule / AI Copilot natural-language query result" />
-            <img src="assets/inventory-builder.jpg" alt="AI Inventory Builder extracting fact sheets from an image" />
-            <img src="assets/mcp-agent.jpg" alt="MCP-connected AI agent querying the inventory" />
-          </div>
-          <figcaption><b>Capture 13–15 — AI</b> Joule prompt result, Inventory Builder extraction, and an MCP-connected agent.</figcaption>
-        </figure>
       </div>
 
       <div>
-        <div class="h3">Integrations — out-of-the-box &amp; custom</div>
-        <div class="toggle-switch reveal" id="intToggle">
-          <button class="active" data-panel="panelOotb">ServiceNow</button>
-          <button data-panel="panelRest">REST API</button>
-          <button data-panel="panelExcel">Excel</button>
-        </div>
-        <div class="integration-panel" id="panelOotb">
-          <p class="body-lg muted">Native, certified connector — syncs CMDB / SAM / software-hardware, aligns IT Components → Applications → Business Capabilities, and syncs lifecycle data back.</p>
-          <figure class="capture-card reveal">
-            <img src="assets/servicnow.jpg" alt="LeanIX ServiceNow integration config" />
-            <figcaption><b>Capture 16 — ServiceNow</b> The out-of-the-box data flow.</figcaption>
-          </figure>
-        </div>
-        <div class="integration-panel" id="panelRest" hidden>
-          <p class="body-lg muted">Custom over REST / GraphQL — pull your own sources with the API, or build custom reports with the LeanIX reporting CLI.</p>
-          <figure class="capture-card reveal">
-            <img src="assets/rest-api.jpg" alt="LeanIX REST / GraphQL API sample call" />
-            <figcaption><b>Capture 17 — REST/GraphQL</b> A sample API call.</figcaption>
-          </figure>
-        </div>
-        <div class="integration-panel" id="panelExcel" hidden>
-          <p class="body-lg muted">Excel import/export — the practical migration and bulk-refresh path from your existing spreadsheets.</p>
-          <figure class="capture-card reveal">
-            <img src="assets/excel.jpg" alt="LeanIX Excel import/export round-trip" />
-            <figcaption><b>Capture 18 — Excel</b> Import/export round-trip.</figcaption>
-          </figure>
-        </div>
+        <div class="h3">Proof sequence: LeanIX → MCP</div>
+        <ol class="proof-flow">
+          <li><strong>Ask in LeanIX</strong><small>Run the decision-trace prompt in Joule or the LeanIX AI assistant.</small></li>
+          <li><strong>Open the evidence</strong><small>Inspect the returned capability, application, IT component, owner, and remediation records.</small></li>
+          <li><strong>Ask through the MCP harness</strong><small>Paste the same prompt into your external AI chat connected to the SAP LeanIX MCP server.</small></li>
+          <li><strong>Compare and explain the boundary</strong><small>Both paths use governed repository context. MCP exposes only the tools available to the authenticated role, and missing data must remain visible.</small></li>
+        </ol>
 
         <details class="acc reveal" style="margin-top:var(--sp-24)">
-          <summary>What I show in LeanIX <span class="chev">›</span></summary>
-          <div class="acc-body"><ul class="features" style="margin-top:0">
-            <li>Type a Joule prompt and show the results.</li>
-            <li>Generate a description on a fact sheet.</li>
-            <li>Run the <strong>Inventory Builder</strong> on an image.</li>
-            <li><em>(Optional)</em> Query via <strong>MCP</strong> from an AI chat.</li>
-            <li>Show the <strong>ServiceNow</strong> config and a sample API call.</li>
-            <li>Do an <strong>Excel</strong> export (or import) round-trip.</li>
-          </ul></div>
+          <summary>Fallback screenshots <span class="chev">›</span></summary>
+          <div class="acc-body">
+            <figure class="capture-card">
+              <div class="ai-gallery">
+                <img src="assets/ai-prompt.jpg" alt="LeanIX native AI query" />
+                <img src="assets/inventory-builder.jpg" alt="AI Inventory Builder proposals awaiting review" />
+                <img src="assets/mcp-agent.jpg" alt="External AI harness connected to SAP LeanIX through MCP" />
+              </div>
+              <figcaption><b>Capture 13–15: AI proof path</b> Ask natively, review AI-assisted structure, then query the same governed context through MCP.</figcaption>
+            </figure>
+          </div>
         </details>
       </div>
     </div>
+
+    <details class="acc reveal" style="margin-top:var(--sp-40)">
+      <summary>Supporting integration paths <span class="chev">›</span></summary>
+      <div class="acc-body">
+        <p>LeanIX can combine native connectors, APIs, and spreadsheet exchange to bring source data into the architecture repository.</p>
+        <div class="toggle-switch reveal" id="intToggle">
+          <button class="active" type="button" data-panel="panelOotb">ServiceNow</button>
+          <button type="button" data-panel="panelRest">REST API</button>
+          <button type="button" data-panel="panelExcel">Excel</button>
+        </div>
+        <div class="integration-panel" id="panelOotb">
+          <p class="body-lg muted">Use the native connector to exchange selected data with ServiceNow and connect operational records to the architecture model.</p>
+          <figure class="capture-card reveal">
+            <img src="assets/servicnow.jpg" alt="LeanIX ServiceNow integration config" />
+            <figcaption><b>Capture 16 — ServiceNow</b> A configured source for operational architecture data.</figcaption>
+          </figure>
+        </div>
+        <div class="integration-panel" id="panelRest" hidden>
+          <p class="body-lg muted">Use REST or GraphQL APIs when the source or use case needs a custom integration.</p>
+          <figure class="capture-card reveal">
+            <img src="assets/rest-api.jpg" alt="LeanIX REST / GraphQL API sample call" />
+            <figcaption><b>Capture 17 — REST/GraphQL</b> A custom API call for architecture data.</figcaption>
+          </figure>
+        </div>
+        <div class="integration-panel" id="panelExcel" hidden>
+          <p class="body-lg muted">Use Excel import and export for migration, review, or controlled bulk updates.</p>
+          <figure class="capture-card reveal">
+            <img src="assets/excel.jpg" alt="LeanIX Excel import/export round-trip" />
+            <figcaption><b>Capture 18 — Excel</b> A spreadsheet exchange path for architecture data.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -649,21 +679,20 @@
     <div class="sec-head reveal">
       <span class="sec-num">06</span>
       <div>
-        <div class="sec-kicker">Closing &amp; Resource Hub</div>
-        <h2 class="h2">One source of truth</h2>
+        <div class="sec-kicker">Closing &amp; Resources</div>
+        <h2 class="h2">Context before automation</h2>
       </div>
       <span class="time-chip">02 min</span>
     </div>
-    <p class="lead" style="max-width:66ch">LeanIX as an <strong>EA tool</strong>, a <strong>documentation tool</strong>, a <strong>diagramming tool</strong>, and a <strong>governance-ready repository</strong> — with AI and a connected integration ecosystem.</p>
+    <p class="lead" style="max-width:72ch">Without architecture context, AI gives generic answers. With connected and governed EA data, it can help answer enterprise-specific questions and expose the evidence behind them.</p>
 
     <div class="hub" style="margin-top:var(--sp-40)">
       <div>
         <div class="h3">Key takeaways</div>
         <ul class="features" style="margin-top:var(--sp-16)">
-          <li>Governed, fresh data</li>
-          <li>Data-driven diagrams + history</li>
-          <li>Compliance-ready risk views</li>
-          <li>AI &amp; open integration</li>
+          <li><strong>EA provides decision context</strong><small>It connects strategy, capabilities, applications, technology, ownership, and change.</small></li>
+          <li><strong>LeanIX makes the context reusable</strong><small>The repository keeps relationships visible, governed, and available across reports, diagrams, and integrations.</small></li>
+          <li><strong>AI accelerates access</strong><small>AI can discover and query architecture data, while architects validate evidence and remain accountable for decisions.</small></li>
         </ul>
       </div>
       <div>
@@ -728,29 +757,45 @@
     });
   },500);
 
-  // ---- Prompt simulator (Section 5) ----
-  const promptResult = document.getElementById('promptResult');
+  // ---- Copyable live-demo prompts (Section 5) ----
+  const promptText = document.getElementById('demoPrompt');
+  const copyPrompt = document.getElementById('copyPrompt');
+  const copyState = document.getElementById('copyState');
   const promptSamples = {
-    'Cloud apps with no data owner':
-      ['<b>6 applications</b> have no data owner on cloud platforms:',
-      '<ul><li>Salesforce Revenue Cloud</li><li>Okta</li><li>Microsoft Power BI</li><li>Google Analytics</li></ul>'],
-    'Applications on end-of-life components':
-      ['<b>7 applications</b> run on end-of-life components. <em>Ageing risk &gt; 50% on 3.</em>',
-      '<ul><li>IBM AS/400</li><li>JDA WMS (Legacy)</li></ul>'],
-    'Capability without an owning application':
-      ['<b>2 business capabilities</b> have no owning application:',
-      '<ul><li>Order Management — support gap</li><li>Mobile Field Service</li></ul>']
+    decision: 'Which critical business capabilities depend on applications that use end-of-life IT components? For each result, list the business capability, application, IT component, lifecycle or end-of-life date, accountable owner, and linked remediation initiative. Cite the LeanIX fact sheet name or ID for each item. If a field or relation is missing, state that explicitly instead of inferring it.',
+    governance: 'Find applications that depend on end-of-life IT components but have no accountable owner or no linked remediation initiative. Group the results by critical business capability. Cite the relevant LeanIX fact sheet names or IDs and identify every missing field or relation.',
+    briefing: 'Using only evidence available in LeanIX, prepare a concise executive briefing on business capabilities exposed to end-of-life technology. Include affected applications, accountable owners, active remediation initiatives, and unresolved data gaps. Cite the LeanIX fact sheet names or IDs behind each conclusion and do not invent missing information.'
   };
+
+  function setPrompt(key){
+    promptText.value = promptSamples[key] || '';
+    document.querySelectorAll('.prompt-chip').forEach(chip=>{
+      chip.classList.toggle('active', chip.dataset.prompt === key);
+    });
+    copyState.textContent = 'Run it in LeanIX first, then reuse it in the MCP harness.';
+  }
+
   document.querySelectorAll('.prompt-chip').forEach(chip=>{
     chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.prompt-chip').forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      const key = chip.dataset.prompt;
-      const lines = promptSamples[key] || ['…'];
-      promptResult.classList.add('has');
-      promptResult.innerHTML = lines.join('');
+      setPrompt(chip.dataset.prompt);
     });
   });
+
+  copyPrompt.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(promptText.value);
+    }catch(_error){
+      promptText.focus();
+      promptText.select();
+      if(!document.execCommand('copy')){
+        copyState.textContent = 'Copy failed. Select the prompt text and press Ctrl+C.';
+        return;
+      }
+    }
+    copyState.textContent = 'Copied. Paste it into LeanIX AI or the MCP harness.';
+  });
+
+  setPrompt('decision');
 
   // ---- Integration toggle (Section 5) ----
   const intToggle = document.getElementById('intToggle');
@@ -863,6 +908,7 @@
     }) || null;
   }
   function updateSecNext(){
+    document.documentElement.style.setProperty('--stepper-height', document.querySelector('.stepper').offsetHeight + 'px');
     const sec = activeSection();
     if(!sec){ secNext.classList.remove('show'); return; }
     const r = sec.getBoundingClientRect();
