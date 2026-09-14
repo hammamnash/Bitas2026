@@ -8,8 +8,14 @@ logs
 # Large assets
 /assets/**/*.mp4
 
+# audit
+/audit
+
 # Generated Cloudflare Pages output
 /public/
+
+# Node dependencies
+/node_modules/
 
 # Python caches
 __pycache__/
