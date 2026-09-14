@@ -9,7 +9,7 @@ logs
 /assets/**/*.mp4
 
 # audit
-/audit
+/audit/
 
 # Generated Cloudflare Pages output
 /public/

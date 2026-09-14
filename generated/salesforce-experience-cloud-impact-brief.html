@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Salesforce Experience Cloud | Executive Impact Map</title>
+  <style>
+    :root{
+      --ink:#000d10;--white:#fff;--ash:#6e7078;--pebble:#d5d3d4;
+      --midnight:#0f0f1c;--deck:#151623;--red:#D22129;--red-ink:#a8181f;
+      --red-wash:#fbe2e2;--mist:#f4f3f2;--focus:#ffcf33;
+      --font:"Helvetica Neue",Arial,ui-sans-serif,system-ui,sans-serif;
+      --wrap:min(1520px,94vw);--nav-h:78px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--white)}
+    body{margin:0;background:var(--white);color:var(--ink);font:400 20px/1.55 var(--font)}
+    button,a{font:inherit}button{cursor:pointer}
+    button:focus-visible,a:focus-visible{outline:4px solid var(--focus);outline-offset:4px}
+    .skip{position:fixed;left:20px;top:-80px;z-index:200;background:var(--ink);color:#fff;padding:12px 18px;border-radius:1000px}.skip:focus{top:12px}
+    .nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rgba(255,255,255,.96);border-bottom:1px solid var(--pebble)}
+    .nav-inner{width:var(--wrap);height:100%;margin:auto;display:flex;align-items:center;gap:24px}
+    .brand{font-size:24px;font-weight:700;letter-spacing:-.04em;white-space:nowrap}.brand i{color:var(--red);font-style:normal}
+    .tabs{display:flex;gap:8px;margin-left:auto}.tab{min-height:46px;border:1px solid transparent;border-radius:1000px;background:transparent;padding:10px 18px;color:#50535a;font-weight:700;text-decoration:none}.tab:hover,.tab.active{background:var(--ink);color:var(--white)}
+    .stage{min-height:46px;border:0;border-radius:1000px;background:var(--red);color:#fff;padding:10px 20px;font-weight:700}
+    .wrap{width:var(--wrap);margin:auto}
+    .hero{min-height:calc(100dvh - var(--nav-h));display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center;padding:72px 0 64px;background:linear-gradient(120deg,#fff 0 65%,var(--red-wash) 65% 100%)}
+    .hero-copy{padding-left:max(3vw,28px)}
+    .eyebrow{margin:0 0 18px;color:var(--red);font-size:18px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    h1{max-width:1100px;margin:0;font-size:clamp(58px,6.5vw,104px);line-height:.94;letter-spacing:-.052em}h1 span{color:var(--red)}
+    .lede{max-width:870px;margin:30px 0 0;font-size:clamp(22px,2vw,30px);line-height:1.42}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+    .primary,.secondary{min-height:52px;border-radius:1000px;padding:12px 22px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .primary{border:2px solid var(--ink);background:var(--ink);color:#fff}.secondary{border:2px solid var(--ink);background:transparent;color:var(--ink)}
+    .hero-panel{align-self:stretch;background:var(--midnight);color:#fff;padding:54px 42px;display:flex;flex-direction:column;justify-content:center}
+    .hero-panel .kicker{color:#ffc4c7;font-weight:700}.hero-panel strong{display:block;margin:14px 0 24px;font-size:40px;line-height:1.08}.hero-panel p{margin:0;color:#d9d9df}
+    .metric-row{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #42434d;margin-top:34px}.metric{padding:22px 10px 0;border-right:1px solid #42434d}.metric:last-child{border:0}.metric b{display:block;color:#fff;font-size:42px;line-height:1}.metric small{display:block;margin-top:9px;color:#c5c5ca;font-size:17px;line-height:1.25}
+    section{scroll-margin-top:calc(var(--nav-h) + 12px)}
+    .section{padding:90px 0}.section.dark{background:var(--midnight);color:#fff}.section.soft{background:var(--mist)}
+    .section-head{display:grid;grid-template-columns:.55fr 1.45fr;gap:48px;margin-bottom:44px}.section-no{color:var(--red);font-size:20px;font-weight:700}.section h2{margin:0;font-size:clamp(42px,4.5vw,72px);line-height:1;letter-spacing:-.04em}.section-intro{max-width:900px;margin:18px 0 0;font-size:24px;color:var(--ash)}.dark .section-intro{color:#c5c5ca}
+    .mind-shell{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(330px,.5fr);gap:24px;align-items:stretch}
+    .mindmap{position:relative;min-height:720px;background:var(--deck);border:1px solid #3a3b47;overflow:hidden}
+    .mindmap svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.mindmap line{stroke:#6f7079;stroke-width:2}.mindmap line.hot{stroke:var(--red);stroke-width:5}
+    .mind-node{position:absolute;transform:translate(-50%,-50%);width:210px;min-height:82px;border:1px solid #777984;border-radius:0;background:#20212c;color:#fff;padding:13px 14px;text-align:left;transition:background .15s,border-color .15s,transform .15s}
+    .mind-node:hover,.mind-node[aria-pressed="true"]{background:var(--red);border-color:var(--red);transform:translate(-50%,-50%) scale(1.04)}
+    .mind-node.root{left:16%;top:50%;width:235px;border:4px solid var(--red);background:#fff;color:var(--ink)}
+    .mind-node.app{left:43%;top:50%;width:220px;background:var(--red);border-color:var(--red)}
+    .mind-node.cap{left:72%;top:15%}.mind-node.ctx{left:82%;top:38%}.mind-node.org{left:82%;top:65%}.mind-node.init{left:72%;top:87%}
+    .mind-node small{display:block;margin-bottom:5px;color:#c8c8cf;font-size:16px;font-weight:700;text-transform:uppercase}.mind-node.root small{color:var(--red)}.mind-node b{display:block;font-size:19px;line-height:1.18}.mind-node em{display:block;margin-top:5px;color:#d9d9df;font-size:16px;font-style:normal}.mind-node.root em{color:#5a5e65}
+    .detail-panel{background:#fff;color:var(--ink);padding:30px;border-top:8px solid var(--red)}.detail-panel .kind{color:var(--red);font-size:17px;font-weight:700;text-transform:uppercase}.detail-panel h3{margin:8px 0 14px;font-size:32px;line-height:1.1}.detail-panel p{margin:10px 0}.detail-panel code{display:block;margin:18px 0;padding:12px;background:var(--mist);font:16px/1.4 Consolas,monospace;overflow-wrap:anywhere}.detail-panel ul{padding-left:22px}.detail-panel li{margin:8px 0}.copy-id{min-height:46px;border:2px solid var(--ink);border-radius:1000px;background:transparent;padding:8px 16px;font-weight:700}.copy-state{display:block;min-height:28px;margin-top:10px;color:var(--red-ink);font-size:17px}
+    .instruction{margin:18px 0 0;color:#bfc0c7;font-size:18px}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--pebble)}.flow-step{position:relative;padding:30px;border-right:1px solid var(--pebble)}.flow-step:last-child{border:0}.flow-step span{display:block;color:var(--red);font-size:18px;font-weight:700}.flow-step h3{margin:9px 0;font-size:26px}.flow-step p{margin:0;color:#565a61}.flow-step:not(:last-child)::after{content:"›";position:absolute;right:-14px;top:44%;z-index:2;background:#fff;color:var(--red);font-size:38px;line-height:28px}
+    .presenter-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}.cue-card{background:#fff;border-top:7px solid var(--red);padding:30px}.cue-card h3{font-size:30px;margin:0 0 14px}.cue-list{list-style:none;padding:0;margin:0}.cue-list li{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:15px 0;border-top:1px solid var(--pebble)}.cue-list li:first-child{border:0}.key{height:44px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:8px;font-weight:700}.risk{background:var(--red-wash);color:var(--red-ink);padding:30px}.risk h3{font-size:30px;margin:0 0 14px}.risk li{margin:12px 0}
+    .evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.evidence-card{background:#fff;padding:26px;border-top:1px solid var(--pebble)}.evidence-card h3{margin:0 0 14px;font-size:27px}.evidence-card ul{padding-left:22px;margin:0}.evidence-card li{margin:9px 0}.evidence-card.warn{background:var(--red-wash);color:var(--red-ink);border:0}
+    .sourcebar{background:var(--ink);color:#fff;padding:58px 0}.sourcebar h2{font-size:42px;margin:0 0 20px}.sourcebar a{color:#fff}.sourcebar p{max-width:1100px;color:#d5d5da}.source-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.source-list a{min-height:48px;border:1px solid #6c6d74;border-radius:1000px;padding:10px 18px;text-decoration:none}.source-list a:hover{background:var(--red);border-color:var(--red)}
+    .toast{position:fixed;right:22px;bottom:22px;z-index:300;max-width:420px;background:var(--ink);color:#fff;padding:14px 18px;border-left:6px solid var(--red);transform:translateY(160%);transition:transform .2s}.toast.show{transform:none}
+    .stage-mode .nav{display:none}.stage-mode{--nav-h:0px}.stage-mode .hero{min-height:100dvh}.stage-mode .section{min-height:100dvh;display:flex;align-items:center}.stage-mode .section>.wrap{width:var(--wrap)}
+    @media(max-width:1100px){.tabs{overflow-x:auto}.hero{grid-template-columns:1fr;background:#fff}.hero-panel{min-height:520px}.mind-shell,.presenter-grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.flow-step:nth-child(2){border-right:0}.mindmap{min-height:650px}}
+    @media(max-width:720px){:root{--nav-h:66px}.nav-inner{width:calc(100% - 24px)}.brand{font-size:20px}.tabs{display:none}.stage{margin-left:auto;padding-inline:14px}.hero{padding:42px 0 0;gap:36px}.hero-copy{padding:0 20px}.hero-panel{padding:34px 20px}.metric-row{grid-template-columns:repeat(2,1fr)}.section{padding:56px 0}.section-head{grid-template-columns:1fr;gap:8px}.section-intro{font-size:21px}.mindmap{min-height:820px}.mindmap svg{display:none}.mind-node{width:170px}.mind-node.root{left:50%;top:10%;width:230px}.mind-node.app{left:50%;top:27%;width:210px}.mind-node.cap{left:28%;top:48%}.mind-node.ctx{left:72%;top:48%}.mind-node.org{left:28%;top:73%}.mind-node.init{left:72%;top:73%}.flow{grid-template-columns:1fr}.flow-step{border-right:0;border-bottom:1px solid var(--pebble)}.flow-step:not(:last-child)::after{display:none}.evidence-grid{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast,.mind-node{transition:none}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#mindmap">Skip to impact map</a>
+<nav class="nav" aria-label="Brief sections">
+  <div class="nav-inner">
+    <div class="brand">LeanIX<i>.</i> impact trace</div>
+    <div class="tabs">
+      <a class="tab active" href="#overview">Overview</a>
+      <a class="tab" href="#mindmap">Impact map</a>
+      <a class="tab" href="#runbook">Fast demo</a>
+      <a class="tab" href="#evidence">Evidence</a>
+    </div>
+    <button class="stage" id="stageToggle" type="button" aria-pressed="false">Stage mode</button>
+  </div>
+</nav>
+
+<header class="hero" id="overview">
+  <div class="hero-copy">
+    <p class="eyebrow">Executive impact brief · cached LeanIX evidence</p>
+    <h1>One component.<br><span>Fifteen paths.</span></h1>
+    <p class="lede">Salesforce Experience Cloud SaaS Hosting reaches the business through one documented application. The page is prebuilt for stage use, so the relationship story opens instantly without waiting for a live MCP traversal.</p>
+    <div class="hero-actions">
+      <a class="primary" href="#mindmap">Open relationship map</a>
+      <a class="secondary" href="#runbook">See 90-second demo flow</a>
+    </div>
+  </div>
+  <aside class="hero-panel">
+    <span class="kicker">Documented blast radius</span>
+    <strong>1 direct dependency.<br>15 indirect paths.</strong>
+    <p>Click a node to reveal its IDs, relationship semantics, and gaps. No undocumented impact is inferred.</p>
+    <div class="metric-row" aria-label="Impact totals">
+      <div class="metric"><b>1</b><small>Application</small></div>
+      <div class="metric"><b>4</b><small>Capabilities</small></div>
+      <div class="metric"><b>3</b><small>Contexts</small></div>
+      <div class="metric"><b>6</b><small>Organizations</small></div>
+      <div class="metric"><b>2</b><small>Initiatives</small></div>
+    </div>
+  </aside>
+</header>
+
+<section class="section dark" id="mindmap">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">01 · CLICKABLE TRACE</div>
+      <div><h2>Follow the relationship, not the assumption.</h2><p class="section-intro">Select any node. The map highlights the documented route and the panel explains exactly what LeanIX records.</p></div>
+    </div>
+    <div class="mind-shell">
+      <div class="mindmap" role="group" aria-label="Interactive LeanIX relationship map">
+        <svg viewBox="0 0 1000 720" preserveAspectRatio="none" aria-hidden="true">
+          <line id="line-root-app" x1="235" y1="360" x2="430" y2="360" class="hot"/>
+          <line id="line-app-cap" x1="520" y1="360" x2="700" y2="108"/>
+          <line id="line-app-ctx" x1="520" y1="360" x2="810" y2="274"/>
+          <line id="line-app-org" x1="520" y1="360" x2="810" y2="468"/>
+          <line id="line-app-init" x1="520" y1="360" x2="700" y2="626"/>
+        </svg>
+        <button class="mind-node root" data-node="component" style="left:16%;top:50%" aria-pressed="true"><small>IT Component · direct source</small><b>Salesforce Experience Cloud SaaS Hosting</b><em>Click for source record</em></button>
+        <button class="mind-node app" data-node="application" aria-pressed="false"><small>Application · direct</small><b>Salesforce Experience Cloud</b><em>1 relationship</em></button>
+        <button class="mind-node cap" data-node="capabilities" aria-pressed="false"><small>Business Capability · indirect</small><b>Contact Management</b><em>4 paths</em></button>
+        <button class="mind-node ctx" data-node="contexts" aria-pressed="false"><small>Business Context · indirect</small><b>CRM & engagement</b><em>3 paths</em></button>
+        <button class="mind-node org" data-node="organizations" aria-pressed="false"><small>Organization · indirect</small><b>EMEA footprint</b><em>6 paths</em></button>
+        <button class="mind-node init" data-node="initiatives" aria-pressed="false"><small>Initiative · indirect</small><b>Change portfolio</b><em>2 paths</em></button>
+      </div>
+      <aside class="detail-panel" aria-live="polite">
+        <span class="kind" id="detailKind">IT Component · source</span>
+        <h3 id="detailTitle">Salesforce Experience Cloud SaaS Hosting</h3>
+        <p id="detailSummary">SaaS customer-experience platform for portals, communities, self-service, and collaboration.</p>
+        <ul id="detailList"><li>Direct relation to one application.</li><li>No direct initiative mapping.</li></ul>
+        <code id="detailId">6660601e-4efc-41f4-9746-07a73a5a16d2</code>
+        <button class="copy-id" id="copyId" type="button">Copy selected ID</button>
+        <span class="copy-state" id="copyState" role="status"></span>
+      </aside>
+    </div>
+    <p class="instruction">Keyboard: Tab through nodes, Enter or Space to inspect. Press 1–4 to jump between sections; press S to toggle stage mode.</p>
+  </div>
+</section>
+
+<section class="section" id="runbook">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">02 · FAST STAGE FLOW</div>
+      <div><h2>Make the live query optional.</h2><p class="section-intro">Present the cached evidence first. Use LeanIX live only to prove one relationship, then return to this map for the executive story.</p></div>
+    </div>
+    <div class="flow">
+      <article class="flow-step"><span>0:00–0:20</span><h3>State the result</h3><p>“One direct application, fifteen downstream paths.” Start with the conclusion, not the tool call.</p></article>
+      <article class="flow-step"><span>0:20–0:45</span><h3>Click the map</h3><p>Select Application, Capability, Organization, then Initiative. The detail panel carries the evidence.</p></article>
+      <article class="flow-step"><span>0:45–1:10</span><h3>Prove one edge live</h3><p>Open LeanIX and show the IT Component → Application relation. Do not rerun the full analysis on stage.</p></article>
+      <article class="flow-step"><span>1:10–1:30</span><h3>Close on gaps</h3><p>Explain that missing mappings remain visible rather than being filled by AI inference.</p></article>
+    </div>
+    <div class="presenter-grid" style="margin-top:28px">
+      <article class="cue-card">
+        <h3>Presenter shortcuts</h3>
+        <ul class="cue-list">
+          <li><span class="key">1</span><span>Overview and headline result</span></li>
+          <li><span class="key">2</span><span>Clickable relationship map</span></li>
+          <li><span class="key">3</span><span>Fast stage workflow</span></li>
+          <li><span class="key">4</span><span>Evidence and gaps</span></li>
+          <li><span class="key">S</span><span>Toggle distraction-free stage mode</span></li>
+          <li><span class="key">Esc</span><span>Exit stage mode</span></li>
+        </ul>
+      </article>
+      <aside class="risk">
+        <h3>Fallback rule</h3>
+        <ul>
+          <li>If MCP is slow, keep presenting this cached trace.</li>
+          <li>If LeanIX login fails, show IDs and relation semantics here.</li>
+          <li>If time is short, skip the live system and say the evidence was retrieved read-only before the session.</li>
+          <li>Never claim a missing relation as business impact.</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="evidence">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-no">03 · EVIDENCE & GAPS</div>
+      <div><h2>What LeanIX documents.</h2><p class="section-intro">The complete trace is retained inside the interactive map. These are the executive-level relationship semantics and the limits of the evidence.</p></div>
+    </div>
+    <div class="evidence-grid">
+      <article class="evidence-card"><h3>Application dependency</h3><ul><li>Salesforce Experience Cloud</li><li>Technical fit: fully appropriate</li><li>Service level: Gold</li><li>Annual cost: 200,000; workspace currency not returned</li></ul></article>
+      <article class="evidence-card"><h3>Business support</h3><ul><li>Manage Interaction: leading</li><li>Contact Interaction: supports</li><li>Inbound Contact: supports</li><li>Outbound Contact: supports</li></ul></article>
+      <article class="evidence-card"><h3>Organizational footprint</h3><ul><li>DACH: owner</li><li>Benelux, Eastern Europe, Middle East, Nordics, UKI: users</li><li>User counts: not recorded</li></ul></article>
+      <article class="evidence-card"><h3>Change portfolio</h3><ul><li>HubSpot data interface: interface change</li><li>Application Rationalisation Wave 2: impact type not recorded</li><li>No direct IT Component → Initiative relationship</li></ul></article>
+      <article class="evidence-card warn"><h3>Mapping gaps</h3><ul><li>No responsible-team mapping on the application</li><li>Capability functional fit is not recorded</li><li>Organization functional fit and user counts are not recorded</li><li>No direct IT Component mappings to capability, context, or organization exist in the retrieved meta model</li></ul></article>
+      <article class="evidence-card"><h3>Relationship rule</h3><ul><li>Direct: one LeanIX edge from the component</li><li>Indirect: component → application → target</li><li>Null or empty: shown as “not recorded”</li><li>No semantic-search candidate was promoted to evidence</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<footer class="sourcebar">
+  <div class="wrap">
+    <h2>Traceable, read-only, portable.</h2>
+    <p>Every selected item shows exact LeanIX Fact Sheet IDs. The MCP responses did not return canonical per-Fact-Sheet URLs, so this page links only to verified LeanIX sources rather than manufacturing deep links.</p>
+    <div class="source-list">
+      <a href="https://sg.leanix.net" target="_blank" rel="noopener">LeanIX workspace gateway</a>
+      <a href="https://help.sap.com/docs/leanix/ea/retrieving-fact-sheets" target="_blank" rel="noopener">SAP retrieval documentation</a>
+      <a href="https://sg.leanix.net/services/mcp-server/v1/mcp" target="_blank" rel="noopener">MCP endpoint used</a>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  document.documentElement.className='js';
+  const nodes={
+    component:{kind:'IT Component · direct source',title:'Salesforce Experience Cloud SaaS Hosting',summary:'SaaS customer-experience platform for portals, communities, self-service, and collaboration.',id:'6660601e-4efc-41f4-9746-07a73a5a16d2',items:['Direct relation to one application.','No direct initiative relation was returned.'],lines:['line-root-app']},
+    application:{kind:'Application · direct',title:'Salesforce Experience Cloud',summary:'The only documented application dependency and the bridge to every downstream business object.',id:'8714234a-8bd6-4a4e-86e5-d272b9171981',items:['Technical fit: fully appropriate.','Service level: Gold.','Annual cost: 200,000; currency not returned.'],lines:['line-root-app']},
+    capabilities:{kind:'Business Capability · 4 indirect paths',title:'Contact Management capabilities',summary:'All four paths run through Salesforce Experience Cloud.',id:'fb9ebe77-c704-4040-8c30-e720aea26594',items:['Manage Interaction: leading · fb9ebe77-c704-4040-8c30-e720aea26594','Contact Interaction: supports · a55a9aa0-1117-4055-a6d1-469c79279bb0','Inbound Contact: supports · 035c802a-d19a-4df7-8234-20a13bf49a87','Outbound Contact: supports · d9b6b1c6-09fb-4d89-8f21-7c7bf6f2df6f'],lines:['line-root-app','line-app-cap']},
+    contexts:{kind:'Business Context · 3 indirect paths',title:'CRM and customer engagement',summary:'Three documented contexts are reached through the application.',id:'b2ee060a-2e23-4c4e-b83d-98c9c9a35131',items:['Customer Feedback and Surveys · b2ee060a-2e23-4c4e-b83d-98c9c9a35131','Customer Support and Service · e98b3aa3-0790-4bb5-8ea2-9178c3b39f1b','Customer Engagement · a98b82b0-ad02-4806-8469-13b9ae7b5ea3'],lines:['line-root-app','line-app-ctx']},
+    organizations:{kind:'Organization · 6 indirect paths',title:'EMEA organizational footprint',summary:'DACH is the recorded owner. Five other organizations are recorded as users.',id:'a69b4d26-bbf3-4b54-a072-796f719e1804',items:['DACH: owner · a69b4d26-bbf3-4b54-a072-796f719e1804','Benelux: user · 3bcbfb3c-fa4e-4271-9404-7c1846e9add6','Eastern Europe: user · 32950a78-1030-43d8-9684-6e15bd5e1159','Middle East: user · ce95329e-c7c9-4360-b9cd-e63413a3cfee','Nordics: user · 45f9860e-65a9-405e-a237-b79b7e157ca8','UKI: user · efe8f152-d9a7-49ec-a41c-51e6e36fa881'],lines:['line-root-app','line-app-org']},
+    initiatives:{kind:'Initiative · 2 indirect paths',title:'Documented change portfolio',summary:'Both initiatives affect the application. Neither has a direct relation to the IT component.',id:'7e833a7a-6bcf-4cb6-a4c3-63f6c7e8d2c9',items:['HubSpot data interface: interface change · 7e833a7a-6bcf-4cb6-a4c3-63f6c7e8d2c9','Application Rationalisation Wave 2: impact type not recorded · 48aec133-bd22-4035-83d2-46407baf414c'],lines:['line-root-app','line-app-init']}
+  };
+  const buttons=[...document.querySelectorAll('.mind-node')];
+  const detailKind=document.getElementById('detailKind'),detailTitle=document.getElementById('detailTitle'),detailSummary=document.getElementById('detailSummary'),detailList=document.getElementById('detailList'),detailId=document.getElementById('detailId'),copyState=document.getElementById('copyState'),toast=document.getElementById('toast');
+  let selected='component';
+  function selectNode(key){
+    const data=nodes[key];if(!data)return;selected=key;
+    buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.node===key)));
+    document.querySelectorAll('.mindmap line').forEach(line=>line.classList.toggle('hot',data.lines.includes(line.id)));
+    detailKind.textContent=data.kind;detailTitle.textContent=data.title;detailSummary.textContent=data.summary;detailId.textContent=data.id;
+    detailList.replaceChildren(...data.items.map(item=>{const li=document.createElement('li');li.textContent=item;return li}));
+    copyState.textContent='';
+  }
+  buttons.forEach(button=>button.addEventListener('click',()=>selectNode(button.dataset.node)));
+  document.getElementById('copyId').addEventListener('click',async()=>{
+    const value=nodes[selected].id;
+    try{await navigator.clipboard.writeText(value);copyState.textContent='ID copied.'}catch(_error){copyState.textContent='Copy unavailable. Select the ID above.'}
+  });
+  const sections=['overview','mindmap','runbook','evidence'];
+  function jump(index){document.getElementById(sections[index])?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+  const stageToggle=document.getElementById('stageToggle');
+  function setStage(on){document.body.classList.toggle('stage-mode',on);stageToggle.setAttribute('aria-pressed',String(on));stageToggle.textContent=on?'Exit stage':'Stage mode';toast.textContent=on?'Stage mode on · keys 1–4 navigate · Esc exits':'Stage mode off';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+  stageToggle.addEventListener('click',()=>setStage(!document.body.classList.contains('stage-mode')));
+  document.addEventListener('keydown',event=>{
+    if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+    if(event.key>='1'&&event.key<='4'){event.preventDefault();jump(Number(event.key)-1)}
+    if(event.key.toLowerCase()==='s'){event.preventDefault();setStage(!document.body.classList.contains('stage-mode'))}
+    if(event.key==='Escape'&&document.body.classList.contains('stage-mode'))setStage(false);
+  });
+  const tabs=[...document.querySelectorAll('.tab')];
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)tabs.forEach(tab=>tab.classList.toggle('active',tab.getAttribute('href')==='#'+entry.target.id))}),{rootMargin:'-35% 0px -55%'});
+  sections.forEach(id=>observer.observe(document.getElementById(id)));
+</script>
+</body>
+</html>
