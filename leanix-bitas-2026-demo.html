@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LeanIX EA Demo · BITAS 2026</title>
+<link rel="icon" type="image/jpeg" href="assets/atd-logo.jpg" />
 <!--
   ★ PLACEHOLDER SWAP GUIDE — drop in real LeanIX captures into these slots:
 
@@ -360,6 +361,39 @@
   .lb-count{position:absolute;top:26px;left:28px;z-index:2;color:#fff;font-size:var(--text-caption);letter-spacing:.12em;opacity:.85;}
   @media(max-width:640px){.lb-prev{left:8px}.lb-next{right:8px}.lb-close{top:12px;right:12px}.lb-count{top:16px;left:14px}}
 
+  /* Opening cover: white keeps the supplied logos intact; red marks the start action. */
+  html.intro-open,html.intro-open body{overflow:hidden;}
+  .demo-intro{
+    position:fixed;inset:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;
+    margin:0;border:0;padding:clamp(24px,4vh,64px) clamp(24px,5vw,96px);
+    background:var(--color-pure-white);color:var(--color-deep-ink);overflow:auto;overscroll-behavior:contain;
+  }
+  .demo-intro[open]{display:flex;flex-direction:column;}
+  .demo-intro::backdrop{background:transparent;}
+  .intro-content{width:100%;max-width:1280px;margin:auto;text-align:center;}
+  .intro-event{margin:0 0 24px;font-size:var(--text-body);font-weight:var(--weight-medium);}
+  .intro-title{margin:0 auto;max-width:22ch;font-size:clamp(2.25rem,4.5vw,5.5rem);font-weight:700;line-height:1.06;letter-spacing:-.04em;text-wrap:balance;}
+  .intro-title span{display:block;}
+  .intro-sponsors{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:32px clamp(40px,5vw,80px);margin:clamp(32px,5vh,64px) 0;}
+  .intro-sponsors img{display:block;max-width:100%;height:auto;object-fit:contain;}
+  .intro-sponsors .sponsor-iasa{width:clamp(240px,24vw,360px);}
+  .intro-sponsors .sponsor-atd{width:clamp(96px,10vw,140px);}
+  .intro-sponsors .sponsor-sap{width:clamp(160px,16vw,220px);}
+  .intro-start{justify-content:center;min-height:60px;min-width:190px;border:0;cursor:pointer;font-family:inherit;background:var(--color-accent);}
+  .intro-start:hover{background:var(--color-red-ink);}
+  .intro-start:active{background:var(--color-deep-ink);}
+  .intro-start:focus-visible{outline:3px solid var(--color-deep-ink);outline-offset:6px;}
+  html.intro-open .hero .eyebrow,html.intro-open .hero .display,
+  html.intro-open .hero .sub,html.intro-open .hero .actions,
+  html.intro-open .hero-bg::after{animation-play-state:paused;}
+  @media(max-width:600px){
+    .intro-event{margin-bottom:20px;}
+    .intro-sponsors{gap:24px 36px;margin:28px 0;}
+    .intro-sponsors .sponsor-iasa{width:240px;margin-inline:calc((100% - 240px)/2);}
+    .intro-sponsors .sponsor-atd{width:88px;}
+    .intro-sponsors .sponsor-sap{width:152px;}
+  }
+
   /* respect reduced motion */
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
@@ -367,6 +401,24 @@
 </style>
 </head>
 <body>
+
+<dialog id="demoIntro" class="demo-intro" aria-labelledby="introTitle">
+  <div class="intro-content">
+    <p class="intro-event">BITAS 2026</p>
+    <h2 id="introTitle" class="intro-title"><span>LeanIX: AI Powered EA Tools</span>Demo</h2>
+    <div class="intro-sponsors" role="group" aria-label="Sponsors">
+      <img class="sponsor-iasa" src="assets/iasa.png" width="2484" height="803" alt="IASA, The Business Technology Architect Association" />
+      <img class="sponsor-atd" src="assets/atd-logo.jpg" width="956" height="958" alt="ATD Solution" />
+      <img class="sponsor-sap" src="assets/sap-logo.jpg" width="635" height="314" alt="SAP" />
+    </div>
+    <button id="startDemo" class="pill-btn intro-start" type="button" autofocus>Start Demo</button>
+  </div>
+</dialog>
+<script>
+  const demoIntro = document.getElementById('demoIntro');
+  document.documentElement.classList.add('intro-open');
+  demoIntro.showModal();
+</script>
 
 <!-- ============ Sticky stepper ============ -->
 <div class="stepper">
@@ -712,6 +764,34 @@
 
 <script>
   document.documentElement.classList.add('js');
+
+  let introClosing = false;
+  async function startDemo(){
+    if(introClosing) return;
+    introClosing = true;
+    document.getElementById('startDemo').setAttribute('aria-disabled','true');
+    window.scrollTo({top:0,behavior:'instant'});
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const exit = demoIntro.animate([
+        {opacity:1,transform:'translateY(0)'},
+        {opacity:0,transform:'translateY(-48px)'}
+      ],{duration:550,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+      await exit.finished.catch(()=>{});
+    }
+    demoIntro.close();
+    demoIntro.remove();
+    document.documentElement.classList.remove('intro-open');
+    window.scrollTo({top:0,behavior:'instant'});
+    const heading = document.querySelector('#hero h1');
+    heading.setAttribute('tabindex','-1');
+    heading.focus({preventScroll:true});
+  }
+  document.getElementById('startDemo').addEventListener('click',startDemo);
+  demoIntro.addEventListener('cancel',event=>{
+    event.preventDefault();
+    startDemo();
+  });
+
   // ---- Sticky stepper scroll-spy + click-to-jump ----
   const steps = document.querySelectorAll('.stepper .step');
   const targets = {};

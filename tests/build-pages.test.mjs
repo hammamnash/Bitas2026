@@ -3,6 +3,21 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, 
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
+import { Parser } from 'htmlparser2';
+
+test('deck uses the ATD logo as its favicon', () => {
+  const icons = [];
+  const parser = new Parser({
+    onopentag(name, attributes) {
+      if (name === 'link' && attributes.rel?.split(/\s+/).includes('icon')) icons.push(attributes);
+    },
+  });
+  parser.end(readFileSync(new URL('../leanix-bitas-2026-demo.html', import.meta.url), 'utf8'));
+  assert.equal(icons.length, 1, 'The deck must declare one favicon');
+  assert.equal(icons[0].href, 'assets/atd-logo.jpg');
+  assert.equal(icons[0].type, 'image/jpeg');
+  assert.ok(existsSync(new URL('../assets/atd-logo.jpg', import.meta.url)));
+});
 
 const script = new URL('../scripts/build-pages.mjs', import.meta.url);
 

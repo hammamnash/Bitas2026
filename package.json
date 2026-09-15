@@ -9,6 +9,7 @@
   "scripts": {
     "build": "node scripts/build-pages.mjs",
     "test": "node --test tests/build-pages.test.mjs",
+    "test:browser": "node --test tests/intro.browser.test.mjs",
     "dev": "npm run build && sirv public --host 127.0.0.1 --port 8123 --dev"
   },
   "devDependencies": {

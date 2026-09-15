@@ -33,6 +33,18 @@ Open `http://127.0.0.1:8123/`. This builds once and serves only `public/`. After
 
 The preview binds to localhost by default. Existing `HOST` or `PORT` environment variables override the preview server's flags; unset them if the server reports a different address.
 
+## Opening cover browser tests
+
+The opening cover appears on every load. Start Demo (or Escape) fades and slides it away, then focuses the existing hero. Reduced-motion preferences skip the transition. Without JavaScript, the deck remains directly accessible.
+
+Run `npm run dev`, then launch a separate test-only Chrome instance (Git Bash on Windows):
+
+```bash
+'C:/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-first-run --remote-debugging-address=127.0.0.1 --remote-debugging-port=9237 --user-data-dir="$LOCALAPPDATA/Temp/bitas-intro-cdp-9237" about:blank
+```
+
+In another terminal, run `npm run test:browser`. The suite uses Node's built-in WebSocket and Chrome DevTools Protocol, with no additional dependencies. `CDP_URL` and `DEMO_URL` can override the defaults `http://127.0.0.1:9237` and `http://127.0.0.1:8123/`. Use a dedicated browser profile: the tests navigate its first page and change its emulation settings. Stop the test browser when finished.
+
 ## Cloudflare Pages (Git integration)
 
 Connect the GitHub repository in Workers & Pages, selecting **Pages**, then use:
