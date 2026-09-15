@@ -361,16 +361,22 @@
   .lb-count{position:absolute;top:26px;left:28px;z-index:2;color:#fff;font-size:var(--text-caption);letter-spacing:.12em;opacity:.85;}
   @media(max-width:640px){.lb-prev{left:8px}.lb-next{right:8px}.lb-close{top:12px;right:12px}.lb-count{top:16px;left:14px}}
 
-  /* Opening cover: white keeps the supplied logos intact; red marks the start action. */
+  /* Hero palette connects the cover to the deck; red edge arcs frame a white sponsor area. */
   html.intro-open,html.intro-open body{overflow:hidden;}
   .demo-intro{
     position:fixed;inset:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;
     margin:0;border:0;padding:clamp(24px,4vh,64px) clamp(24px,5vw,96px);
-    background:var(--color-pure-white);color:var(--color-deep-ink);overflow:auto;overscroll-behavior:contain;
+    background:radial-gradient(ellipse at 50% 60%,#fff 0%,#fff 32%,rgba(255,255,255,.45) 68%,transparent 100%),
+      linear-gradient(180deg,#e9f2f8 0%,#f7f4ef 55%,#ffffff 100%);
+    color:var(--color-deep-ink);overflow:auto;overscroll-behavior:contain;isolation:isolate;
   }
   .demo-intro[open]{display:flex;flex-direction:column;}
   .demo-intro::backdrop{background:transparent;}
-  .intro-content{width:100%;max-width:1280px;margin:auto;text-align:center;}
+  .intro-art{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+  .intro-art::before,.intro-art::after{content:"";position:absolute;aspect-ratio:1;border-radius:50%;}
+  .intro-art::before{width:clamp(420px,64vw,1100px);right:-28%;top:-52%;border:clamp(32px,4vw,72px) solid rgba(210,33,41,.12);}
+  .intro-art::after{width:clamp(480px,70vw,1280px);left:-30%;bottom:-76%;border:2px solid rgba(210,33,41,.28);}
+  .intro-content{position:relative;z-index:1;width:100%;max-width:1280px;margin:auto;text-align:center;}
   .intro-event{margin:0 0 24px;font-size:var(--text-body);font-weight:var(--weight-medium);}
   .intro-title{margin:0 auto;max-width:22ch;font-size:clamp(2.25rem,4.5vw,5.5rem);font-weight:700;line-height:1.06;letter-spacing:-.04em;text-wrap:balance;}
   .intro-title span{display:block;}
@@ -387,6 +393,8 @@
   html.intro-open .hero .sub,html.intro-open .hero .actions,
   html.intro-open .hero-bg::after{animation-play-state:paused;}
   @media(max-width:600px){
+    .intro-art::before{width:420px;right:-300px;top:-220px;border-width:32px;}
+    .intro-art::after{width:480px;left:-300px;bottom:-300px;}
     .intro-event{margin-bottom:20px;}
     .intro-sponsors{gap:24px 36px;margin:28px 0;}
     .intro-sponsors .sponsor-iasa{width:240px;margin-inline:calc((100% - 240px)/2);}
@@ -403,6 +411,7 @@
 <body>
 
 <dialog id="demoIntro" class="demo-intro" aria-labelledby="introTitle">
+  <div class="intro-art" aria-hidden="true"></div>
   <div class="intro-content">
     <p class="intro-event">BITAS 2026</p>
     <h2 id="introTitle" class="intro-title"><span>LeanIX: AI Powered EA Tools</span>Demo</h2>

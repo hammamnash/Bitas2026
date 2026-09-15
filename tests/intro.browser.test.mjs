@@ -19,7 +19,7 @@ test('opening cover', { timeout: 60000 }, async t => {
       const rect = intro.getBoundingClientRect();
       return {
         modal: intro.matches(':modal'),
-        title: document.querySelector('#introTitle').textContent.replace(/\\s+/g, ' ').trim(),
+        title: document.querySelector('#introTitle').innerText.replace(/\\s+/g, ' ').trim(),
         size: [rect.x, rect.y, rect.width, rect.height],
         images: [...intro.querySelectorAll('img')].map(img => ({src:img.getAttribute('src'), loaded:img.complete && img.naturalWidth > 0})),
         focus: document.activeElement.id,
@@ -29,12 +29,35 @@ test('opening cover', { timeout: 60000 }, async t => {
     })()`);
     assert.ok(state, 'Opening cover is missing');
     assert.equal(state.modal, true);
-    assert.equal(state.title, 'SAP LeanIX: AI Powered EA Tools Demo');
+    assert.equal(state.title, 'LeanIX: AI Powered EA Tools Demo');
     assert.deepEqual(state.size, [0, 0, 1920, 1080]);
     assert.deepEqual(state.images, ['iasa.png', 'atd-logo.jpg', 'sap-logo.jpg'].map(name => ({src:`assets/${name}`,loaded:true})));
     assert.equal(state.focus, 'startDemo');
     assert.equal(state.overflow, 'hidden');
     assert.equal(state.heroAnimation, 'paused');
+  });
+
+  await t.test('cover carries the hero palette with non-interactive red edge shapes', async () => {
+    const style = await evaluate(`(() => {
+      const intro = document.querySelector('#demoIntro');
+      const art = intro.querySelector('.intro-art');
+      if (!art) return null;
+      return {
+        hidden:art.getAttribute('aria-hidden'),
+        pointer:getComputedStyle(art).pointerEvents,
+        background:getComputedStyle(intro).backgroundImage,
+        arcs:['::before','::after'].map(pseudo => {
+          const css = getComputedStyle(art,pseudo);
+          return {content:css.content,border:css.borderTopWidth,color:css.borderTopColor};
+        })
+      };
+    })()`);
+    assert.ok(style, 'Cover artwork is missing');
+    assert.equal(style.hidden, 'true');
+    assert.equal(style.pointer, 'none');
+    assert.ok(style.background.includes('rgb(233, 242, 248)'));
+    assert.ok(style.background.includes('rgb(247, 244, 239)'));
+    assert.ok(style.arcs.every(arc => arc.content !== 'none' && parseFloat(arc.border) > 0 && arc.color.includes('210, 33, 41')));
   });
 
   await t.test('Start Demo fades and slides the cover away, then focuses the unchanged hero', async () => {
