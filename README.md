@@ -23,6 +23,22 @@ The generator is intentionally scoped to the current single-file deck. CSS asset
 
 `htmlparser2` reads actual HTML attributes, skipping comments and script contents. `sirv-cli` serves the generated folder locally. Dependency versions are recorded in `package-lock.json`; tests use Node's built-in test runner.
 
+## Visualization screenshots
+
+Section 04 groups Fact Sheets, Diagrams, Portal, and Dashboards & Reports. All three former placeholders now reference supplied screenshots:
+
+| File under `assets/` | Content |
+|---|---|
+| `fact-sheet-detail.jpg` | Application Fact Sheet with Sourcing expanded: technical fit and linked IT components. |
+| `fact-sheet-changes.jpg` | BPOS Fact Sheet change history with events, old/new values, users, and timestamps. This is a different application from the detail screenshot. |
+| `reports.jpg` | All Reports catalog with previews, search, and filters; not an individual report. |
+
+Each image is clickable to enlarge. The existing `fact-history.jpg` in Governance remains unchanged.
+
+The build copies only actual `src`/`href`/`poster` references, so adding files alone does not publish them. When adding or replacing screenshots, wire their exact paths into the source HTML, keep captions accurate, run `npm test` and `npm run build`, then refresh. Include referenced assets when committing for deployment and review screenshots for sensitive information before publishing.
+
+Existing views use `diagram.jpg`, `diagram-history.jpg`, `portal.jpg`, and `dashboard.jpg`. `eol-dashboard.jpg` is retained in the expandable Technology Lifecycle example and is correctly labeled as a report, despite its filename.
+
 ## Local preview
 
 ```bash
@@ -33,7 +49,13 @@ Open `http://127.0.0.1:8123/`. This builds once and serves only `public/`. After
 
 The preview binds to localhost by default. Existing `HOST` or `PORT` environment variables override the preview server's flags; unset them if the server reports a different address.
 
-## Opening cover browser tests
+## Presentation navigation and materials
+
+The persistent **Next: [topic]** button advances through explicit `data-demo-stop` markers. It stops at each chapter introduction and subsection, skips headings sharing the same desktop row, and recalculates after manual scrolling. Targets clear the sticky navigation. The prompt workbench starts collapsed; clicking its summary or advancing to that stop opens it. Supporting integration paths are permanently visible.
+
+After the closing topics, **Continue: Demo materials** opens a full-screen QR overlay. Close materials or Escape returns to the same place. The supplied `assets/demoresource.png` encodes **https://bitas.hammamnash.site/**; the visible link uses that same destination. The original QR image and its white scanning margin are preserved. Include this asset when committing for deployment.
+
+## Browser tests
 
 The opening cover appears on every load. Start Demo (or Escape) fades and slides it away, then focuses the existing hero. Reduced-motion preferences skip the transition. Without JavaScript, the deck remains directly accessible.
 

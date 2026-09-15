@@ -165,8 +165,7 @@ test('opening cover', { timeout: 60000 }, async t => {
     await browser.key('Escape', 'Escape', 27);
     assert.equal(await evaluate(`document.querySelector('.lightbox').classList.contains('open')`), false);
     await until(`getComputedStyle(document.querySelector('.lightbox')).visibility === 'hidden'`);
-    await browser.click('#s5 > .wrap > details > summary');
-    await until(`document.querySelector('#intToggle').closest('details').open`);
+    assert.equal(await evaluate(`document.querySelector('#intToggle').closest('details')`), null);
     await browser.click('[data-panel="panelRest"]');
     assert.equal(await evaluate(`document.querySelector('#panelRest').hidden`), false);
   });

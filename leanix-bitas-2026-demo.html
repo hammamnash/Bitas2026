@@ -191,10 +191,38 @@
   .capture-frame .cap-name{font-weight:var(--weight-bold);font-size:var(--text-heading-sm);color:var(--color-deep-ink);}
   .capture-card figcaption{padding:var(--sp-16) var(--sp-20);font-size:var(--text-body);color:var(--color-cool-ash);}
   .capture-card figcaption b{color:var(--color-deep-ink);font-weight:var(--weight-bold);display:block;margin-bottom:var(--sp-4);}
-  /* AI gallery (three captures in one card) */
-  .ai-gallery{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);background:var(--color-mist-gray);}
-  .ai-gallery img{display:block;width:100%;height:auto;}
-  .ai-gallery img:first-child{grid-column:1/-1;}
+  /* Named view groups keep the screenshot sequence readable during the live demo. */
+  #s4 .viz-group{margin-top:var(--sp-64);}
+  #s4 .viz-group .h3{margin:0;}
+  #s4 .viz-description{max-width:72ch;margin:var(--sp-16) 0 var(--sp-24);font-size:var(--text-body-lg);color:#50545a;}
+  #s4 .grid2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  #s4 .viz-placeholder{min-height:320px;align-items:flex-start;text-align:left;background:var(--color-mist-gray);}
+  #s4 .viz-placeholder .cap-tag{color:var(--color-red-ink);letter-spacing:.04em;}
+  #s4 .viz-placeholder .cap-name{font-size:var(--text-subheading);}
+  #s4 .viz-placeholder code{font-family:inherit;font-size:var(--text-body);font-weight:var(--weight-medium);overflow-wrap:anywhere;}
+  #s4 .viz-placeholder p{margin:var(--sp-8) 0 0;color:#50545a;font-size:var(--text-body);}
+  #s4 .capture-card figcaption,#s4 .acc-body{color:#50545a;}
+  #s4 .capture-card:has(.viz-placeholder)::after{display:none;}
+  #s4 .viz-report-example{margin-top:var(--sp-24);}
+  #s4 summary:focus-visible{outline:3px solid var(--color-accent);outline-offset:-5px;}
+  @media(max-width:900px){#s4 .grid2{grid-template-columns:minmax(0,1fr);}}
+  @media(max-width:600px){
+    #s4 .viz-group{margin-top:var(--sp-40);}
+    #s4 .viz-placeholder{min-height:0;padding:var(--sp-20);}
+  }
+
+  .ai-jobs-title{margin-top:var(--sp-40);}
+  .ai-job{margin-top:var(--sp-64);}
+  .ai-job-layout{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);}
+  .ai-job h3{margin:0;}
+  .ai-job-description{margin:var(--sp-16) 0 0;font-size:var(--text-body-lg);color:#a6a6ad;}
+  .ai-job .capture-card figcaption{color:#50545a;}
+  .ai-job .prompt-box,.ai-job .ai-proof{margin-top:var(--sp-24);}
+  #s5 .prompt-chip,#s5 .toggle-switch button{min-height:44px;}
+  #s5 summary:focus-visible{outline:3px solid var(--color-pure-white);outline-offset:-5px;}
+  #s5 button:focus-visible,#s5 textarea:focus-visible{outline:3px solid var(--color-pure-white);outline-offset:4px;}
+  @media(max-width:900px){.ai-job-layout{grid-template-columns:minmax(0,1fr);}}
+  @media(max-width:600px){.ai-job{margin-top:var(--sp-40);}}
 
   /* ============ Feature / list ============ */
   .features{list-style:none;padding:0;margin:var(--sp-24) 0 0;display:grid;gap:var(--sp-16);}
@@ -239,6 +267,8 @@
 
   /* ============ Live-demo prompt workbench (dark band) ============ */
   .prompt-box{background:rgba(255,255,255,0.04);border:1px solid var(--color-pebble);border-radius:var(--radius-inputs);padding:var(--sp-16);margin-top:var(--sp-16);}
+  .prompt-disclosure{margin-top:var(--sp-24);}
+  .prompt-disclosure .prompt-box{margin:0 var(--sp-16) var(--sp-16);}
   .prompt-chips{display:flex;flex-wrap:wrap;gap:var(--sp-8);margin-bottom:var(--sp-12);}
   .prompt-chip{border:1px solid var(--color-pebble);border-radius:var(--radius-buttons);background:rgba(255,255,255,0.04);padding:var(--sp-8) var(--sp-16);font-size:var(--text-body);cursor:pointer;color:var(--color-pure-white);transition:background .15s,border-color .15s;}
   .prompt-chip:hover,.prompt-chip.active{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-pure-white);}
@@ -326,25 +356,25 @@
   /* red scroll-progress line under the sticky stepper */
   .stepper::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:var(--progress,0%);background:var(--color-accent);transition:width .12s linear;}
 
-  /* in-section scroll button — appears only on slides taller than one screen */
+  /* Topic navigation sits below the chapter bar; destinations clear both controls. */
   .sec-next{
     position:fixed;right:var(--sp-24);top:calc(var(--stepper-height,72px) + var(--sp-16));z-index:40;
-    display:none;align-items:center;gap:10px;padding:12px 22px;
+    display:inline-flex;align-items:center;padding:12px 22px;min-height:48px;
+    max-width:calc(100vw - 48px);white-space:normal;text-align:left;
     background:var(--color-deep-ink);color:var(--color-pure-white);
-    border:0;border-radius:var(--radius-buttons);
-    font-weight:var(--weight-bold);font-size:var(--text-caption);letter-spacing:.08em;text-transform:uppercase;
-    cursor:pointer;box-shadow:0 10px 30px rgba(0,13,16,.22);
+    border:1px solid var(--color-pure-white);border-radius:var(--radius-buttons);
+    font-family:inherit;font-weight:var(--weight-bold);font-size:var(--text-caption);
+    cursor:pointer;
     transition:background .15s ease;
   }
-  .sec-next .chev{font-size:16px;line-height:1;color:var(--color-accent);}
+  .sec-next[hidden]{display:none;}
   .sec-next:hover{background:#1c2025;}
-  .sec-next.show{display:inline-flex;animation:secBounce 2.4s ease-in-out infinite;}
-  @keyframes secBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
-  @media(max-width:760px){.sec-next.show{display:none;}}
+  .sec-next:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;}
+  @media(max-width:760px){.sec-next{right:12px;max-width:calc(100vw - 24px);padding:10px 16px;}}
 
   /* ============ Lightbox — click any capture to enlarge (presentation zoom) ============ */
   .capture-card{position:relative;}
-  .capture-card img,.ai-gallery img{cursor:zoom-in;}
+  .capture-card img{cursor:zoom-in;}
   .capture-card::after{content:"\2922";position:absolute;top:12px;right:12px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(0,13,16,.6);color:#fff;border-radius:100%;font-size:15px;opacity:0;transition:opacity .18s ease;pointer-events:none;z-index:2;}
   .capture-card:hover::after{opacity:1;}
   .lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:6vh 4vw;background:rgba(0,13,16,.92);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;}
@@ -400,6 +430,31 @@
     .intro-sponsors .sponsor-iasa{width:240px;margin-inline:calc((100% - 240px)/2);}
     .intro-sponsors .sponsor-atd{width:88px;}
     .intro-sponsors .sponsor-sap{width:152px;}
+  }
+
+  html.materials-open,html.materials-open body{overflow:hidden;}
+  .materials-dialog{
+    position:fixed;inset:0;margin:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;
+    border:0;padding:clamp(24px,4vw,64px);background:var(--color-pure-white);color:var(--color-deep-ink);
+    overflow:auto;overscroll-behavior:contain;
+  }
+  .materials-dialog[open]{display:flex;flex-direction:column;gap:var(--sp-24);}
+  .materials-dialog::backdrop{background:var(--color-deep-ink);}
+  .materials-close{
+    align-self:flex-end;flex-shrink:0;min-height:48px;padding:10px 24px;border:1px solid var(--color-deep-ink);
+    border-radius:var(--radius-buttons);background:var(--color-pure-white);color:var(--color-deep-ink);font:inherit;cursor:pointer;
+  }
+  .materials-close:hover{background:var(--color-deep-ink);color:var(--color-pure-white);}
+  .materials-content{width:100%;max-width:1280px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center;gap:clamp(32px,5vw,80px);}
+  .materials-qr{display:block;width:444px;max-width:100%;height:auto;justify-self:center;image-rendering:pixelated;}
+  .materials-copy{min-width:0;}
+  .materials-title{font-size:clamp(2rem,4vw,4.5rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 24px;}
+  .materials-copy p{font-size:clamp(20px,1.7vw,28px);margin:0 0 24px;}
+  .materials-link{display:inline-block;padding:8px 0;min-height:44px;color:var(--color-accent);font-size:clamp(20px,2vw,32px);font-weight:700;overflow-wrap:anywhere;text-underline-offset:6px;}
+  .materials-dialog :focus-visible{outline:3px solid var(--color-accent);outline-offset:4px;}
+  @media(max-width:760px){
+    .materials-content{grid-template-columns:minmax(0,1fr);gap:24px;}
+    .materials-qr{width:296px;}
   }
 
   /* respect reduced motion */
@@ -474,7 +529,7 @@
 </section>
 
 <!-- ============ S1 EA Shift ============ -->
-<section id="s1" class="alt" data-num="01">
+<section id="s1" class="alt" data-num="01" data-demo-stop="EA Shift">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">01</span>
@@ -487,7 +542,7 @@
     <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA connects business capabilities, applications, technology, ownership, and initiatives so we can trace the impact behind our opening question.</p>
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
-        <div class="h3">The three core layers</div>
+        <div class="h3" data-demo-stop="The three core layers">The three core layers</div>
         <ul class="features">
           <li><strong>Business</strong><small>Business Capabilities, Organization, Business Context</small></li>
           <li><strong>Application</strong><small>Applications, Interfaces, Data Objects</small></li>
@@ -496,7 +551,7 @@
         </ul>
       </div>
       <div>
-        <div class="h3">EA = (Solution Architect + Business Architect) + Strategic</div>
+        <div class="h3" data-demo-stop="EA: architecture and strategy">EA = (Solution Architect + Business Architect) + Strategic</div>
         <p class="body-lg muted" style="margin-top:var(--sp-16)">Think of a tower. Every floor, or domain, must connect to build something taller. EA is the steel frame that links them, with a strategic layer guiding the ascent.</p>
       </div>
     </div>
@@ -509,7 +564,7 @@
 </section>
 
 <!-- ============ S2 Overview ============ -->
-<section id="s2" data-num="02">
+<section id="s2" data-num="02" data-demo-stop="Overview">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">02</span>
@@ -523,7 +578,7 @@
 
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
-        <div class="h3">The SAP EA Approach &amp; Fact Sheet types</div>
+        <div class="h3" data-demo-stop="EA approach &amp; Fact Sheet types">The SAP EA Approach &amp; Fact Sheet types</div>
         <p class="body-lg muted" style="margin-top:var(--sp-16)">12 default fact-sheet types connect three conceptual architecture layers, with Strategy &amp; Transformation spanning them. The prescriptive starting point is configurable when the organization needs it.</p>
         <figure class="capture-card reveal" style="margin-top:var(--sp-24)">
           <img src="assets/metamodel.jpg" alt="LeanIX meta model — fact-sheet types across the 4 layers" />
@@ -531,7 +586,7 @@
         </figure>
       </div>
       <div>
-        <div class="h3">Out-of-the-box views</div>
+        <div class="h3" data-demo-stop="Out-of-the-box views">Out-of-the-box views</div>
         <ul class="features">
           <li><strong>Business Capability Map</strong><small>how capabilities are supported by applications</small></li>
           <li><strong>TIME / Application Rationalization</strong><small>Tolerate · Invest · Migrate · Eliminate</small></li>
@@ -548,7 +603,7 @@
 </section>
 
 <!-- ============ S3 Governance ============ -->
-<section id="s3" class="alt" data-num="03">
+<section id="s3" class="alt" data-num="03" data-demo-stop="Governance">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">03</span>
@@ -560,7 +615,7 @@
     </div>
     <p class="lead">Our answer is useful only when the underlying data is complete, owned, and current. Mandatory attributes support completeness, Quality Seal assigns approval responsibility, history records changes, and surveys help owners refresh the data.</p>
 
-    <div class="grid3" style="margin-top:var(--sp-40)">
+    <div class="grid3" style="margin-top:var(--sp-40)" data-demo-stop="Governance examples">
       <figure class="capture-card reveal">
         <img src="assets/quality-seal.jpg" alt="LeanIX Quality Seal approval state" />
         <figcaption><b>Capture 06 — Quality Seal</b> Changes can trigger review by the responsible or accountable owner before the fact sheet is approved.</figcaption>
@@ -591,54 +646,103 @@
 </section>
 
 <!-- ============ S4 Visualization ============ -->
-<section id="s4" data-num="04">
+<section id="s4" data-num="04" data-demo-stop="Visualization">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">04</span>
       <div>
-        <div class="sec-kicker">Visualization &amp; Regulatory Compliance</div>
-        <h2 class="h2">Diagramming, history &amp; risk</h2>
+        <div class="sec-kicker">Architecture views</div>
+        <h2 class="h2">Different views of the same architecture</h2>
       </div>
       <span class="time-chip">08 min</span>
     </div>
-    <p class="lead">LeanIX diagrams link visual elements to repository fact sheets. Teams can review inventory changes and apply updates, compare saved diagram versions, and use risk views to trace end-of-life technology back to affected applications and capabilities.</p>
+    <p class="lead">Choose the view that fits the question: inspect a record, explain its relationships, browse an application catalog, or analyze the portfolio. These views give different audiences a way into the architecture data.</p>
 
-    <div class="grid2" style="margin-top:var(--sp-40)">
-      <figure class="capture-card reveal">
-        <img src="assets/diagram.jpg" alt="LeanIX data-driven diagramming from fact-sheet relations" />
-        <figcaption><b>Capture 09 — Diagramming</b> Build and edit diagrams with shapes linked to fact sheets, then review and apply inventory updates.</figcaption>
-      </figure>
-      <figure class="capture-card reveal">
-        <img src="assets/diagram-history.jpg" alt="LeanIX diagram history — timeline slider of previous architecture states" />
-        <figcaption><b>Capture 10 — Diagram history</b> Review, compare, and restore saved versions as the architecture changes.</figcaption>
-      </figure>
-    </div>
+    <article class="viz-group" aria-labelledby="viz-facts" data-demo-stop="Fact Sheets">
+      <h3 id="viz-facts" class="h3">Fact Sheets</h3>
+      <p class="viz-description">Inspect one architecture record in detail, then check how its data has changed.</p>
+      <div class="grid2">
+        <figure class="capture-card reveal">
+          <img src="assets/fact-sheet-detail.jpg" alt="LeanIX application Fact Sheet with Sourcing expanded, showing technical fit and linked hardware and software components" />
+          <figcaption><b>Fact Sheet detail</b> Inspect an application's technical fit and linked IT components in the expanded Sourcing section.</figcaption>
+        </figure>
+        <figure class="capture-card reveal">
+          <img src="assets/fact-sheet-changes.jpg" alt="LeanIX BPOS Fact Sheet change history with events, old and new values, users, and timestamps" />
+          <figcaption><b>Fact Sheet change history</b> Trace changes to the record: what changed, who changed it, and when. This is separate from saved diagram versions.</figcaption>
+        </figure>
+      </div>
+    </article>
 
-    <div class="grid2" style="margin-top:var(--sp-24)">
-      <figure class="capture-card reveal">
-        <img src="assets/portal.jpg" alt="LeanIX self-service portal" />
-        <figcaption><b>Capture 11 — Portal</b> Self-service: find an app, order software, see the approved technology catalog.</figcaption>
-      </figure>
-      <figure class="capture-card reveal">
-        <img src="assets/eol-dashboard.jpg" alt="LeanIX technology risk & EOL dashboard" />
-        <figcaption><b>Capture 12 — EOL dashboard</b> Red / yellow / green technology risk matrix — answers audit &amp; compliance.</figcaption>
-      </figure>
-    </div>
+    <article class="viz-group" aria-labelledby="viz-diagrams" data-demo-stop="Diagrams">
+      <h3 id="viz-diagrams" class="h3">Diagrams</h3>
+      <p class="viz-description">Explain how architecture elements connect, and compare saved versions of the drawing.</p>
+      <div class="grid2">
+        <figure class="capture-card reveal">
+          <img src="assets/diagram.jpg" alt="LeanIX diagram editor with architecture elements linked to Fact Sheets" />
+          <figcaption><b>Create and edit a diagram</b> Arrange architecture elements and their connections using shapes linked to repository Fact Sheets.</figcaption>
+        </figure>
+        <figure class="capture-card reveal">
+          <img src="assets/diagram-history.jpg" alt="LeanIX diagram with the Version History panel open" />
+          <figcaption><b>Diagram versions</b> Select an earlier saved version, compare changes, and return to the latest diagram.</figcaption>
+        </figure>
+      </div>
+    </article>
 
-    <details class="acc reveal" style="margin-top:var(--sp-40)">
+    <article class="viz-group viz-portal grid2" aria-labelledby="viz-portal" data-demo-stop="Portal">
+      <div>
+        <h3 id="viz-portal" class="h3">Portal</h3>
+        <p class="viz-description">Give users a catalog they can browse without starting from a diagram or a detailed architecture record.</p>
+        <ul class="features">
+          <li>Search and filter the application catalog.</li>
+          <li>Read application descriptions and availability or approval status.</li>
+          <li>Use the visible request entry point when an application is needed.</li>
+        </ul>
+      </div>
+      <figure class="capture-card reveal">
+        <img src="assets/portal.jpg" alt="LeanIX Application Portal with search, team filters, application cards, and approval statuses" />
+        <figcaption><b>Application Portal</b> A self-service entry point for finding applications and viewing catalog information.</figcaption>
+      </figure>
+    </article>
+
+    <article class="viz-group" aria-labelledby="viz-reports" data-demo-stop="Dashboards &amp; Reports">
+      <h3 id="viz-reports" class="h3">Dashboards &amp; Reports</h3>
+      <p class="viz-description">Start from a dashboard organized for a role or use case, then open a report to examine a specific architecture question.</p>
+      <div class="grid2">
+        <figure class="capture-card reveal">
+          <img src="assets/dashboard.jpg" alt="LeanIX My Dashboard with links to persona-based and use-case dashboards" />
+          <figcaption><b>Dashboard</b> The workspace landing dashboard brings together guidance and links to role-based and use-case views.</figcaption>
+        </figure>
+        <figure class="capture-card reveal">
+          <img src="assets/reports.jpg" alt="LeanIX All Reports catalog with report preview cards, search, type and owner filters, and use-case navigation" />
+          <figcaption><b>Reports catalog</b> Browse available reports, search by title or description, and filter by report type or owner before opening a view.</figcaption>
+        </figure>
+      </div>
+      <details class="acc viz-report-example">
+        <summary>Report example: Technology Lifecycle <span class="chev">›</span></summary>
+        <div class="acc-body">
+          <figure class="capture-card">
+            <img src="assets/eol-dashboard.jpg" alt="LeanIX Technology Lifecycle report with IT components grouped by application on a lifecycle timeline" />
+            <figcaption><b>Technology Lifecycle report</b> Compare IT component lifecycles across applications and identify upcoming phase-outs or end-of-life dates.</figcaption>
+          </figure>
+        </div>
+      </details>
+    </article>
+
+    <details class="acc" style="margin-top:var(--sp-40)">
       <summary>What I show in LeanIX <span class="chev">›</span></summary>
       <div class="acc-body"><ul class="features" style="margin-top:0">
-        <li>Open a diagram and build/edit it live from fact-sheet relations.</li>
-        <li>Flip through <strong>diagram history</strong> states.</li>
-        <li>Open a <strong>portal</strong> view.</li>
-        <li>Show the <strong>tech risk / EOL dashboard</strong> with color-coded risk.</li>
+        <li>Open an Application Fact Sheet and inspect its attributes and relationships.</li>
+        <li>Open its change history to show who changed what and when.</li>
+        <li>Create or edit a diagram, then compare its saved versions.</li>
+        <li>Search the Application Portal and inspect a catalog entry.</li>
+        <li>Open the dashboard, then a report with its filters and legend.</li>
       </ul></div>
     </details>
   </div>
 </section>
 
 <!-- ============ S5 AI & Integration ============ -->
-<section id="s5" class="alt" data-num="05">
+<section id="s5" class="alt" data-num="05" data-demo-stop="AI &amp; Integration">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">05</span>
@@ -650,57 +754,77 @@
     </div>
     <p class="lead">Generic AI does not know your capabilities, applications, dependencies, owners, or initiatives. SAP LeanIX supplies that governed enterprise context to its native AI capabilities and, through MCP, to an external AI harness.</p>
 
-    <div class="grid2" style="margin-top:var(--sp-40)">
-      <div>
-        <div class="h3">Three jobs for AI</div>
-        <ul class="features">
-          <li><strong>Discover and structure</strong><small>Inventory Builder analyzes diagrams, images, and files, then proposes fact sheets and relations for an architect to review.</small></li>
-          <li><strong>Ask and understand</strong><small>Use natural language to find architecture facts, relationships, and missing information.</small></li>
-          <li><strong>Connect and extend</strong><small>MCP gives an external AI client access to the LeanIX tools allowed for the authenticated user or technical role.</small></li>
-        </ul>
+    <div class="h3 ai-jobs-title">Three jobs for AI</div>
 
-        <div class="prompt-box reveal">
-          <div class="prompt-chips">
-            <button class="prompt-chip active" type="button" data-prompt="decision" aria-controls="demoPrompt">Decision trace</button>
-            <button class="prompt-chip" type="button" data-prompt="governance" aria-controls="demoPrompt">Governance gaps</button>
-            <button class="prompt-chip" type="button" data-prompt="briefing" aria-controls="demoPrompt">Executive brief</button>
-          </div>
-          <label class="prompt-label" for="demoPrompt">Prompt for LeanIX AI, Joule, or the MCP harness</label>
-          <textarea class="prompt-text" id="demoPrompt" readonly spellcheck="false"></textarea>
-          <div class="prompt-actions">
-            <button class="copy-prompt" id="copyPrompt" type="button">Copy prompt</button>
-            <span class="copy-state" id="copyState" role="status" aria-live="polite">Run it in LeanIX first, then reuse it in the MCP harness.</span>
-          </div>
+    <article class="ai-job" id="ai-discover" aria-labelledby="ai-discover-title" data-demo-stop="Discover and structure">
+      <div class="grid2 ai-job-layout">
+        <div>
+          <h3 class="h3" id="ai-discover-title">Discover and structure</h3>
+          <p class="ai-job-description">Inventory Builder analyzes diagrams, images, and files, then proposes fact sheets and relations for an architect to review.</p>
         </div>
+        <figure class="capture-card reveal">
+          <img src="assets/inventory-builder.jpg" alt="AI Inventory Builder proposals awaiting review" />
+          <figcaption><b>Inventory Builder</b> Review the proposed fact sheets and relationships before adding them to the repository.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="ai-job" id="ai-ask" aria-labelledby="ai-ask-title" data-demo-stop="Ask and understand">
+      <div class="grid2 ai-job-layout">
+        <div>
+          <h3 class="h3" id="ai-ask-title">Ask and understand</h3>
+          <p class="ai-job-description">Use natural language to find architecture facts, relationships, and missing information.</p>
+        </div>
+        <figure class="capture-card reveal">
+          <img src="assets/ai-prompt.jpg" alt="LeanIX native AI query" />
+          <figcaption><b>Ask in LeanIX</b> Query the architecture in natural language, then inspect the records behind the answer.</figcaption>
+        </figure>
       </div>
 
-      <div>
-        <div class="h3">Proof sequence: LeanIX → MCP</div>
-        <ol class="proof-flow">
-          <li><strong>Ask in LeanIX</strong><small>Run the decision-trace prompt in Joule or the LeanIX AI assistant.</small></li>
-          <li><strong>Open the evidence</strong><small>Inspect the returned capability, application, IT component, owner, and remediation records.</small></li>
-          <li><strong>Ask through the MCP harness</strong><small>Paste the same prompt into your external AI chat connected to the SAP LeanIX MCP server.</small></li>
-          <li><strong>Compare and explain the boundary</strong><small>Both paths use governed repository context. MCP exposes only the tools available to the authenticated role, and missing data must remain visible.</small></li>
-        </ol>
+      <details class="acc prompt-disclosure" id="promptExamples" data-demo-stop="Prompt workbench">
+        <summary>Prompt workbench <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="prompt-box">
+        <div class="prompt-chips">
+          <button class="prompt-chip active" type="button" data-prompt="decision" aria-controls="demoPrompt">Decision trace</button>
+          <button class="prompt-chip" type="button" data-prompt="governance" aria-controls="demoPrompt">Governance gaps</button>
+          <button class="prompt-chip" type="button" data-prompt="briefing" aria-controls="demoPrompt">Executive brief</button>
+        </div>
+        <label class="prompt-label" for="demoPrompt">Prompt for LeanIX AI, Joule, or the MCP harness</label>
+        <textarea class="prompt-text" id="demoPrompt" readonly spellcheck="false"></textarea>
+        <div class="prompt-actions">
+          <button class="copy-prompt" id="copyPrompt" type="button">Copy prompt</button>
+          <span class="copy-state" id="copyState" role="status" aria-live="polite">Run it in LeanIX first, then reuse it in the MCP harness.</span>
+        </div>
+        </div>
+      </details>
+    </article>
 
-        <details class="acc reveal" style="margin-top:var(--sp-24)">
-          <summary>Fallback screenshots <span class="chev">›</span></summary>
-          <div class="acc-body">
-            <figure class="capture-card">
-              <div class="ai-gallery">
-                <img src="assets/ai-prompt.jpg" alt="LeanIX native AI query" />
-                <img src="assets/inventory-builder.jpg" alt="AI Inventory Builder proposals awaiting review" />
-                <img src="assets/mcp-agent.jpg" alt="External AI harness connected to SAP LeanIX through MCP" />
-              </div>
-              <figcaption><b>Capture 13–15: AI proof path</b> Ask natively, review AI-assisted structure, then query the same governed context through MCP.</figcaption>
-            </figure>
-          </div>
-        </details>
+    <article class="ai-job" id="ai-connect" aria-labelledby="ai-connect-title" data-demo-stop="Connect and extend">
+      <div class="grid2 ai-job-layout">
+        <div>
+          <h3 class="h3" id="ai-connect-title">Connect and extend</h3>
+          <p class="ai-job-description">MCP gives an external AI client access to the LeanIX tools allowed for the authenticated user or technical role.</p>
+        </div>
+        <figure class="capture-card reveal">
+          <img src="assets/mcp-agent.jpg" alt="External AI harness connected to SAP LeanIX through MCP" />
+          <figcaption><b>LeanIX through MCP</b> Reuse the architecture context in an external AI client, within the authenticated role's permissions.</figcaption>
+        </figure>
       </div>
-    </div>
+      <details class="acc ai-proof">
+        <summary>Presenter notes: LeanIX → MCP proof sequence <span class="chev">›</span></summary>
+        <div class="acc-body">
+          <ol class="proof-flow">
+            <li><strong>Ask in LeanIX</strong><small>Run the decision-trace prompt in Joule or the LeanIX AI assistant.</small></li>
+            <li><strong>Open the evidence</strong><small>Inspect the returned capability, application, IT component, owner, and remediation records.</small></li>
+            <li><strong>Ask through the MCP harness</strong><small>Paste the same prompt into your external AI chat connected to the SAP LeanIX MCP server.</small></li>
+            <li><strong>Compare and explain the boundary</strong><small>Both paths use governed repository context. MCP exposes only the tools available to the authenticated role, and missing data must remain visible.</small></li>
+          </ol>
+        </div>
+      </details>
+    </article>
 
-    <details class="acc reveal" style="margin-top:var(--sp-40)">
-      <summary>Supporting integration paths <span class="chev">›</span></summary>
+    <article class="integration-paths" style="margin-top:var(--sp-40)" data-demo-stop="Supporting integration paths" aria-labelledby="integration-title">
+      <h3 class="h3" id="integration-title">Supporting integration paths</h3>
       <div class="acc-body">
         <p>LeanIX can combine native connectors, APIs, and spreadsheet exchange to bring source data into the architecture repository.</p>
         <div class="toggle-switch reveal" id="intToggle">
@@ -730,12 +854,12 @@
           </figure>
         </div>
       </div>
-    </details>
+    </article>
   </div>
 </section>
 
 <!-- ============ S6 Closing ============ -->
-<section id="s6" data-num="06">
+<section id="s6" data-num="06" data-demo-stop="Closing">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">06</span>
@@ -749,7 +873,7 @@
 
     <div class="hub" style="margin-top:var(--sp-40)">
       <div>
-        <div class="h3">Key takeaways</div>
+        <div class="h3" data-demo-stop="Key takeaways">Key takeaways</div>
         <ul class="features" style="margin-top:var(--sp-16)">
           <li><strong>EA provides decision context</strong><small>It connects strategy, capabilities, applications, technology, ownership, and change.</small></li>
           <li><strong>LeanIX makes the context reusable</strong><small>The repository keeps relationships visible, governed, and available across reports, diagrams, and integrations.</small></li>
@@ -757,7 +881,7 @@
         </ul>
       </div>
       <div>
-        <div class="h3">Resources</div>
+        <div class="h3" data-demo-stop="Resources">Resources</div>
         <ul class="features" style="margin-top:var(--sp-16)">
           <li><a class="text-link" href="https://wa.me/6285101350055?text=Halo%20ATD%20Solution%2C%20saya%20ingin%20bertanya%20tentang%20Implementasi%20EA%20menggunakan%20LeanIX">Consultation sign-up <span class="arrow">→</span></a></li>
           <li><a class="text-link" href="https://help.sap.com/docs/leanix">SAP LeanIX docs <span class="arrow">→</span></a></li>
@@ -770,6 +894,19 @@
 <footer>
   <div class="wrap caption">ATDSol · SAP LeanIX Enterprise Architecture · BITAS 2026 tool demo.</div>
 </footer>
+
+<dialog id="materialsDialog" class="materials-dialog" aria-labelledby="materialsTitle" aria-describedby="materialsDescription">
+  <button type="button" id="closeMaterials" class="materials-close" autofocus>Close materials</button>
+  <div class="materials-content">
+    <img class="materials-qr" src="assets/demoresource.png" width="148" height="148" alt="QR code for the BITAS demo materials at bitas.hammamnash.site" />
+    <div class="materials-copy">
+      <h2 id="materialsTitle" class="materials-title">Revisit the demo materials</h2>
+      <p id="materialsDescription">Scan the QR code to open this presentation, explore the screenshots, and reuse the example prompts after the session.</p>
+      <p>Or open this address on your device:</p>
+      <a class="materials-link" href="https://bitas.hammamnash.site/" target="_blank" rel="noopener noreferrer">bitas.hammamnash.site</a>
+    </div>
+  </div>
+</dialog>
 
 <script>
   document.documentElement.classList.add('js');
@@ -794,6 +931,7 @@
     const heading = document.querySelector('#hero h1');
     heading.setAttribute('tabindex','-1');
     heading.focus({preventScroll:true});
+    updateSecNext();
   }
   document.getElementById('startDemo').addEventListener('click',startDemo);
   demoIntro.addEventListener('cancel',event=>{
@@ -961,10 +1099,12 @@
     renderLb();
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
+    updateSecNext();
   }
   function closeLb(){
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
+    updateSecNext();
   }
   function lbNav(d){
     if(!lbItems.length) return;
@@ -982,42 +1122,115 @@
     else if(e.key === 'ArrowRight') lbNav(1);
   });
 
-  // ---- In-section scroll button: scroll down within a tall slide, never into the next ----
+  // Presentation stops follow reading order; headings on the same row share a landing.
   const secNext = document.createElement('button');
   secNext.className = 'sec-next';
-  secNext.setAttribute('aria-label','Scroll down within this section');
-  secNext.innerHTML = '<span class="lbl">Continue</span><span class="chev">&#9662;</span>';
+  secNext.type = 'button';
+  secNext.hidden = true;
   document.body.appendChild(secNext);
+  const materialsDialog = document.getElementById('materialsDialog');
+  document.getElementById('closeMaterials').addEventListener('click', ()=>materialsDialog.close());
+  materialsDialog.addEventListener('keydown', event=>{
+    if(event.key !== 'Tab') return;
+    const first = materialsDialog.querySelector('button');
+    const last = materialsDialog.querySelector('a');
+    if(event.shiftKey && document.activeElement === first){
+      event.preventDefault();
+      last.focus();
+    }else if(!event.shiftKey && document.activeElement === last){
+      event.preventDefault();
+      first.focus();
+    }
+  });
+  materialsDialog.addEventListener('close', ()=>{
+    document.documentElement.classList.remove('materials-open');
+    updateSecNext();
+    secNext.focus({preventScroll:true});
+  });
+  const demoStops = [...document.querySelectorAll('[data-demo-stop]')];
+  let advancing = false;
+  let advanceFrame = 0;
 
-  function activeSection(){
-    const probe = window.innerHeight * 0.5;
-    return [...document.querySelectorAll('section')].find(s=>{
-      const r = s.getBoundingClientRect();
-      return r.top <= probe && r.bottom >= probe;
-    }) || null;
+  function navigationClearance(){
+    const headerHeight = document.querySelector('.stepper').offsetHeight;
+    document.documentElement.style.setProperty('--stepper-height', headerHeight + 'px');
+    // Reserve space for a wrapped destination label as well as the sticky chapter bar.
+    return headerHeight + 32 + Math.max(80, secNext.offsetHeight);
+  }
+  function stopAnchor(stop){
+    return stop.matches('section') ? stop.querySelector('.sec-head') : stop;
+  }
+  function stopPosition(stop){
+    let top = 0;
+    for(let node = stopAnchor(stop); node; node = node.offsetParent) top += node.offsetTop;
+    const max = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+    return Math.min(max, Math.max(0, top - navigationClearance()));
+  }
+  function nextDemoStop(){
+    return demoStops.find(stop=>{
+      const collapsed = stop.closest('details:not([open])');
+      if((collapsed && collapsed !== stop) || !stop.getClientRects().length) return false;
+      return stopPosition(stop) > scrollY + 8;
+    });
   }
   function updateSecNext(){
-    document.documentElement.style.setProperty('--stepper-height', document.querySelector('.stepper').offsetHeight + 'px');
-    const sec = activeSection();
-    if(!sec){ secNext.classList.remove('show'); return; }
-    const r = sec.getBoundingClientRect();
-    const sectionBottomAbs = window.scrollY + r.bottom;
-    const extendsBelowFold = r.bottom > window.innerHeight + 4;
-    const atSectionEnd   = (window.scrollY + window.innerHeight) >= sectionBottomAbs - 4;
-    const atDocBottom    = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4;
-    secNext.classList.toggle('show', extendsBelowFold && !atSectionEnd && !atDocBottom);
+    secNext.hidden = document.documentElement.classList.contains('intro-open') || lightbox.classList.contains('open') || materialsDialog.open;
+    navigationClearance();
+    if(secNext.hidden || advancing) return;
+    const next = nextDemoStop();
+    const label = next ? 'Next: ' + next.dataset.demoStop : 'Continue: Demo materials';
+    if(secNext.textContent !== label) secNext.textContent = label;
+    secNext.setAttribute('aria-label', label);
   }
-  function scrollSectionDown(){
-    const sec = activeSection(); if(!sec) return;
-    const r = sec.getBoundingClientRect();
-    const sectionBottomAbs = window.scrollY + r.bottom;
-    const target = Math.min(sectionBottomAbs - window.innerHeight, window.scrollY + window.innerHeight);
-    window.scrollTo({top: Math.max(target, 0), behavior:'smooth'});
+  function finishAdvance(){
+    cancelAnimationFrame(advanceFrame);
+    advancing = false;
+    secNext.removeAttribute('aria-disabled');
+    updateSecNext();
   }
-  secNext.addEventListener('click', scrollSectionDown);
+  function advanceDemo(){
+    if(advancing || secNext.hidden) return;
+    const next = nextDemoStop();
+    if(!next){
+      document.documentElement.classList.add('materials-open');
+      materialsDialog.showModal();
+      updateSecNext();
+      return;
+    }
+    if(next?.matches('details')) next.open = true;
+    const target = stopPosition(next);
+    advancing = true;
+    secNext.setAttribute('aria-disabled','true');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:target, behavior:reducedMotion ? 'instant' : 'smooth'});
+    if(reducedMotion){ finishAdvance(); return; }
+    // Ignore double clicks while moving; wheel/touch/keyboard input cancels the lock.
+    const started = performance.now();
+    let lastY = scrollY;
+    let settled = 0;
+    function waitForLanding(now){
+      settled = Math.abs(scrollY - lastY) < 1 ? settled + 1 : 0;
+      lastY = scrollY;
+      if((Math.abs(scrollY - target) < 2 && settled >= 2) || (now - started > 300 && settled >= 6) || now - started > 2500){
+        finishAdvance();
+      }else{
+        advanceFrame = requestAnimationFrame(waitForLanding);
+      }
+    }
+    advanceFrame = requestAnimationFrame(waitForLanding);
+  }
+  secNext.addEventListener('click', advanceDemo);
   window.addEventListener('scroll', updateSecNext, {passive:true});
-  window.addEventListener('resize', updateSecNext, {passive:true});
+  window.addEventListener('resize', ()=>{finishAdvance();}, {passive:true});
+  window.addEventListener('wheel', ()=>{if(advancing) finishAdvance();}, {passive:true});
+  window.addEventListener('touchstart', ()=>{if(advancing) finishAdvance();}, {passive:true});
+  document.addEventListener('keydown', event=>{
+    if(advancing && ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End'].includes(event.key)) finishAdvance();
+  });
+  document.addEventListener('toggle', updateSecNext, true);
+  document.addEventListener('load', updateSecNext, true);
   updateSecNext();
+  document.fonts.ready.then(updateSecNext);
 
 </script>
 </body>
