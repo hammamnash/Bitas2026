@@ -52,7 +52,7 @@ test('integration paths stay visible and prompt examples are opt-in', async t =>
   await browser.click('.sec-next');
   await browser.click('#closeMaterials');
   await until(`!document.querySelector('#materialsDialog').open`);
-  assert.equal(await evaluate(`document.querySelector('.sec-next').hidden`), false);
+  await until(`!document.querySelector('.sec-next').hidden`);
   for (const [width,height] of [[1920,1080],[960,540],[768,1024],[390,844],[320,568]]) {
     await command('Emulation.setDeviceMetricsOverride', {width,height,deviceScaleFactor:1,mobile:width<600});
     await evaluate(`new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))`);

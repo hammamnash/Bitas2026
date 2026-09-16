@@ -44,19 +44,19 @@ function visualization() {
   return result;
 }
 
-test('Visualization displays all eight supplied screenshots without capture placeholders', () => {
+test('Visualization displays all nine supplied screenshots without capture placeholders', () => {
   const section = visualization();
-  assert.deepEqual(section.headings, ['Fact Sheets', 'Diagrams', 'Portal', 'Dashboards & Reports']);
+  assert.deepEqual(section.headings, ['Fact Sheets', 'Object Explorer', 'Diagrams', 'Portal', 'Dashboards & Reports']);
   assert.deepEqual(section.placeholders, []);
   assert.deepEqual(section.images.map(img => img.src).sort(), [
     'assets/fact-sheet-detail.jpg', 'assets/fact-sheet-changes.jpg', 'assets/reports.jpg',
     'assets/diagram.jpg', 'assets/diagram-history.jpg', 'assets/portal.jpg',
-    'assets/dashboard.jpg', 'assets/eol-dashboard.jpg',
+    'assets/dashboard.jpg', 'assets/eol-dashboard.jpg', 'assets/object-explore.jpg',
   ].sort());
   for (const image of section.images) {
     assert.ok(image.alt?.trim());
     assert.ok(existsSync(new URL(`../${image.src}`, import.meta.url)), image.src);
   }
-  assert.equal(section.captions.length, 8);
+  assert.equal(section.captions.length, 9);
   assert.ok(section.captions.some(text => text.includes('Technology Lifecycle report')));
 });

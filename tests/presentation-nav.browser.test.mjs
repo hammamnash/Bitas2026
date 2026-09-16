@@ -27,7 +27,7 @@ test('presentation navigation follows topics instead of screenfuls', { timeout: 
   // Starting at a chapter introduction must not skip its first topic.
   await browser.click('.step[data-t="s4"]');
   await until(`document.querySelector('.sec-next').textContent.trim() === 'Next: Fact Sheets'`);
-  for (const label of ['Fact Sheets', 'Diagrams', 'Portal', 'Dashboards & Reports', 'AI & Integration', 'Discover and structure', 'Ask and understand', 'Prompt workbench', 'Connect and extend', 'Supporting integration paths', 'Closing']) {
+  for (const label of ['Fact Sheets', 'Object Explorer', 'Diagrams', 'Portal', 'Dashboards & Reports', 'AI & Integration', 'Discover and structure', 'Ask and understand', 'Prompt workbench', 'Connect and extend', 'Supporting integration paths', 'Closing']) {
     assert.equal(await evaluate(`document.querySelector('.sec-next').textContent.trim()`), `Next: ${label}`);
     await browser.click('.sec-next');
     await until(`document.querySelector('.sec-next').getAttribute('aria-disabled') !== 'true'`);
@@ -68,7 +68,7 @@ test('presentation navigation follows topics instead of screenfuls', { timeout: 
       throw error;
     }
     await browser.click('.sec-next');
-    await until(`document.querySelector('.sec-next').textContent === ${JSON.stringify('Next: ')} + (innerWidth > 900 ? 'Overview' : 'EA: architecture and strategy')`);
+    await until(`document.querySelector('.sec-next').textContent === ${JSON.stringify('Next: ')} + (innerWidth > 900 ? 'Overview' : 'AI-EA Synergies')`);
     const box = await evaluate(`(() => {
       const b=document.querySelector('.sec-next'), r=b.getBoundingClientRect();
       return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,height:r.height,display:getComputedStyle(b).display,animation:getComputedStyle(b).animationName,overflow:document.documentElement.scrollWidth>innerWidth};
@@ -92,7 +92,7 @@ test('presentation navigation follows topics instead of screenfuls', { timeout: 
   await browser.key('Enter','Enter',13);
   await until(`document.querySelector('.sec-next').textContent === 'Next: The three core layers'`);
   await browser.key(' ','Space',32);
-  await until(`document.querySelector('.sec-next').textContent === 'Next: EA: architecture and strategy'`);
+  await until(`document.querySelector('.sec-next').textContent === 'Next: AI-EA Synergies'`);
 
   // Real smooth scrolling must ignore a second click until the first landing settles.
   await command('Emulation.setDeviceMetricsOverride', {width:1920,height:1080,deviceScaleFactor:1,mobile:false});

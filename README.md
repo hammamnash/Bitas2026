@@ -23,9 +23,15 @@ The generator is intentionally scoped to the current single-file deck. CSS asset
 
 `htmlparser2` reads actual HTML attributes, skipping comments and script contents. `sirv-cli` serves the generated folder locally. Dependency versions are recorded in `package-lock.json`; tests use Node's built-in test runner.
 
+## AI-EA Synergies
+
+Section 01 places AI-EA Synergies beside the core architecture layers. The two directions explain how EA grounds AI in enterprise context and how AI can accelerate architecture work and decision support, with current repository data and human validation as the shared foundation.
+
+`assets/ai-ea-teamwork.png` is an AI-generated concept illustration of two robots labeled AI and EA holding hands. It sits directly below the AI-EA Synergies explanation, is not a LeanIX screenshot, and is intentionally excluded from the screenshot viewer. The EA landscape screenshot sits directly below the core-layer list in the other column. Desktop shows the two columns together; mobile keeps each explanation with its image and gives AI-EA Synergies its own Next stop.
+
 ## Visualization screenshots
 
-Section 04 groups Fact Sheets, Diagrams, Portal, and Dashboards & Reports. All three former placeholders now reference supplied screenshots:
+Section 04 groups Fact Sheets, Object Explorer, Diagrams, Portal, and Dashboards & Reports. Object Explorer uses `assets/object-explore.jpg` to illustrate cross-domain dependency tracing and potential change impacts through recorded relationships. Its full-width screenshot opens in the image viewer, and it has its own presentation stop between Fact Sheets and Diagrams. All three former placeholders now reference supplied screenshots:
 
 | File under `assets/` | Content |
 |---|---|

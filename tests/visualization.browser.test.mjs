@@ -24,13 +24,13 @@ test('Visualization screenshots, layout, and retained interactions', { timeout: 
     slots:[...document.querySelectorAll('#s4 [data-image]')].map(n=>n.dataset.image),
     broken:[...document.querySelectorAll('#s4 img')].filter(n=>!n.complete || !n.naturalWidth).map(n=>n.src)
   })`);
-  assert.deepEqual(content.headings,['Fact Sheets','Diagrams','Portal','Dashboards & Reports']);
+  assert.deepEqual(content.headings,['Fact Sheets','Object Explorer','Diagrams','Portal','Dashboards & Reports']);
   assert.deepEqual(content.slots,[]);
   assert.deepEqual(content.broken,[]);
 
   await browser.click('#s4 .viz-report-example summary');
   assert.equal(await evaluate(`document.querySelector('#s4 .viz-report-example').open`),true);
-  for (const file of ['fact-sheet-detail.jpg','fact-sheet-changes.jpg','reports.jpg','diagram.jpg','diagram-history.jpg','portal.jpg','dashboard.jpg','eol-dashboard.jpg']) {
+  for (const file of ['fact-sheet-detail.jpg','fact-sheet-changes.jpg','object-explore.jpg','reports.jpg','diagram.jpg','diagram-history.jpg','portal.jpg','dashboard.jpg','eol-dashboard.jpg']) {
     await browser.click(`#s4 img[src="assets/${file}"]`);
     assert.equal(await evaluate(`document.querySelector('.lightbox').classList.contains('open')`),true);
     assert.ok((await evaluate(`document.querySelector('.lb-img').src`)).endsWith(`/${file}`));

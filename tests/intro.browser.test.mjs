@@ -29,7 +29,7 @@ test('opening cover', { timeout: 60000 }, async t => {
     })()`);
     assert.ok(state, 'Opening cover is missing');
     assert.equal(state.modal, true);
-    assert.equal(state.title, 'LeanIX: AI Powered EA Tools Demo');
+    assert.equal(state.title, 'LeanIX: AI-Powered EA Tools Demo');
     assert.deepEqual(state.size, [0, 0, 1920, 1080]);
     assert.deepEqual(state.images, ['iasa.png', 'atd-logo.jpg', 'sap-logo.jpg'].map(name => ({src:`assets/${name}`,loaded:true})));
     assert.equal(state.focus, 'startDemo');

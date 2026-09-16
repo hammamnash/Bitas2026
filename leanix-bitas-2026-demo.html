@@ -238,6 +238,17 @@
     #s4 .viz-placeholder{min-height:0;padding:var(--sp-20);}
   }
 
+  .synergy-copy h3{margin:0;}
+  .synergy-copy .synergy-lead{font-size:var(--text-body-lg);margin:var(--sp-16) 0 var(--sp-24);}
+  .synergy-directions{margin:0;}
+  .synergy-directions dt{font-size:var(--text-body-lg);font-weight:var(--weight-bold);margin-top:var(--sp-24);}
+  .synergy-directions dd{margin:var(--sp-8) 0 0;color:#a6a6ad;font-size:var(--text-body);}
+  .synergy-foundation{margin:var(--sp-24) 0 0;padding-top:var(--sp-16);border-top:1px solid var(--color-pebble);font-size:var(--text-body);color:#a6a6ad;}
+  .synergy-foundation strong{color:var(--color-pure-white);}
+  .synergy-illustration{margin:var(--sp-24) 0 0;max-width:520px;}
+  .synergy-illustration img{display:block;width:100%;height:auto;}
+  .synergy-illustration figcaption{margin-top:var(--sp-8);font-size:var(--text-caption);color:#a6a6ad;}
+
   .ai-jobs-title{margin-top:var(--sp-40);}
   .ai-job{margin-top:var(--sp-64);}
   .ai-job-layout{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);}
@@ -555,7 +566,7 @@
   <div class="intro-art" aria-hidden="true"></div>
   <div class="intro-content">
     <p class="intro-event">BITAS 2026</p>
-    <h2 id="introTitle" class="intro-title"><span>LeanIX: AI Powered EA Tools</span>Demo</h2>
+    <h2 id="introTitle" class="intro-title"><span>LeanIX: AI-Powered EA Tools</span>Demo</h2>
     <div class="intro-sponsors" role="group" aria-label="Sponsors">
       <img class="sponsor-iasa" src="assets/iasa.png" width="2484" height="803" alt="IASA, The Business Technology Architect Association" />
       <img class="sponsor-atd" src="assets/atd-logo.jpg" width="956" height="958" alt="ATD Solution" />
@@ -625,7 +636,7 @@
       </div>
       <span class="time-chip">05 min</span>
     </div>
-    <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA connects business capabilities, applications, technology, ownership, and initiatives so we can trace the impact behind our opening question.</p>
+    <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA connects business capabilities, applications, technology, ownership, and initiatives. This shared context makes AI more relevant to the enterprise, while AI can help architects build and use that context faster.</p>
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
         <div class="h3" data-demo-stop="The three core layers">The three core layers</div>
@@ -635,17 +646,27 @@
           <li><strong>Technology</strong><small>IT Components, Providers, Tech Categories</small></li>
           <li><strong>Strategy &amp; Transformation</strong><small>Objectives, Initiatives, Platforms: the steering layer on top</small></li>
         </ul>
+        <figure class="capture-card reveal" style="margin-top:var(--sp-24)">
+          <img src="assets/AbbSbb.png" alt="SAP LeanIX EA landscape — all domains connected in one repository" />
+          <figcaption><b>Capture — EA landscape</b> All domains in one connected view.</figcaption>
+        </figure>
       </div>
-      <div>
-        <div class="h3" data-demo-stop="EA: architecture and strategy">EA = (Solution Architect + Business Architect) + Strategic</div>
-        <p class="body-lg muted" style="margin-top:var(--sp-16)">Think of a tower. Every floor, or domain, must connect to build something taller. EA is the steel frame that links them, with a strategic layer guiding the ascent.</p>
-      </div>
+      <article id="aiEaSynergies" class="synergy-copy" aria-labelledby="synergyTitle">
+        <h3 id="synergyTitle" class="h3" data-demo-stop="AI-EA Synergies">AI-EA Synergies</h3>
+        <p class="synergy-lead">EA gives AI context. AI helps EA move faster.</p>
+        <dl class="synergy-directions">
+          <dt>EA → AI: Enterprise context</dt>
+          <dd>EA connects business priorities, capabilities, applications, data, technology, and ownership. This context helps teams identify valuable AI use cases, understand dependencies and constraints, and ground AI responses in the organization's architecture.</dd>
+          <dt>AI → EA: Faster architecture work</dt>
+          <dd>AI can help extract and structure architecture information, suggest relationships for review, and answer questions using repository data. Architects can spend less time assembling information and more time assessing change impacts, evaluating options, and advising decision-makers.</dd>
+        </dl>
+        <p class="synergy-foundation"><strong>Shared foundation:</strong> Current, connected repository data and human validation.</p>
+        <figure class="synergy-illustration">
+          <img src="assets/ai-ea-teamwork.png" width="1024" height="576" alt="Two equal partner robots labeled AI and EA holding hands, with white bodies and ATDSol red accents" />
+          <figcaption>Concept illustration: AI and EA as partners.</figcaption>
+        </figure>
+      </article>
     </div>
-
-    <figure class="capture-card reveal" style="margin-top:var(--sp-40)">
-      <img src="assets/AbbSbb.png" alt="SAP LeanIX EA landscape — all domains connected in one repository" />
-      <figcaption><b>Capture — EA landscape</b> All domains in one connected view.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -742,7 +763,7 @@
       </div>
       <span class="time-chip">08 min</span>
     </div>
-    <p class="lead">Choose the view that fits the question: inspect a record, explain its relationships, browse an application catalog, or analyze the portfolio. These views give different audiences a way into the architecture data.</p>
+    <p class="lead">Choose the view that fits the question: inspect a record, trace dependencies and potential change impacts, explain relationships in a diagram, browse an application catalog, or analyze the portfolio.</p>
 
     <article class="viz-group" aria-labelledby="viz-facts" data-demo-stop="Fact Sheets">
       <h3 id="viz-facts" class="h3">Fact Sheets</h3>
@@ -757,6 +778,15 @@
           <figcaption><b>Fact Sheet change history</b> Trace changes to the record: what changed, who changed it, and when. This is separate from saved diagram versions.</figcaption>
         </figure>
       </div>
+    </article>
+
+    <article class="viz-group" aria-labelledby="viz-objects" data-demo-stop="Object Explorer">
+      <h3 id="viz-objects" class="h3">Object Explorer</h3>
+      <p class="viz-description">Start with a selected object and follow its relationships across architecture domains to assess potential change impacts. Trace connections between objectives, initiatives, applications, and technology, then expand related organizations, data, or interfaces. The analysis depends on the relationships recorded in the repository.</p>
+      <figure class="capture-card reveal">
+        <img src="assets/object-explore.jpg" alt="LeanIX object relationship tree tracing an objective through AI Transformation 2025 and Chatbot Backend to LiveChat ChatBot SaaS Hosting, with additional relationship branches" />
+        <figcaption><b>Cross-domain impact analysis</b> Follow the highlighted path from an objective to an initiative, application, and IT component. Expand connected branches to identify dependencies and investigate what a change could affect.</figcaption>
+      </figure>
     </article>
 
     <article class="viz-group" aria-labelledby="viz-diagrams" data-demo-stop="Diagrams">
@@ -819,6 +849,7 @@
       <div class="acc-body"><ul class="features" style="margin-top:0">
         <li>Open an Application Fact Sheet and inspect its attributes and relationships.</li>
         <li>Open its change history to show who changed what and when.</li>
+        <li>Use Object Explorer to trace a selected object's dependencies across domains and assess potential change impacts.</li>
         <li>Create or edit a diagram, then compare its saved versions.</li>
         <li>Search the Application Portal and inspect a catalog entry.</li>
         <li>Open the dashboard, then a report with its filters and legend.</li>
@@ -1085,7 +1116,9 @@
       const wasOpen = stepper.classList.contains('menu-open');
       setMenuOpen(false);
       if(el){
-        el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block:'start'});
+        finishAdvance();
+        window.scrollTo({top:el.hasAttribute('data-demo-stop') ? stopPosition(el) : 0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+        updateSecNext();
         if(wasOpen){
           const heading = el.querySelector('h1,h2');
           heading.setAttribute('tabindex','-1');
