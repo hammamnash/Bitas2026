@@ -93,7 +93,7 @@ test('opening cover', { timeout: 60000 }, async t => {
   await t.test('modal blocks background scrolling and focus, while keyboard activation works', async () => {
     await command('Page.reload', { ignoreCache: true });
     await until(`document.querySelector('#demoIntro')?.matches(':modal') && document.readyState === 'complete'`);
-    await evaluate(`document.querySelector('.hero .pill-btn').focus()`);
+    await evaluate(`document.querySelector('.step[data-t="s1"]').focus()`);
     assert.equal(await evaluate('document.activeElement.id'), 'startDemo');
     for (const modifiers of [0, 0, 8, 8]) {
       await browser.key('Tab', 'Tab', 9, modifiers);
@@ -108,7 +108,7 @@ test('opening cover', { timeout: 60000 }, async t => {
     assert.equal(ring, '3px');
     await browser.key('Enter', 'Enter', 13);
     await until(`!document.querySelector('#demoIntro')`);
-    await browser.click('.hero .pill-btn');
+    await browser.click('.step[data-t="s1"]');
     await until(`document.querySelector('.step.active')?.dataset.t === 's1'`);
   });
 

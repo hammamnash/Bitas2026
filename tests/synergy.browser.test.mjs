@@ -18,7 +18,7 @@ test('EA Shift presents reciprocal AI-EA synergy beside the core layers', {timeo
     const panel=document.querySelector('#aiEaSynergies');
     return {title:panel.querySelector('h3').textContent,heading:panel.querySelector('h3').dataset.demoStop,
       terms:[...panel.querySelectorAll('dt')].map(n=>n.textContent),text:panel.textContent,
-      layers:panel.previousElementSibling.querySelector('[data-demo-stop]').textContent,
+      layers:panel.previousElementSibling.querySelector('[data-demo-stop]').dataset.demoStop,
       old:document.querySelector('#s1').textContent.includes('EA = (Solution Architect'),
       image:document.querySelector('.synergy-illustration img')?.getAttribute('src')};
   })()`);

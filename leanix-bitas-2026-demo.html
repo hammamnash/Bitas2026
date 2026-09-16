@@ -112,15 +112,15 @@
     position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);
     backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--color-pebble);
   }
-  .stepper .wrap{display:flex;align-items:center;gap:var(--sp-24);padding-top:var(--sp-12);padding-bottom:var(--sp-12);}
+  .stepper .wrap{display:flex;align-items:center;gap:var(--sp-16);width:100%;max-width:1800px;padding-top:var(--sp-12);padding-bottom:var(--sp-12);}
   .mark{font-weight:var(--weight-bold);font-size:20px;letter-spacing:-0.02em;white-space:nowrap;color:var(--color-deep-ink);}
   .mark .dot{color:var(--color-accent);}
   .mark span{color:var(--color-cool-ash);font-weight:var(--weight-regular);}
-  .stepper nav{display:flex;gap:var(--sp-4);flex:1;flex-wrap:wrap;justify-content:center;}
+  .stepper nav{display:flex;gap:var(--sp-4);flex:1;min-width:0;flex-wrap:nowrap;justify-content:center;}
   .stepper .step{
     border:0;background:transparent;font-weight:var(--weight-regular);
     font-size:var(--text-caption);color:var(--color-cool-ash);cursor:pointer;
-    padding:var(--sp-8) var(--sp-16);border-radius:var(--radius-buttons);
+    padding:var(--sp-8) var(--sp-12);border-radius:var(--radius-buttons);min-height:44px;flex-shrink:0;
     display:inline-flex;align-items:center;gap:var(--sp-8);white-space:nowrap;
     transition:background .18s ease,color .18s ease;
   }
@@ -148,6 +148,12 @@
   .stepper .total{font-size:var(--text-caption);color:var(--color-cool-ash);white-space:nowrap;}
   .menu-toggle{display:none;}
   .stepper :focus-visible{outline:3px solid var(--color-accent);outline-offset:2px;}
+  @media(min-width:1201px) and (max-width:1600px){
+    .mark span:not(.dot){display:none;}
+  }
+  @media(min-width:1201px) and (max-width:1360px){
+    .stepper .total{display:none;}
+  }
   @media(max-width:1200px){
     .stepper .wrap{justify-content:space-between;flex-wrap:wrap;gap:12px;}
     .stepper .total,.mark span{display:none;}
@@ -641,7 +647,7 @@
     <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA connects business capabilities, applications, technology, ownership, and initiatives. This shared context makes AI more relevant to the enterprise, while AI can help architects build and use that context faster.</p>
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
-        <div class="h3" data-demo-stop="The three core layers">The three core layers</div>
+        <div class="h3" data-demo-stop="The three core layers">The three core layers + Strategic COntext + Solution Layer</div>
         <ul class="features">
           <li><strong>Business</strong><small>Business Capabilities, Organization, Business Context</small></li>
           <li><strong>Application</strong><small>Applications, Interfaces, Data Objects</small></li>
@@ -1382,7 +1388,9 @@
       return;
     }
     if(next?.matches('details')) next.open = true;
-    const target = stopPosition(next);
+    scrollToStop(stopPosition(next));
+  }
+  function scrollToStop(target){
     advancing = true;
     secNext.setAttribute('aria-disabled','true');
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1409,7 +1417,29 @@
   window.addEventListener('wheel', ()=>{if(advancing) finishAdvance();}, {passive:true});
   window.addEventListener('touchstart', ()=>{if(advancing) finishAdvance();}, {passive:true});
   document.addEventListener('keydown', event=>{
-    if(advancing && ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End'].includes(event.key)) finishAdvance();
+    if(event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
+    if(event.key !== 'ArrowDown' && event.key !== 'ArrowUp'){
+      if(advancing && ['PageDown','PageUp','Home','End'].includes(event.key)) finishAdvance();
+      return;
+    }
+    if(document.documentElement.classList.contains('intro-open') || document.querySelector('dialog[open]') || stepper.classList.contains('menu-open')) return;
+    const active = document.activeElement;
+    if(active?.isContentEditable || active?.closest('input,textarea,select,[role="textbox"],[role="combobox"],[role="listbox"],[role="slider"],[role="spinbutton"],[role="tree"],[role="grid"],[role="tablist"],video,audio')) return;
+    event.preventDefault();
+    if(event.repeat || advancing) return;
+    const headings = [document.querySelector('#hero h1'), ...document.querySelectorAll('section h2,section h3,section .h3')]
+      .filter(heading=>heading.checkVisibility());
+    const stops = headings.map(heading=>({heading,top:heading.matches('#hero h1') ? 0 : stopPosition(heading)}));
+    // Focus distinguishes headings sharing the same desktop row; scrolling resets the reference.
+    const current = stops.findIndex(stop=>stop.heading === active && Math.abs(stop.top - scrollY) <= 8);
+    const direction = event.key === 'ArrowDown' ? 1 : -1;
+    const destination = current >= 0
+      ? stops[current + direction]
+      : direction > 0 ? stops.find(stop=>stop.top > scrollY + 8) : stops.findLast(stop=>stop.top <= scrollY + 8);
+    if(!destination) return;
+    destination.heading.setAttribute('tabindex','-1');
+    destination.heading.focus({preventScroll:true});
+    scrollToStop(destination.top);
   });
   document.addEventListener('toggle', updateSecNext, true);
   document.addEventListener('load', updateSecNext, true);
