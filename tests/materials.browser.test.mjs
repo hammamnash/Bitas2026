@@ -48,7 +48,7 @@ test('integration paths stay visible and prompt examples are opt-in', async t =>
   await browser.key('Escape','Escape',27);
   await until(`!document.querySelector('#materialsDialog').open`);
   assert.equal(await evaluate('scrollY'), endY);
-  assert.equal(await evaluate(`document.activeElement.matches('.sec-next')`), true);
+  await until(`document.activeElement.matches('.sec-next')`);
   await browser.click('.sec-next');
   await browser.click('#closeMaterials');
   await until(`!document.querySelector('#materialsDialog').open`);

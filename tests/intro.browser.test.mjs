@@ -77,7 +77,7 @@ test('opening cover', { timeout: 60000 }, async t => {
     assert.equal(await evaluate(`document.activeElement.matches('#hero h1')`), true);
     assert.equal(await evaluate('scrollY'), 0);
     assert.equal(await evaluate('location.href'), url);
-    assert.equal(await evaluate(`document.querySelector('#hero h1').textContent`), 'From architecture datato AI-assisted decisions.');
+    assert.equal(await evaluate(`document.querySelector('#hero h1').textContent`), 'From architecture data to AI-assisted decisions.');
     assert.equal(await evaluate(`getComputedStyle(document.querySelector('.hero .display')).animationPlayState`), 'running');
   });
 

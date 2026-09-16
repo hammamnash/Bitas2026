@@ -53,6 +53,10 @@ The preview binds to localhost by default. Existing `HOST` or `PORT` environment
 
 The persistent **Next: [topic]** button advances through explicit `data-demo-stop` markers. It stops at each chapter introduction and subsection, skips headings sharing the same desktop row, and recalculates after manual scrolling. Targets clear the sticky navigation. The prompt workbench starts collapsed; clicking its summary or advancing to that stop opens it. Supporting integration paths are permanently visible.
 
+At widths up to 1200px, chapter links start collapsed behind **Menu**. Selecting a chapter, tapping outside, pressing Escape, or tabbing out closes the menu. At 900px and below, sections use a reading layout with smaller headings, stacked content, and no full-screen minimum height. **Next** moves to the bottom with reserved space so the footer stays reachable. Desktop projection typography is unchanged.
+
+Screenshots support touch, Enter, and Space to open the viewer. On phones, image/caption content sits between the close control and previous/next controls rather than underneath them. Escape closes the viewer and returns focus to the original screenshot.
+
 After the closing topics, **Continue: Demo materials** opens a full-screen QR overlay. Close materials or Escape returns to the same place. The supplied `assets/demoresource.png` encodes **https://bitas.hammamnash.site/**; the visible link uses that same destination. The original QR image and its white scanning margin are preserved. Include this asset when committing for deployment.
 
 ## Browser tests
