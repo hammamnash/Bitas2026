@@ -9,7 +9,7 @@
   "scripts": {
     "build": "node scripts/build-pages.mjs",
     "test": "node --test tests/build-pages.test.mjs tests/visualization.test.mjs",
-    "test:browser": "node --test --test-concurrency=1 tests/intro.browser.test.mjs tests/visualization.browser.test.mjs tests/ai-layout.browser.test.mjs tests/presentation-nav.browser.test.mjs tests/materials.browser.test.mjs tests/mobile.browser.test.mjs tests/synergy.browser.test.mjs",
+    "test:browser": "node --test --test-concurrency=1 tests/intro.browser.test.mjs tests/visualization.browser.test.mjs tests/ai-layout.browser.test.mjs tests/presentation-nav.browser.test.mjs tests/materials.browser.test.mjs tests/mobile.browser.test.mjs tests/synergy.browser.test.mjs tests/impact-brief.browser.test.mjs",
     "dev": "npm run build && sirv public --host 127.0.0.1 --port 8123 --dev"
   },
   "devDependencies": {

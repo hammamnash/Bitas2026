@@ -25,6 +25,8 @@ function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'bitas-pages-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   mkdirSync(join(root, 'assets'));
+  mkdirSync(join(root, 'generated'));
+  writeFileSync(join(root, 'generated', 'salesforce-experience-cloud-impact-brief.html'), '<!doctype html><title>Impact brief fixture</title>');
   mkdirSync(join(root, 'public'));
   return root;
 }
@@ -52,12 +54,53 @@ test('publishes unchanged HTML and only referenced assets on repeated builds', a
 
   for (let run = 0; run < 2; run++) {
     assert.equal(build(root), 3);
-    assert.deepEqual(readdirSync(join(root, 'public')).sort(), ['assets', 'index.html']);
+    assert.deepEqual(readdirSync(join(root, 'public')).sort(), ['assets', 'index.html', 'salesforce-experience-cloud-impact-brief.html']);
     assert.deepEqual(readdirSync(join(root, 'public', 'assets')).sort(), ['a&b.pdf', 'poster.jpg', 'used.jpg']);
     assert.deepEqual(readFileSync(join(root, 'public', 'index.html')), readFileSync(join(root, 'leanix-bitas-2026-demo.html')));
     for (const name of ['used.jpg', 'poster.jpg', 'a&b.pdf']) {
       assert.deepEqual(readFileSync(join(root, 'public', 'assets', name)), readFileSync(join(root, 'assets', name)));
     }
+  }
+});
+
+test('publishes only the explicitly selected brief, unchanged, with its referenced assets', async t => {
+  const build = await builder();
+  const root = fixture(t);
+  const name = 'salesforce-experience-cloud-impact-brief.html';
+  writeFileSync(join(root, 'leanix-bitas-2026-demo.html'), '<!doctype html><title>Deck</title>');
+  writeFileSync(join(root, 'generated', name), '<!doctype html><title>Selected brief</title><img src="assets/brief.png">');
+  writeFileSync(join(root, 'assets', 'brief.png'), 'fixture image');
+  writeFileSync(join(root, 'generated', 'private-analysis.html'), 'must not publish');
+  writeFileSync(join(root, 'generated', 'raw-response.json'), 'must not publish');
+  for(let i=0;i<2;i++){
+    assert.equal(build(root), 1);
+    assert.deepEqual(readdirSync(join(root, 'public')).sort(), ['assets', 'index.html', name]);
+    assert.deepEqual(readFileSync(join(root, 'public', name)), readFileSync(join(root, 'generated', name)));
+    assert.equal(readFileSync(join(root, 'public', 'assets', 'brief.png'), 'utf8'), 'fixture image');
+  }
+});
+
+test('invalid selected brief cannot replace a previous build', async t => {
+  const build = await builder();
+  for(const kind of ['missing', 'directory', 'outside symlink', 'missing asset']){
+    await t.test(kind,()=>{
+      const root=fixture(t), brief=join(root,'generated','salesforce-experience-cloud-impact-brief.html');
+      writeFileSync(join(root,'leanix-bitas-2026-demo.html'),'<!doctype html>Deck');
+      writeFileSync(join(root,'public','index.html'),'previous build');
+      if(kind==='missing asset') writeFileSync(brief,'<img src="assets/missing.png">');
+      else{
+        rmSync(brief);
+        if(kind==='directory') mkdirSync(brief);
+        if(kind==='outside symlink'){
+          rmSync(join(root,'generated'),{recursive:true});
+          mkdirSync(join(root,'outside'));
+          writeFileSync(join(root,'outside','salesforce-experience-cloud-impact-brief.html'),'private content');
+          symlinkSync(join(root,'outside'),join(root,'generated'),'junction');
+        }
+      }
+      assert.throws(()=>build(root));
+      assert.equal(readFileSync(join(root,'public','index.html'),'utf8'),'previous build');
+    });
   }
 });
 

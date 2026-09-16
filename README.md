@@ -15,11 +15,12 @@ npm run build
 The build recreates `public/` with:
 
 - `index.html`, copied unchanged from the source deck.
-- Only local `assets/...` files referenced in HTML `src`, `href`, or `poster` attributes.
+- `salesforce-experience-cloud-impact-brief.html`, copied unchanged from the explicitly selected source under `generated/`.
+- Only local `assets/...` files referenced by either published page in HTML `src`, `href`, or `poster` attributes.
 
 `public/` is generated and ignored by Git. Do not edit it directly or store unique files there; rebuilding removes the previous generated output. Missing assets and paths outside `assets/` fail validation before the previous build is replaced.
 
-The generator is intentionally scoped to the current single-file deck. CSS asset URLs, `srcset`, and query strings on asset paths are not supported. Extend the script and tests if those are introduced.
+The generator uses an explicit list of published pages, not a scan of `generated/`. Other generated reports, raw responses, and audit files are excluded. Missing or non-file page sources, symlink-redirected page sources, and missing/invalid asset references fail before the previous output is replaced. CSS asset URLs, `srcset`, and query strings on asset paths are not supported. Extend the script and tests if those are introduced. Asset paths in published pages resolve from the site root's `assets/` directory.
 
 `htmlparser2` reads actual HTML attributes, skipping comments and script contents. `sirv-cli` serves the generated folder locally. Dependency versions are recorded in `package-lock.json`; tests use Node's built-in test runner.
 
@@ -56,6 +57,10 @@ Open `http://127.0.0.1:8123/`. This builds once and serves only `public/`. After
 The preview binds to localhost by default. Existing `HOST` or `PORT` environment variables override the preview server's flags; unset them if the server reports a different address.
 
 ## Presentation navigation and materials
+
+Under **05 AI & Integration → Connect and extend**, **View AI-generated impact brief** opens `/salesforce-experience-cloud-impact-brief.html` in a new tab with `noopener noreferrer`, retaining the presentation's position. The adjacent note identifies it as a saved MCP result, not a live LeanIX query. The report is copied unchanged, including its embedded repository data and source links.
+
+Local URL: `http://127.0.0.1:8123/salesforce-experience-cloud-impact-brief.html`. After deploying this build, the corresponding public URL is `https://bitas.hammamnash.site/salesforce-experience-cloud-impact-brief.html`. Commit the build-script change, deck link, and selected report source for Git-integrated deployment. Do not copy unique files directly into `public/`, which is regenerated. A successful HTTP status alone is insufficient to verify deployment: confirm that the page title is **Salesforce Experience Cloud | Executive Impact Map**, not the main deck's fallback title.
 
 The persistent **Next: [topic]** button advances through explicit `data-demo-stop` markers. It stops at each chapter introduction and subsection, skips headings sharing the same desktop row, and recalculates after manual scrolling. Targets clear the sticky navigation. The prompt workbench starts collapsed; clicking its summary or advancing to that stop opens it. Supporting integration paths are permanently visible.
 

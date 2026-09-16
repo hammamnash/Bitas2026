@@ -256,6 +256,11 @@
   .ai-job-description{margin:var(--sp-16) 0 0;font-size:var(--text-body-lg);color:#a6a6ad;}
   .ai-job .capture-card figcaption{color:#50545a;}
   .ai-job .prompt-box,.ai-job .ai-proof{margin-top:var(--sp-24);}
+  .impact-brief-resource{margin-top:var(--sp-24);}
+  .impact-brief-link{max-width:100%;background:var(--color-accent);}
+  .impact-brief-link:hover{background:var(--color-red-ink);}
+  .impact-brief-link:active{background:var(--color-deep-ink);}
+  .impact-brief-note{margin:var(--sp-12) 0 0;font-size:var(--text-caption);color:#a6a6ad;}
   #s5 .prompt-chip,#s5 .toggle-switch button{min-height:44px;}
   #s5 summary:focus-visible{outline:3px solid var(--color-pure-white);outline-offset:-5px;}
   #s5 button:focus-visible,#s5 textarea:focus-visible{outline:3px solid var(--color-pure-white);outline-offset:4px;}
@@ -921,6 +926,10 @@
         <div>
           <h3 class="h3" id="ai-connect-title">Connect and extend</h3>
           <p class="ai-job-description">MCP gives an external AI client access to the LeanIX tools allowed for the authenticated user or technical role.</p>
+          <div class="impact-brief-resource">
+            <a class="pill-btn impact-brief-link" href="/salesforce-experience-cloud-impact-brief.html" target="_blank" rel="noopener noreferrer" aria-describedby="impactBriefNote">View AI-generated impact brief</a>
+            <p id="impactBriefNote" class="impact-brief-note">Saved MCP result: Salesforce Experience Cloud dependencies, relationship paths, and mapping gaps. Opens in a new tab; no live LeanIX connection is required.</p>
+          </div>
         </div>
         <figure class="capture-card reveal">
           <img src="assets/mcp-agent.jpg" alt="External AI harness connected to SAP LeanIX through MCP" />
