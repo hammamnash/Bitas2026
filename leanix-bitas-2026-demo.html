@@ -147,6 +147,11 @@
   html:not(.js) body:has(#s6:target) .step[data-t="s6"] .n{color:var(--color-red-wash);}
   .stepper .total{font-size:var(--text-caption);color:var(--color-cool-ash);white-space:nowrap;}
   .menu-toggle{display:none;}
+  .stage-toggle{display:none;}
+  .js .stage-toggle{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-height:44px;padding:8px 12px;border:1px solid var(--color-deep-ink);border-radius:var(--radius-buttons);background:white;color:var(--color-deep-ink);font:inherit;font-size:18px;cursor:pointer;}
+  .stage-toggle:hover{background:var(--color-deep-ink);color:white;}
+  @media(min-width:1201px) and (max-width:1800px){.stepper .total,.mark span:not(.dot){display:none;}}
+  @media(min-width:1201px) and (max-width:1440px){.stepper .step{padding-inline:8px;gap:6px;}}
   .stepper :focus-visible{outline:3px solid var(--color-accent);outline-offset:2px;}
   @media(min-width:1201px) and (max-width:1600px){
     .mark span:not(.dot){display:none;}
@@ -565,6 +570,24 @@
     .intro-sponsors{column-gap:20px;}
   }
 
+  .stage-controls{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:60;display:flex;gap:8px;padding:8px;background:var(--color-deep-ink);border:1px solid white;border-radius:16px;max-width:calc(100% - 32px);}
+  .stage-controls[hidden]{display:none;}
+  .stage-controls button{min-height:44px;padding:8px 14px;border:1px solid white;border-radius:var(--radius-buttons);background:transparent;color:white;font:inherit;font-size:18px;cursor:pointer;}
+  .stage-controls button:hover,.stage-controls button:active{background:#313743;}
+  .stage-controls #stageExit{background:var(--color-accent);}
+  .stage-controls button:disabled{opacity:.5;cursor:default;}
+  .stage-controls :focus-visible{outline:3px solid white;outline-offset:3px;}
+  body.stage-mode{padding-bottom:calc(112px + env(safe-area-inset-bottom));}
+  .stage-mode .stepper{display:none;}
+  .stage-mode section::before{display:none;}
+  .stage-mode section{background-image:none;scroll-margin-top:24px;}
+  .stage-mode .hero-bg::after{animation:none;display:none;}
+  .stage-mode .reveal{opacity:1;transform:none;transition:none;}
+  @media(max-width:600px){
+    .stage-controls{left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));max-width:none;gap:6px;padding:6px;}
+    .stage-controls button{flex:1;padding-inline:8px;}
+  }
+
   /* respect reduced motion */
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
@@ -608,6 +631,7 @@
       <a class="step" href="#s4" data-t="s4"><span class="n">04</span> Visualization</a>
       <a class="step" href="#s5" data-t="s5"><span class="n">05</span> AI &amp; Integration</a>
       <a class="step" href="#s6" data-t="s6"><span class="n">06</span> Closing</a>
+      <button id="stageToggle" class="stage-toggle" type="button" aria-pressed="false" aria-controls="stageControls" aria-label="Stage mode" aria-keyshortcuts="S" title="Stage mode (S)">Stage</button>
     </nav>
     <div class="total">~42 min</div>
   </div>
@@ -647,7 +671,7 @@
     <p class="lead">Customers usually run <strong>separate, disconnected tools</strong> per domain. EA connects business capabilities, applications, technology, ownership, and initiatives. This shared context makes AI more relevant to the enterprise, while AI can help architects build and use that context faster.</p>
     <div class="grid2" style="margin-top:var(--sp-40)">
       <div>
-        <div class="h3" data-demo-stop="The three core layers">The three core layers + Strategic COntext + Solution Layer</div>
+        <div class="h3" data-demo-stop="The three core layers">The three core layers + Strategic Context + Solution Layer</div>
         <ul class="features">
           <li><strong>Business</strong><small>Business Capabilities, Organization, Business Context</small></li>
           <li><strong>Application</strong><small>Applications, Interfaces, Data Objects</small></li>
@@ -1311,6 +1335,58 @@
     else if(e.key === 'ArrowRight') lbNav(1);
   });
 
+  const stageToggle = document.getElementById('stageToggle');
+  const stageControls = document.createElement('div');
+  stageControls.id = 'stageControls';
+  stageControls.className = 'stage-controls';
+  stageControls.setAttribute('role','group');
+  stageControls.setAttribute('aria-label','Stage navigation');
+  stageControls.hidden = true;
+  stageControls.innerHTML = '<button id="stagePrevious" type="button">Previous</button><button id="stageNext" type="button">Next</button><button id="stageExit" type="button" aria-keyshortcuts="S Escape">Exit stage</button>';
+  document.body.appendChild(stageControls);
+  const stagePrevious = document.getElementById('stagePrevious');
+  const stageNext = document.getElementById('stageNext');
+  const stageExit = document.getElementById('stageExit');
+  let lastHeading = null;
+
+  function setStage(on){
+    finishAdvance();
+    const y = scrollY;
+    window.scrollTo({top:y,behavior:'instant'});
+    const heroTop = document.getElementById('hero').getBoundingClientRect().top;
+    stepper.classList.remove('menu-open');
+    menuToggle.setAttribute('aria-expanded','false');
+    menuToggle.querySelector('span').textContent = 'Menu';
+    document.body.classList.toggle('stage-mode',on);
+    stageToggle.setAttribute('aria-pressed',String(on));
+    const shift = document.getElementById('hero').getBoundingClientRect().top - heroTop;
+    window.scrollTo({top:y + shift,behavior:'instant'});
+    updateSecNext();
+    (on ? stageExit : mobileNav.matches ? menuToggle : stageToggle).focus({preventScroll:true});
+  }
+  stageToggle.addEventListener('click',()=>setStage(true));
+  stageExit.addEventListener('click',()=>setStage(false));
+  stagePrevious.addEventListener('click',()=>navigateHeading(-1));
+  stageNext.addEventListener('click',()=>{
+    if(advancing) return;
+    if(headingDestination(1)) navigateHeading(1);
+    else openMaterials();
+  });
+  // Capture checks dialog state before its own Escape handler closes it.
+  document.addEventListener('keydown',event=>{
+    if(event.defaultPrevented || event.ctrlKey || event.altKey || event.metaKey || event.shiftKey || event.isComposing || document.querySelector('dialog[open]') || stepper.classList.contains('menu-open') || editingControl()) return;
+    const on = document.body.classList.contains('stage-mode');
+    if(event.key.toLowerCase() === 's' || (event.key === 'Escape' && on)){
+      event.preventDefault();
+      if(!event.repeat) setStage(event.key === 'Escape' ? false : !on);
+    }else if(on && /^[0-6]$/.test(event.key)){
+      event.preventDefault();
+      if(event.repeat || advancing) return;
+      const heading = sections[Number(event.key)].querySelector('h1,h2');
+      moveToHeading({heading,top:heading.matches('#hero h1') ? 0 : stopPosition(heading)});
+    }
+  },true);
+
   // Presentation stops follow reading order; headings on the same row share a landing.
   const secNext = document.createElement('button');
   secNext.className = 'sec-next';
@@ -1334,7 +1410,7 @@
   materialsDialog.addEventListener('close', ()=>{
     document.documentElement.classList.remove('materials-open');
     updateSecNext();
-    secNext.focus({preventScroll:true});
+    (document.body.classList.contains('stage-mode') ? stageNext : secNext).focus({preventScroll:true});
   });
   const demoStops = [...document.querySelectorAll('[data-demo-stop]')];
   let advancing = false;
@@ -1343,6 +1419,7 @@
   function navigationClearance(){
     const headerHeight = document.querySelector('.stepper').offsetHeight;
     document.documentElement.style.setProperty('--stepper-height', headerHeight + 'px');
+    if(document.body.classList.contains('stage-mode')) return 24;
     if(matchMedia('(max-width:900px)').matches) return headerHeight + 24;
     // Reserve space for a wrapped destination label as well as the sticky chapter bar.
     return headerHeight + 32 + Math.max(80, secNext.offsetHeight);
@@ -1364,7 +1441,15 @@
     });
   }
   function updateSecNext(){
-    secNext.hidden = document.documentElement.classList.contains('intro-open') || lightbox.classList.contains('open') || materialsDialog.open || stepper.classList.contains('menu-open');
+    const blocked = document.documentElement.classList.contains('intro-open') || lightbox.classList.contains('open') || materialsDialog.open || stepper.classList.contains('menu-open');
+    const stage = document.body.classList.contains('stage-mode');
+    secNext.hidden = blocked || stage;
+    stageControls.hidden = blocked || !stage;
+    if(stage){
+      stagePrevious.disabled = advancing || !headingDestination(-1);
+      stageNext.disabled = advancing;
+      stageNext.textContent = headingDestination(1) ? 'Next' : 'Demo materials';
+    }
     navigationClearance();
     if(secNext.hidden || advancing) return;
     const next = nextDemoStop();
@@ -1382,9 +1467,7 @@
     if(advancing || secNext.hidden) return;
     const next = nextDemoStop();
     if(!next){
-      document.documentElement.classList.add('materials-open');
-      materialsDialog.showModal();
-      updateSecNext();
+      openMaterials();
       return;
     }
     if(next?.matches('details')) next.open = true;
@@ -1393,6 +1476,7 @@
   function scrollToStop(target){
     advancing = true;
     secNext.setAttribute('aria-disabled','true');
+    updateSecNext();
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({top:target, behavior:reducedMotion ? 'instant' : 'smooth'});
     if(reducedMotion){ finishAdvance(); return; }
@@ -1416,6 +1500,36 @@
   window.addEventListener('resize', ()=>{finishAdvance();}, {passive:true});
   window.addEventListener('wheel', ()=>{if(advancing) finishAdvance();}, {passive:true});
   window.addEventListener('touchstart', ()=>{if(advancing) finishAdvance();}, {passive:true});
+  function openMaterials(){
+    document.documentElement.classList.add('materials-open');
+    materialsDialog.showModal();
+    updateSecNext();
+  }
+  function editingControl(){
+    const active = document.activeElement;
+    return active?.isContentEditable || active?.closest('input,textarea,select,[role="textbox"],[role="combobox"],[role="listbox"],[role="slider"],[role="spinbutton"],[role="tree"],[role="grid"],[role="tablist"],video,audio');
+  }
+  function headingDestination(direction){
+    const active = document.activeElement;
+    const headings = [document.querySelector('#hero h1'), ...document.querySelectorAll('section h2,section h3,section .h3')]
+      .filter(heading=>heading.checkVisibility());
+    const stops = headings.map(heading=>({heading,top:heading.matches('#hero h1') ? 0 : stopPosition(heading)}));
+    let current = stops.findIndex(stop=>stop.heading === active && Math.abs(stop.top - scrollY) <= 8);
+    if(current < 0 && document.body.classList.contains('stage-mode')) current = stops.findIndex(stop=>stop.heading === lastHeading && Math.abs(stop.top - scrollY) <= 8);
+    if(current >= 0) return stops[current + direction];
+    return direction > 0 ? stops.find(stop=>stop.top > scrollY + 8) : stops.findLast(stop=>stop.top <= scrollY + 8 && !(stop.top === 0 && scrollY === 0));
+  }
+  function moveToHeading(destination){
+    lastHeading = destination.heading;
+    destination.heading.setAttribute('tabindex','-1');
+    destination.heading.focus({preventScroll:true});
+    scrollToStop(destination.top);
+  }
+  function navigateHeading(direction){
+    if(advancing) return;
+    const destination = headingDestination(direction);
+    if(destination) moveToHeading(destination);
+  }
   document.addEventListener('keydown', event=>{
     if(event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
     if(event.key !== 'ArrowDown' && event.key !== 'ArrowUp'){
@@ -1423,23 +1537,10 @@
       return;
     }
     if(document.documentElement.classList.contains('intro-open') || document.querySelector('dialog[open]') || stepper.classList.contains('menu-open')) return;
-    const active = document.activeElement;
-    if(active?.isContentEditable || active?.closest('input,textarea,select,[role="textbox"],[role="combobox"],[role="listbox"],[role="slider"],[role="spinbutton"],[role="tree"],[role="grid"],[role="tablist"],video,audio')) return;
+    if(editingControl()) return;
     event.preventDefault();
     if(event.repeat || advancing) return;
-    const headings = [document.querySelector('#hero h1'), ...document.querySelectorAll('section h2,section h3,section .h3')]
-      .filter(heading=>heading.checkVisibility());
-    const stops = headings.map(heading=>({heading,top:heading.matches('#hero h1') ? 0 : stopPosition(heading)}));
-    // Focus distinguishes headings sharing the same desktop row; scrolling resets the reference.
-    const current = stops.findIndex(stop=>stop.heading === active && Math.abs(stop.top - scrollY) <= 8);
-    const direction = event.key === 'ArrowDown' ? 1 : -1;
-    const destination = current >= 0
-      ? stops[current + direction]
-      : direction > 0 ? stops.find(stop=>stop.top > scrollY + 8) : stops.findLast(stop=>stop.top <= scrollY + 8);
-    if(!destination) return;
-    destination.heading.setAttribute('tabindex','-1');
-    destination.heading.focus({preventScroll:true});
-    scrollToStop(destination.top);
+    navigateHeading(event.key === 'ArrowDown' ? 1 : -1);
   });
   document.addEventListener('toggle', updateSecNext, true);
   document.addEventListener('load', updateSecNext, true);

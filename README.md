@@ -56,6 +56,19 @@ Open `http://127.0.0.1:8123/`. This builds once and serves only `public/`. After
 
 The preview binds to localhost by default. Existing `HOST` or `PORT` environment variables override the preview server's flags; unset them if the server reports a different address.
 
+## Stage mode
+
+Choose **Stage** in the chapter navbar (inside **Menu** on smaller screens), or press **S** after dismissing the cover. Stage mode hides the navbar, section-number watermarks, dot textures, and reveal/background animation. It keeps the current content position, preserves readable typography, and leaves long content scrollable rather than forcing it into fixed-height slides.
+
+A compact bottom control group provides **Previous**, **Next**, and **Exit stage**. Previous/Next use the same H2/H3 heading sequence as the arrow keys, including side-by-side headings; the final Next becomes **Demo materials**. Outside stage mode, the original topic-based Next button is unchanged. Bottom space is reserved so the footer remains reachable.
+
+- **S:** enter/exit stage mode.
+- **Escape:** close an open screenshot/materials overlay first; otherwise exit stage mode.
+- **0–6 in stage mode:** jump to the hero or one of the six chapters.
+- **Up/Down:** navigate H2/H3 headings as usual.
+
+Shortcuts do not intercept typing, editable controls, modifier-key combinations, or an open menu/dialog. Exit stage is always available as a touch control when no modal is open. Refresh starts in normal mode; Start Demo does not automatically enable stage mode. Browser fullscreen remains separate (F11 in Chrome on Windows).
+
 ## Presentation navigation and materials
 
 Under **05 AI & Integration → Connect and extend**, **View AI-generated impact brief** opens `/salesforce-experience-cloud-impact-brief.html` in a new tab with `noopener noreferrer`, retaining the presentation's position. The adjacent note identifies it as a saved MCP result, not a live LeanIX query. The report is copied unchanged, including its embedded repository data and source links.
@@ -66,7 +79,7 @@ Local URL: `http://127.0.0.1:8123/salesforce-experience-cloud-impact-brief.html`
 
 The persistent **Next: [topic]** button advances through explicit `data-demo-stop` markers. It stops at each chapter introduction and subsection, skips headings sharing the same desktop row, and recalculates after manual scrolling. Targets clear the sticky navigation. The prompt workbench starts collapsed; clicking its summary or advancing to that stop opens it. Supporting integration paths are permanently visible.
 
-The desktop navbar uses a wider header container and tighter link padding to keep all seven chapter links on one row, including 1536px and 1280px effective viewports on scaled FHD displays. Navigation text remains 18px with targets at least 44px tall. The secondary brand subtitle hides at 1600px and below, and the duration hides at 1360px and below. At widths up to 1200px, chapter links start collapsed behind **Menu**. Selecting a chapter, tapping outside, pressing Escape, or tabbing out closes the menu. At 900px and below, sections use a reading layout with smaller headings, stacked content, and no full-screen minimum height. **Next** moves to the bottom with reserved space so the footer stays reachable. Desktop projection typography is unchanged.
+The desktop navbar uses a wider header container and tighter link padding to keep all seven chapter links on one row, including 1536px and 1280px effective viewports on scaled FHD displays. Navigation text remains 18px with targets at least 44px tall. The secondary brand subtitle and duration hide at 1800px and below to reserve space for Stage; chapter links use tighter padding between 1201px and 1440px. At widths up to 1200px, chapter links start collapsed behind **Menu**. Selecting a chapter, tapping outside, pressing Escape, or tabbing out closes the menu. At 900px and below, sections use a reading layout with smaller headings, stacked content, and no full-screen minimum height. **Next** moves to the bottom with reserved space so the footer stays reachable. Desktop projection typography is unchanged.
 
 Screenshots support touch, Enter, and Space to open the viewer. On phones, image/caption content sits between the close control and previous/next controls rather than underneath them. Escape closes the viewer and returns focus to the original screenshot.
 
